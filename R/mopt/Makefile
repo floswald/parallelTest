@@ -1,9 +1,7 @@
 
 
 clean:
-	rm -rf *.out workers 
+	rm -rf *.out rollcall.txt ./workers; git pull; qstat -g c; qsub submit.sh;
 
 
-openmpi:
-	qsub submit.sh
 

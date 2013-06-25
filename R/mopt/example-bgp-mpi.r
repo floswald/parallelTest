@@ -40,8 +40,15 @@ mcf <- prepare.mopt_config(mcf)
 # compute slices and generate plots
 res = runMOpt(mcf,FALSE)
 
-ggplot(res,aes(x=p.x1,y=p.x2)) + geom_point() + facet_wrap(~chain) + theme_bw()
+p <- ggplot(res,aes(x=p.x1,y=p.x2)) + geom_point() + facet_wrap(~chain) + theme_bw()
+png(file.path(mcf$wd,"plot.png"))
+print(p)
+dev.off()
 
 print(res)
+
+cat('DONE.')
+
+stopCluster()
 
 

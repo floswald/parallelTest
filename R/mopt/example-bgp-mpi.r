@@ -31,8 +31,8 @@ mcf <- mcf + datamoments(c('m1','m2'),
                            c(0.1,0.1))
 
 # prepare to run with OpenMP
-require(parallel)
-options(mc.cores = detectCores())
+# require(parallel)
+# options(mc.cores = detectCores())
 
 # finalize the preparation
 mcf <- prepare.mopt_config(mcf)

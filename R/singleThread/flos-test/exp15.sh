@@ -16,6 +16,7 @@ date
 
 module load openmpi
 module load open64
+module load gcc
 module load r
 
 echo "loaded modules"
@@ -24,5 +25,4 @@ module list
 echo "calling mpirun now"
 mpirun -np 6 /data/uctpfos/R/x86_64-unknown-linux-gnu-library/2.15/snow/RMPISNOW -q < exp.r > exp.Rout
 
-## call via: qsub openMPI_R.sh
 

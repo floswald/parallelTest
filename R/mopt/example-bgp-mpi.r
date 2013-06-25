@@ -49,6 +49,6 @@ print(res)
 
 cat('DONE.')
 
-stopCluster()
+stopCluster(cl)
 
 

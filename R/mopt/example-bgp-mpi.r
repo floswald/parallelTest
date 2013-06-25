@@ -41,7 +41,7 @@ mcf <- prepare.mopt_config(mcf)
 res = runMOpt(mcf,FALSE)
 
 p <- ggplot(res,aes(x=p.x1,y=p.x2)) + geom_point() + facet_wrap(~chain) + theme_bw()
-png(file.path(mcf$wd,"plot.png"))
+pdf(file.path(mcf$wd,"plot.pdf"))
 print(p)
 dev.off()
 
@@ -49,6 +49,6 @@ print(res)
 
 cat('DONE.')
 
-stopCluster(cl)
+stopCluster(mcf$cl)
 
 

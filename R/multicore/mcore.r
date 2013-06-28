@@ -9,6 +9,7 @@
 
 library(snow)
 library(multicore)
+library(mopt)
 
 mycl <- makeCluster()
 num.worker <- length(clusterEvalQ(mycl,Sys.info()))

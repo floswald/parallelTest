@@ -13,13 +13,14 @@ date
 #$ -N MPI-Mcore # <- name of the job in the qstat output
 #$ -M f.oswald@ucl.ac.uk
 #$ -m e # notify about end of job
-#$ -o out.mcore # <- name of the output file.
+#$ -o mcore.out # direct output stream to here
+#$ -j yes # join std and err streams
 #$ -e err.mcore # <- name of the stderr file.
-#$ -wd /data/uctpfos/git/bankruptcy/discretized/tests
+#$ -wd /data/uctpfos/git/mpitest/R/multicore/
 
 module load openmpi
 module load open64
-module load r
+module load r/2.15.1
 
 echo "loaded modules"
 module list

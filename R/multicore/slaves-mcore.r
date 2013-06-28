@@ -7,20 +7,16 @@
 # here are the slaves.
 
 library(multicore)
+library(mopt)
 
-params <- 1:20
-parlist <- lapply(1:20,function(i) seq(params[i]*0.1,params[i]*2,length=10))
-
-mcfun <- function(idx,pars){
-	m <- length(pars[[idx]])
-	mcresult <- mclapply(1:m,function(j) mean(rnorm(n=10^7,mean=pars[[idx]][j],sd=1)),mc.cores=4)
-	return(mcresult)
+mcfun <- function(id){
+	z <- mean(rnorm(1e10))
+	me <- Sys.info()["nodename"]
+	x <- list(val=z,msg=paste0("I am ",me," doing job number ",id))
+	return(x)
 }
 
-fun <- function(idx,pars){
-	m <- length(pars[[idx]])
-	result <- lapply(1:m,function(j) mean(rnorm(n=10^7,mean=pars[[idx]][j],sd=1)))
-	return(result)
+parfun <- function(id){
+	res <- mclapply(1:2, function(x) mcfun(x))
+	return(res)
 }
-
-

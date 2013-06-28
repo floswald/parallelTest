@@ -11,8 +11,6 @@ date
 #$ -pe mpich 21  #  <- load the openmpi parallel env w/ $(arg1) slots
 #$ -S /bin/bash   # <- run the job under bash
 #$ -N MPI-Mcore # <- name of the job in the qstat output
-#$ -M f.oswald@ucl.ac.uk
-#$ -m e # notify about end of job
 #$ -o mcore.out # direct output stream to here
 #$ -j yes # join std and err streams
 #$ -e err.mcore # <- name of the stderr file.

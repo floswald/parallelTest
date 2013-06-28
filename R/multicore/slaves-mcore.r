@@ -10,7 +10,7 @@ library(multicore)
 library(mopt)
 
 mcfun <- function(id){
-	z <- mean(rnorm(1e10))
+	z <- mean(rnorm(1e7))
 	me <- Sys.info()["nodename"]
 	x <- list(val=z,msg=paste0("I am ",me," doing job number ",id))
 	return(x)

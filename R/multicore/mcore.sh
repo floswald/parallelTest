@@ -20,6 +20,7 @@ date
 
 module load openmpi
 module load open64
+module load gcc
 module load r/2.15.2
 
 echo "loaded modules"

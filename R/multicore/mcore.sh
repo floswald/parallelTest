@@ -20,11 +20,11 @@ date
 
 module load openmpi
 module load open64
-module load r/2.15.1
+module load r/2.15.2
 
 echo "loaded modules"
 module list
 
 echo "calling mpirun now"
-mpirun -np 21 /data/uctpfos/R/x86_64-unknown-linux-gnu-library/2.15/snow/RMPISNOW -q < mcore.r > Rout.mcore
+mpirun -np 21 /data/uctpfos/R/x86_64-unknown-linux-gnu-library/2.15/snow/RMPISNOW -q < mcore.r > mcore.Rout
 

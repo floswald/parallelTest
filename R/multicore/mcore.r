@@ -31,7 +31,7 @@ parfun <- function(id){
 	return(res)
 }
 
-res <- parLapply(1:floor(num.worker/2),function(j) parfun(j))
+res <- parLapply(mycl,1:floor(num.worker/2),function(j) parfun(j))
 
 print(res)
 

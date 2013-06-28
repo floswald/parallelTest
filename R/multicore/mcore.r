@@ -11,7 +11,7 @@ library(snow)
 library(multicore)
 library(mopt)
 
-mycl <- makeCluster()
+mycl <- makeCluster(type='MPI')
 num.worker <- length(clusterEvalQ(mycl,Sys.info()))
 clusterEvalQ(mycl,source("slaves-mcore.r"))
 

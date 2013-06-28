@@ -11,7 +11,7 @@ library(snow)
 library(multicore)
 
 mycl <- makeCluster()
-num.worker <- length(clusterEvalQ(cl,Sys.info()))
+num.worker <- length(clusterEvalQ(mycl,Sys.info()))
 clusterEvalQ(mycl,source("slaves-mcore.r"))
 
 cat("Worker roll call on",date(),"\n",file=file.path(getwd(),"workers","rollcall.txt"),append=FALSE)

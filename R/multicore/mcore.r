@@ -5,11 +5,11 @@
 
 # benchmarks multicore against single thread.
 
-# here is the master.
 
 library(snow)
 library(multicore)
 library(mopt)
+library(rbenchmark)
 
 mycl <- makeCluster(type='MPI')
 num.worker <- length(clusterEvalQ(mycl,Sys.info()))
@@ -18,42 +18,33 @@ clusterEvalQ(mycl,source("slaves-mcore.r"))
 cat("Worker roll call on",date(),"\n",file=file.path(getwd(),"workers","rollcall.txt"),append=FALSE)
 clusterCall(mycl, rollcall, file.path(getwd(),"workers"))
 
-
-mcfun <- function(id){
-	z <- mean(rnorm(1e7))
-	me <- Sys.info()["nodename"]
-	x <- list(val=z,msg=paste0("I am ",me," doing job number ",id))
-	return(x)
+## R implementation of recursive Fibonacci sequence
+fibR <- function(n) {
+    if (n == 0) return(0)
+    if (n == 1) return(1)
+    return (fibR(n - 1) + fibR(n - 2))
 }
 
-parfun <- function(id){
-	res <- mclapply(1:2, function(x) mcfun(x), mc.cores=2)
+# send that to every worker. compare lapply to mclapply on each core.
+
+# we'll call that on an increasing number of n's
+
+jobs <- 1:30
+
+
+parfun <- function(jobs){
+	res <- mclapply(jobs, function(x) fibR(x))
 	return(res)
 }
 
-res <- parLapply(mycl,1:floor(num.worker/2),function(j) parfun(j))
+serfun <- function(jobs){
+	res <- lapply(jobs, function(x) fibR(x))
+	return(res)
+}
 
-print(res)
+clfun <- function(cl,job,func) parLapply(cl,1:num.worker,function(j) func(job))
 
+benchmark(mcore = clfun(mycl,jobs,parfun), serial=clfun(mycl,jobs,serfun),replications=1)
 
-# params <- 1:20
-# parlist <- lapply(1:20,function(i) seq(params[i]*0.1,params[i]*2,length=10))
-# 
-# mcfun <- function(idx,pars){
-#     m <- length(pars[[idx]])
-#     mcresult <- mclapply(1:m,function(j) mean(rnorm(n=10^7,mean=pars[[idx]][j],sd=1)),mc.cores=4)
-#     return(mcresult)
-# }
-# 
-# fun <- function(idx,pars){
-#     m <- length(pars[[idx]])
-#     result <- lapply(1:m,function(j) mean(rnorm(n=10^7,mean=pars[[idx]][j],sd=1)))
-#     return(result)
-# }
-# 
-# system.time(mcresult <- parLapply(mycl,1:5,function(i) mcfun(idx=i,pars=parlist)))
-# system.time(result <- parLapply(mycl,1:5,function(i) fun(idx=i,pars=parlist)))
-# print(mcresult)
-# print(result)
 print("goodbye")
 stopCluster(mycl)

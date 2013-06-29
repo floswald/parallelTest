@@ -10,14 +10,14 @@ date
 #$ -pe mpich 6  #  <- load the openmpi parallel env w/ 3 slots
 #$ -S /bin/bash   # <- run the job under bash
 #$ -N test # <- name of the job in the qstat output
-#$ -o test.sge.out # <- name of the output file.
-#$ -e test.sge.out # <- name of the stderr file.
+#$ -o slices.out # <- name of the output file.
+#$ -e slices.out # <- name of the stderr file.
 #$ -cwd
 
 module load openmpi
 module load open64
 module load gcc
-module load r
+module load r/2.15.2
 
 echo "loaded modules"
 module list

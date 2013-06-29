@@ -27,7 +27,7 @@ mcfun <- function(id){
 }
 
 parfun <- function(id){
-	res <- mclapply(1:2, function(x) mcfun(x))
+	res <- mclapply(1:2, function(x) mcfun(x), mc.cores=2)
 	return(res)
 }
 

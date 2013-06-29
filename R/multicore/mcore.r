@@ -1,9 +1,10 @@
 
 
 # multicore/MPI test
-# want to use MPI across machines and multicore on all 4 nodes of each machine
 
 # benchmarks multicore against single thread.
+
+# RESULT: no effect of using mclapply instead of lapply on cluster.
 
 
 library(snow)

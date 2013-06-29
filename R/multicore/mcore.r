@@ -25,13 +25,6 @@ fibR <- function(n) {
     return (fibR(n - 1) + fibR(n - 2))
 }
 
-# send that to every worker. compare lapply to mclapply on each core.
-
-# we'll call that on an increasing number of n's
-
-jobs <- 1:30
-
-
 parfun <- function(jobs){
 	res <- mclapply(jobs, function(x) fibR(x))
 	return(res)
@@ -41,6 +34,8 @@ serfun <- function(jobs){
 	res <- lapply(jobs, function(x) fibR(x))
 	return(res)
 }
+
+jobs <- 1:30
 
 clfun <- function(cl,job,func) parLapply(cl,1:num.worker,function(j) func(job))
 

@@ -9,6 +9,8 @@
 library(multicore)
 library(mopt)
 
+jobs <- 1:30
+
 ## R implementation of recursive Fibonacci sequence
 fibR <- function(n) {
     if (n == 0) return(0)

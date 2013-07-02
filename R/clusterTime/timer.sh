@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "starting qsub script file for multicore test"
+echo "starting qsub script file for fibonacci timer"
 source ~/.bash_profile
 date
 

@@ -39,7 +39,7 @@ serfun <- function(joblist){
 # make cluster
 mycl <- makeCluster(type='MPI')
 
-num.worker <- length(clusterEvalQ(mycl,Sys.info()))	# num.workers chosen in submit script
+num.worker <- length(clusterEvalQ(mycl,Sys.info()))	# num.worker chosen in submit script
 
 # source functions on cluster
 clusterEvalQ(mycl,source("slaves.r"))
@@ -47,7 +47,7 @@ clusterEvalQ(mycl,source("slaves.r"))
 
 # here are the jobs to do on each core.
 # each core needs to go over integers 1:30 and compute fibR
-jobs <- lapply(1:num.workers,function(x) 1:30)	
+jobs <- lapply(1:num.worker,function(x) 1:30)	
 
 res <- list()
 

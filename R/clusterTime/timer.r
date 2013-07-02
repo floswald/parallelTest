@@ -46,8 +46,8 @@ clusterEvalQ(mycl,source("slaves.r"))
 
 
 # here are the jobs to do on each core.
-# each core needs to go over integers 1:30 and compute fibR
-jobs <- lapply(1:num.worker,function(x) 1:30)	
+# each core needs to compute the fibonacci sequence up to 30 ten times over
+jobs <- lapply(1:num.worker,function(x) rep(30,10))	
 
 res <- list()
 

@@ -53,7 +53,7 @@ res <- list()
 
 # do reps replications of that test
 for (i in 1:reps){
-	res[[i]] <- parLapply(cl,jobs,serfun)
+	res[[i]] <- parLapply(mycl,jobs,serfun)
 }
 
 save(res,file="timer.RData")

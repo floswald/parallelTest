@@ -61,9 +61,9 @@ save(res,file="timer.RData")
 
 # analyze
 library(data.table)
-d <- data.table(expand.grid(repl=1:nr,run=1:nf),key=c("repl","run"))
-for (i in 1:nr) for (r in 1:nf) d[.(i,r),node := as.character(res[[i]][[r]]$node)]
-for (i in 1:nr) for (r in 1:nf) d[.(i,r),time := as.numeric(res[[i]][[r]]$time)]
+d <- data.table(expand.grid(repl=1:reps,run=1:num.worker),key=c("repl","run"))
+for (i in 1:reps) for (r in 1:num.worker) d[.(i,r),node := as.character(res[[i]][[r]]$node)]
+for (i in 1:reps) for (r in 1:num.worker) d[.(i,r),time := as.numeric(res[[i]][[r]]$time)]
 
 
 library(ggplot2)

@@ -7,8 +7,10 @@ I use R and MPI with [R package snow](http://cran.r-project.org/web/packages/sno
 ## clusterTime
 
 In this test I run a standard computational task on a given number of compute nodes, for several 
-times. The computation is aimed to be both memory and CPU intensive. I compute the Fibonacci sequence
-of order 30 for 10 times on each node. The function is defined by `F(0) = 0, F(1) = 1, F(n) = F(n-1) + F(n-2)`. In R:
+times. The computation is aimed to be both memory and CPU intensive. The test is inspired by
+a [blog post of Dirk Eddelbuettel](http://dirk.eddelbuettel.com/blog/2011/09/08/). I use 
+[the worst algorithm in the world](http://bosker.wordpress.com/2011/04/29/the-worst-algorithm-in-the-world/)
+to compute the Fibonacci sequence of order 30 for 10 times on each node. The function is defined by `F(0) = 0, F(1) = 1, F(n) = F(n-1) + F(n-2)`. In R:
 
 ```r
 fibR <- function(n) {
@@ -18,7 +20,8 @@ fibR <- function(n) {
 }
 ```
 
-This implementation is deliberately inefficient.
+This implementation is deliberately inefficient. The recursive nature of the problem will cause an immense amount of function calls. In fact,
+if n becomes much bigger than 30 (say 40), you have got stack overflow.
 
 ### Setup
 

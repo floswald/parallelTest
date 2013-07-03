@@ -21,15 +21,17 @@ fibR <- function(n) {
 ```
 
 This implementation is deliberately inefficient. The recursive nature of the problem will cause an immense amount of function calls. In fact,
-if n becomes much bigger than 30 (say 40), you have got stack overflow.
+if n becomes much bigger than 30, you will experience stack overflow.
 
 ### Setup
 
-Every compute performs the exact identical operations.
+Every compute node performs the exact identical operations. We would expect the timings to be reasonably close to each other **within a given compute node**. 
+Notice that many clusters are combining machines of different type and vintage, so it would be natural to see some time difference across machine types.
 
 ### Result
 
-I conduct the experiment twice. In both runs, there exist compute nodes which perform much worse than others. I am trying to understand the reasons behind this. 
+I conduct the experiment twice. In both runs, there exist compute nodes which perform much worse than others. *Performance seems to worsen in consecutive
+runs*. I am trying to understand the reasons behind this. 
 I can almust exclude "congestion on the node", since the SGE scheduler assigns all nodes to my job (4 or 12 respectively). It is hard to say if the problem is 
 compute-node specific, since in every experiment I get a different subset of nodes.
 

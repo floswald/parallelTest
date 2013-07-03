@@ -59,7 +59,6 @@ for (i in 1:reps){
 	res[[i]] <- parLapply(mycl,jobs,serfun)
 }
 
-save(res,file="timer.RData")
 
 
 # analyze
@@ -69,9 +68,11 @@ for (i in 1:reps) for (r in 1:num.worker) d[.(i,r),node := as.character(res[[i]]
 for (i in 1:reps) for (r in 1:num.worker) d[.(i,r),time := as.numeric(res[[i]][[r]]$time)]
 
 
-library(ggplot2)
-pdf("timing.pdf")
-ggplot(d,aes(run,time)) + geom_point(aes(color=node,shape=factor(repl))) + scale_y_continuous(name="seconds") + scale_x_continuous(name="function evaluation number")
-dev.off()
+save(res,d,file="timer.RData")
+
+# library(ggplot2)
+# pdf("timing.pdf")
+# ggplot(d,aes(run,time)) + geom_point(aes(color=node,shape=factor(repl))) + scale_y_continuous(name="seconds") + scale_x_continuous(name="function evaluation number")
+# dev.off()
 print("goodbye")
 stopCluster(mycl)

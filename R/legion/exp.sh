@@ -1,4 +1,4 @@
-##!/bin/bash -l
+#!/bin/bash -l
 
 # Batch script to run an OpenMP threaded R job on Legion with the upgraded
 # software stack under SGE. Using the forech packages foreach(...) %dopar%
@@ -9,7 +9,7 @@
 # R Version 2.15.2
 
 # 1. Force bash as the executing shell.
-#$ -S /bin/bash
+#$ -S /bin/bash -l
 
 # 2. Request ten minutes of wallclock time (format hours:minutes:seconds).
 #    Change this to suit your requirements.

@@ -1,5 +1,9 @@
 #!/bin/bash 
 
+echo "starting my qsub file"
+source ~/.bash_profile
+date
+
 # Batch script to run an OpenMP threaded R job on Legion with the upgraded
 # software stack under SGE. Using the forech packages foreach(...) %dopar%
 # for example. 

@@ -9,7 +9,7 @@
 # R Version 2.15.2
 
 # 1. Force bash as the executing shell.
-#$ -S /bin/bash -l
+#$ -S /bin/bash 
 
 # 2. Request ten minutes of wallclock time (format hours:minutes:seconds).
 #    Change this to suit your requirements.

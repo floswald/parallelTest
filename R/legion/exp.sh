@@ -1,4 +1,4 @@
-#!/bin/bash -l
+#!/bin/bash 
 
 # Batch script to run an OpenMP threaded R job on Legion with the upgraded
 # software stack under SGE. Using the forech packages foreach(...) %dopar%

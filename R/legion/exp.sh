@@ -10,12 +10,6 @@
 # 1. Force bash as the executing shell.
 #$ -S /bin/bash
 
-# 10. load modules
-module unload compilers/intel/11.1/072
-module unload mpi/qlogic/1.2.7/intel
-module unload mkl/10.2.5/035
-module load recommended/r
-module load mpi/openmpi/1.4.5/gnu.4.6.3
 
 # 2. Request ten minutes of wallclock time (format hours:minutes:seconds).
 #    Change this to suit your requirements.
@@ -36,7 +30,7 @@ module load mpi/openmpi/1.4.5/gnu.4.6.3
 #$ -m e # notify about end of job
 
 # 7. Select the OpenMPI parallel environment and 16 processes.
-#$ -pe openmpi 16
+#$ -pe openmpi 10
 
 # 8. set error out files
 #$ -o exp.out # <- name of the output file.
@@ -50,6 +44,13 @@ module load mpi/openmpi/1.4.5/gnu.4.6.3
 #
 # Replace "<your_UCL_id>" with your UCL user ID :)
 #$ -wd /home/uctpfos/Scratch/git/mpitest/R/legion
+
+# 10. load modules
+module unload compilers/intel/11.1/072
+module unload mpi/qlogic/1.2.7/intel
+module unload mkl/10.2.5/035
+module load recommended/r
+module load mpi/openmpi/1.4.5/gnu.4.6.3
 
 
 # 11. Run our MPI job.  GERun is a wrapper that launches MPI jobs on Legion

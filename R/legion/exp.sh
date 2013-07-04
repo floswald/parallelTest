@@ -1,4 +1,3 @@
-
 #!/bin/bash -l
 
 # Batch script to run a serial R job on Legion with the upgraded

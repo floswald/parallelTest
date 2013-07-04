@@ -24,14 +24,18 @@
 # Find <your_project_id> by running the command "groups"
 #$ -P bankruptcy 
 
-# 6. Select the OpenMPI parallel environment and 16 processes.
+# 6. select messaging option
+#$ -M f.oswald@ucl.ac.uk	# send notifications to
+#$ -m e # notify about end of job
+
+# 7. Select the OpenMPI parallel environment and 16 processes.
 #$ -pe openmpi 16
 
-# 7. set error out files
+# 8. set error out files
 #$ -o exp.sge.out # <- name of the output file.
 #$ -e exp.sge.out # <- name of the stderr file.
 
-# 8. Set the working directory to somewhere in your scratch space.  This is
+# 9. Set the working directory to somewhere in your scratch space.  This is
 # a necessary step with the upgraded software stack as compute nodes cannot
 # write to your $HOME.
 #
@@ -40,12 +44,12 @@
 # Replace "<your_UCL_id>" with your UCL user ID :)
 #$ -wd /home/uctpfos/Scratch/git/mpitest/R/legion
 
-# 9. load modules
+# 10. load modules
 module unload compilers/intel/11.1/072
 module unload mpi/qlogic/1.2.7/intel
 module unload mkl/10.2.5/035
 module load recommended/r
 module load mpi/openmpi/1.4.5/gnu.4.6.3
 
-# 10. Run our MPI job.  GERun is a wrapper that launches MPI jobs on Legion
+# 11. Run our MPI job.  GERun is a wrapper that launches MPI jobs on Legion
 gerun /home/uctpfos/R/x86_64-unknown-linux-gnu-library/2.15/snow/RMPISNOW -q < exp.r > exp.Rout

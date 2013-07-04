@@ -1,4 +1,4 @@
-#!/bin/bash -l
+##!/bin/bash -l
 
 # Batch script to run a serial R job on Legion with the upgraded
 # software stack under SGE. This version works with the modules

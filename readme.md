@@ -30,10 +30,7 @@ Notice that many clusters are combining machines of different type and vintage, 
 
 ### Result
 
-I conduct the experiment twice. In both runs, there exist compute nodes which perform much worse than others. *Performance seems to worsen in consecutive
-runs*. I am trying to understand the reasons behind this. 
-I can almust exclude "congestion on the node", since the SGE scheduler assigns all nodes to my job (4 or 12 respectively). It is hard to say if the problem is 
-compute-node specific, since in every experiment I get a different subset of nodes.
+The result of this experiment is [on the accompanying wiki page](https://github.com/floswald/mpitest/wiki/clusterTime-Results).
 
 
 ## singleThread

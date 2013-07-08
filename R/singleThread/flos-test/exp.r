@@ -10,7 +10,7 @@ require(snow)
 print(date())
 # setup some data on master
 
-require(Rcpp)
+library(Rcpp)
 
 # start up cluster
 mycl <- makeCluster()

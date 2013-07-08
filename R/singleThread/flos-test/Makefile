@@ -4,4 +4,4 @@
 
 
 clean:
-	rm -rf MPI-SGE.* *.Rout nodes.out *.log; qsub exp15.sh
+	rm -rf *out *.Rout nodes.out *.log; qsub exp15.sh

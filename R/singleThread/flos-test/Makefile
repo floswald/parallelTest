@@ -2,8 +2,6 @@
 
 
 
-openmpi:
-	qsub exp15.sh
 
 clean:
-	rm -rf MPI-SGE.* *.Rout nodes.out *.log
+	rm -rf MPI-SGE.* *.Rout nodes.out *.log; qsub exp15.sh

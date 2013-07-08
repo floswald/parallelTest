@@ -16,8 +16,8 @@ date
 
 module load openmpi
 module load open64
-module load gcc
-module load r
+# module load intel/compiler/64/11.1/075
+module load r/2.15.2
 
 echo "loaded modules"
 module list

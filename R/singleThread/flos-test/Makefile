@@ -1,7 +1,3 @@
 
-
-
-
-
 clean:
-	rm -rf *out *.Rout *.err; echo; qsub exp15.sh
+	rm -rf *out *.Rout *.err; echo; qsub exp15.sh; echo;

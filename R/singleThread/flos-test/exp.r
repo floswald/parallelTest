@@ -20,34 +20,20 @@ print(length(clusterEvalQ(mycl, Sys.info())))
 
 
 
-
+# testing direct evaluation via clusterCall
 print(clusterCall(mycl, function() {solve(array(runif(1000^2),dim=c(1000,1000)));5}))
 
+# testing parLapply
 arg <- list(a=1:10,b=exp(-3:3))
 parLapply(mycl,arg,quantile)
 
+# testing clusterApplyLB
+arg <- lapply(1:20,function(i) rnorm(n=100,mean=i,sd=i))
+clusterApplyLB(mycl,arg,quantile)
 
-clusterApplyLB(mycl,1:20,quantile)
+# if you want to evaluate a funciton f, it needs to be defined on each slave
 
 
-#flofun <- function(x){x^3+a+b}
-#parLapply(mycl,1:5,flofun)
-
-#clusterApplyLB(mycl,1:5,flofun)
-
-# call ls() on each node
-# clusterEvalQ(mycl, ls() )
-
-# do a calculation and return
-# collected.results <- clusterCall(mycl,myfun,c)
-
-# look at them at master
-# print(collected.results)
-
-# get a list of tasks for each cluster
-# assignments <- clusterSplit(mycl,tasks)
-
-#parLapply(mycl,assignments,myfun)
 stopCluster(mycl)
 
 

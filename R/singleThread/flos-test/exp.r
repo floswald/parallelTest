@@ -26,7 +26,8 @@ print(clusterCall(mycl, function() {solve(array(runif(1000^2),dim=c(1000,1000)))
 arg <- list(a=1:10,b=exp(-3:3))
 parLapply(mycl,arg,quantile)
 
-clusterApplyLB(mycl,array(1:20),quantile)
+
+clusterApplyLB(mycl,1:20,quantile)
 
 
 #flofun <- function(x){x^3+a+b}

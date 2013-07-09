@@ -10,8 +10,8 @@ date
 #$ -pe mpich 3  #  <- load the openmpi parallel env w/ 6 slots
 #$ -S /bin/bash   # <- run the job under bash
 #$ -N exp-test # <- name of the job in the qstat output
-#$ -o exp.sge.out # <- name of the output file.
-#$ -e exp.sge.out # <- name of the stderr file.
+#$ -o exp.out # <- name of the output file.
+#$ -e exp.err # <- name of the stderr file.
 #$ -cwd
 
 module load openmpi

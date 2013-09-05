@@ -1,7 +1,7 @@
 RLIB=`Rscript -e "cat(.libPaths()[[1]])"`
 
 mpi:
-	mpirun -np 3  $RLIB/snow/RMPISNOW < master-mpi.r
+	mpirun -np 3  $(RLIB)/snow/RMPISNOW < master-mpi.r
 
 mcore:
 	Rscript -e "source('master-mcore.r')"

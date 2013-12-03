@@ -10,6 +10,7 @@
 #$ -wd /data/uctpfos/git/mpitest/Cpp/pi
 
 module load openmpi
+module load open64
 
 cat << EOF >> input
 10000

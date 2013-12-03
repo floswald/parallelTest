@@ -10,6 +10,7 @@
 #$ -wd /data/uctpfos/git/mpitest/Cpp/hello
 
 module load openmpi
+module load open64
 
 echo "calling mpirun now"
 mpirun -np 4 -stdin input ./hello

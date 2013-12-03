@@ -12,5 +12,7 @@
 module load openmpi
 module load open64
 
+date
+
 echo "calling mpirun now"
 mpirun -np 4 -stdin input ./hello

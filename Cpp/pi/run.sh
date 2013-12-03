@@ -12,6 +12,8 @@
 module load openmpi
 module load open64
 
+date
+
 cat << EOF >> input
 10000
 1000
@@ -21,4 +23,4 @@ cat << EOF >> input
 EOF
 
 echo "calling mpirun now"
-mpirun -np 4 -stdin input ./mpi_pi
+mpirun -np 4 -stdin input ./pi

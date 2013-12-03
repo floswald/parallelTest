@@ -1,6 +1,6 @@
 
 
-CC=mpicc
+CC=OMPI_CC
 EXEC=mpi_pi
 SOURCES=$(wildcard *.c)
 OBJECTS=$(SOURCES:.c=.o)

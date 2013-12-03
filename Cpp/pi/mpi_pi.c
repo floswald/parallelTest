@@ -2,6 +2,7 @@
 
 #include "mpi.h"
 #include <math.h>
+#include <stdio.h>
 
 int main(argc,argv)
      int argc;

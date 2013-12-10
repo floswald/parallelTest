@@ -32,6 +32,12 @@ Notice that many clusters are combining machines of different type and vintage, 
 
 The result of this experiment is [on the accompanying wiki page](https://github.com/floswald/mpitest/wiki/clusterTime-Results).
 
+### Trying to get a specific resource on the cluster
+
+Accordign to [this page](http://www.clusterresources.com/torquedocs21/2.1jobsubmission.shtml#nodeExamples), something like
+`qsub -l nodes=4:ppn=2` should get you 2 processors on each of 4 nodes. I tried that out in `R/clusterTime/`, didnt' work. 
+run the test with `make request`.
+
 
 ## singleThread
 

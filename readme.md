@@ -38,6 +38,9 @@ Accordign to [this page](http://www.clusterresources.com/torquedocs21/2.1jobsubm
 `qsub -l nodes=4:ppn=2` should get you 2 processors on each of 4 nodes. I tried that out in `R/clusterTime/`, didnt' work. 
 run the test with `make request`.
 
+Another more promising way is [described here](http://www.niif.hu/en/node/687). On that cluster you can do `qsub -l exclusive=true timer_request.sh`. 
+run with `make exclusive`
+
 
 ## singleThread
 

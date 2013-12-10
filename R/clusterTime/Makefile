@@ -11,3 +11,9 @@ request:
 	qstat -g c
 	qsub -l nodes=4:ppn=2 timer_request.sh
 
+exclusive:
+	rm -rf *out *.err *.RData
+	git pull
+	qstat -g c
+	qsub -l exclusive=true timer_request.sh
+

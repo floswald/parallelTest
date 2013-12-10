@@ -1,7 +1,7 @@
 
 # mpitest repo
 
-In this repository I collect a couple of mpi-related tests. All tests are performed in the R language. 
+In this repository I collect a couple of mpi-related tests. There are tests R and pure Cpp. 
 I use R and MPI with [R package snow](http://cran.r-project.org/web/packages/snow/index.html).
 
 ## clusterTime

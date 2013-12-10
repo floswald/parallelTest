@@ -1,4 +1,13 @@
 
+standard:
+	rm -rf *out *.err *.RData
+	git pull
+	qstat -g c
+	qsub timer.sh
 
-clean:
-	rm -rf *.out *.err *.RData; echo; git pull; echo; qstat -g c; echo; qsub timer.sh;
+request:
+	rm -rf *out *.err *.RData
+	git pull
+	qstat -g c
+	qsub -l nodes=4:ppn=2 timer_request.sh
+

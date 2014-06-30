@@ -46,6 +46,10 @@ println("Started julia")
 
 bind_pe_procs()
 
+# here a function that runs your estimation:
+# using MOpt, mig
+# 
+
 println("trying parallel for loop with $(nprocs()) processes")
 println("numworkers: $(length(workers()))")
 println("workers: $(workers())")

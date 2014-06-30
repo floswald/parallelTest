@@ -14,7 +14,8 @@ function bind_pe_procs()
       proc = {"name" => line_parts[1], "n" => line_parts[2]}
   end
 
-  print(procs)
+  println("name of compute nodes and number of workers:")
+  println(procs)
 
   # repeat for nodes with multiple procs
   # remove master from the node list
@@ -22,7 +23,7 @@ function bind_pe_procs()
   remove_master = 1
   machines = ASCIIString[]
   for pp in procs
-    println(pp["name"])
+    # println(pp["name"])
     for i=1:int(pp["n"])
       if ( !contains(pp["name"],master_node)) | (remove_master==0)
         push!(machines,pp["name"])
@@ -32,7 +33,8 @@ function bind_pe_procs()
     end
   end
 
-  print(machines)
+  println("individual processes in machine file:")
+  println(machines)
 
 
   println("adding machines to current system")
@@ -44,7 +46,7 @@ println("Started julia")
 
 bind_pe_procs()
 
-println(" trying parallel for loop with $(nprocs()) processes")
+println("trying parallel for loop with $(nprocs()) processes")
 println("numworkers: $(length(workers()))")
 println("workers: $(workers())")
 @time map( n -> sum(svd(rand(n,n))[1]) , [800 for i in 1:20]);

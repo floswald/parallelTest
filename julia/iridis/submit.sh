@@ -26,4 +26,4 @@ cat $PBS_NODEFILE
 # mpirun matmul > output_file
 
 echo "calling julia now"
-julia sge.jl 
+julia -p 16 sge2.jl 

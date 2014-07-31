@@ -13,16 +13,27 @@ function bind_pe_procs()
         node_file = readlines(filestream)
 
         # strip eol
-        machines = map(x->strip(x,['\n']),node_file)
+        node_file = map(x->strip(x,['\n']),node_file)
 
         # get number of workers on each node
         procs = Dict{ASCIIString,Int}()
-        for n in machines
+        for n in node_file
             procs[n] = get(procs,n,0) + 1
         end
 
         println("name of compute nodes and number of workers:")
         println(procs)
+
+        # remove master from machine file
+        # master cannot ssh into itself!
+        master_node = ENV["HOSTNAME"]
+        machines = ASCIIString[]
+
+        for i in 1:length(node_file)
+            if node_file[i] != master_node
+                push!(machines,node_file[i])
+            end
+        end
 
     else
       # how to check for SGE?
@@ -84,7 +95,7 @@ println("trying parallel for loop with $(nprocs()) processes")
 println("numworkers: $(length(workers()))")
 println("workers: $(workers())")
 @time map( n -> sum(svd(rand(n,n))[1]) , [800 for i in 1:20]);
-@time pmap( n -> sum(svd(rand(n,n))[1]) , [800 for i in 1:20]);
+@time pmap( n -> sum(svd(rand(n,n))[1]) , [800 for i in 1:24]);
 
 println(" quitting ")
 

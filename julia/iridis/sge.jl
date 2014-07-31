@@ -65,12 +65,10 @@ function bind_pe_procs()
     println("individual processes in machine file:")
     println(machines)
 
-    # get julia home
-    JH = ENV["JULIA_HOME"]
+    # add to julia home
+    println("adding machines to JULIA_HOME: $JULIA_HOME")
 
-    println("adding machines to JULIA_HOME: $JH")
-
-    addprocs(machines, dir= JH)
+    addprocs(machines, dir= JULIA_HOME)
     println("done")
     end
 

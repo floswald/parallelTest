@@ -1,62 +1,78 @@
 function bind_pe_procs()
 
-  home = ENV["HOME"]
-  println(ENV)
+    home = ENV["HOME"]
+    println(ENV)
 
-  # find out what cluster we are on
-  if haskey(ENV,"PBS_SERVER")
-    node_file_name = ENV["PBS_NODEFILE"]
-  else
-    # how to check for SGE?
-    node_file_name = ENV["PE_HOSTFILE"]
-  end
+     # find out what cluster we are on
+    if haskey(ENV,"PBS_SERVER")
+        node_file_name = ENV["PBS_NODEFILE"]
 
-  filestream = open(node_file_name)
-  seekstart(filestream)
-  linearray = readlines(filestream)
+        # read PBS_NODEFILE
+        filestream = open(node_file_name)
+        seekstart(filestream)
+        node_file = readlines(filestream)
 
-  println("looking at hostfile:")
-  println(linearray)
+        # strip eol
+        machines = map(x->strip(x,['\n']),node_file)
+
+        # get number of workers on each node
+        procs = Dict{ASCIIString,Int}()
+        for n in machines
+            procs[n] = get(procs,n,0) + 1
+        end
+
+        println("name of compute nodes and number of workers:")
+        println(procs)
+
+    else
+      # how to check for SGE?
+        node_file_name = ENV["PE_HOSTFILE"]
+        filestream = open(node_file_name)
+        seekstart(filestream)
+        linearray = readlines(filestream)
+
+        println("looking at hostfile:")
+        println(linearray)
 
 
-  # parse the file - extract addresses and number of procs
-  # on each
-  # filestream = open("pe_file_ex.txt")
-  procs = map(linearray) do line
-      line_parts = split(line," ")
-      proc = {"name" => line_parts[1], "n" => line_parts[2]}
-  end
+        # parse the file - extract addresses and number of procs
+        # on each
+        # filestream = open("pe_file_ex.txt")
+        procs = map(linearray) do line
+            line_parts = split(line," ")
+            proc = {"name" => line_parts[1], "n" => line_parts[2]}
+        end
 
-  println("name of compute nodes and number of workers:")
-  println(procs)
+        println("name of compute nodes and number of workers:")
+        println(procs)# repeat for nodes with multiple procs
 
-  # repeat for nodes with multiple procs
-  # remove master from the node list
-  master_node = ENV["HOSTNAME"]
-  remove_master = 1
-  machines = ASCIIString[]
-  for pp in procs
-    # println(pp["name"])
-    for i=1:int(pp["n"])
-      if ( !contains(pp["name"],master_node)) | (remove_master==0)
-        push!(machines,pp["name"])
-      else
-        remove_master=0
-      end
+        # remove master from the node list
+        master_node = ENV["HOSTNAME"]
+        remove_master = 1
+        machines = ASCIIString[]
+        for pp in procs
+          # println(pp["name"])
+          for i=1:int(pp["n"])
+            if ( !contains(pp["name"],master_node)) | (remove_master==0)
+              push!(machines,pp["name"])
+            else
+              remove_master=0
+            end
+          end
+        end
     end
-  end
 
-  println("individual processes in machine file:")
-  println(machines)
+    println("individual processes in machine file:")
+    println(machines)
 
-  # get julia home
-  JH = ENV["JULIA_HOME"]
+    # get julia home
+    JH = ENV["JULIA_HOME"]
 
-  println("adding machines to JULIA_HOME: $JH")
+    println("adding machines to JULIA_HOME: $JH")
 
-  addprocs(machines, dir= JH)
-  println("done")
-end
+    addprocs(machines, dir= JH)
+    println("done")
+    end
 
 println("Started julia")
 

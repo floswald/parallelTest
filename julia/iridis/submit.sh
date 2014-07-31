@@ -1,16 +1,13 @@
 
 #!/bin/bash
 #PBS -S /bin/bash
-# Job script to run simple mpi job in parallel on 3 nodes
-
-# set default resource requirements for job (2 processors on 1 node for 1 hours)
-# - these can be overridden on the qsub command line
-#PBS -l nodes=3:ppn=8
+#PBS -q consort
+#PBS -l nodes=2:ppn=8
 #PBS -l walltime=15:00:00
 #PBS -o mpi_test.out
 #PBS -e mpi_test.err
 
-#Change to directory from which job was submitted
+# Change to directory from which job was submitted
 cd $PBS_O_WORKDIR
 
 # load openmpi module so that we find the mpirun command

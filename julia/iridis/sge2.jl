@@ -11,7 +11,7 @@ println("number of nodes:")
 println(nn)
 
 
-@time pmap( n -> sum(svd(rand(n,n))[1]) , [800 for i in 1:24]);
+@time pmap( n -> sum(svd(rand(n,n))[1]) , [800 for i in 1:30]);
 
 println("quitting")
 

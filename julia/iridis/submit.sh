@@ -2,7 +2,7 @@
 #!/bin/bash
 #PBS -S /bin/bash
 #PBS -q consort
-#PBS -l nodes=2:ppn=8
+#PBS -l nodes=4:ppn=12
 #PBS -l walltime=06:00
 #PBS -o mpi_test.out
 #PBS -e mpi_test.err
@@ -26,4 +26,4 @@ cat $PBS_NODEFILE
 # mpirun matmul > output_file
 
 echo "calling julia now"
-julia -p 16 sge2.jl 
+julia -p 48 sge2.jl 

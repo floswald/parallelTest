@@ -4,7 +4,7 @@ function bind_pe_procs()
   println(ENV)
 
   # find out what cluster we are on
-  if haskey(haskey(ENV,"PBS_SERVER"))
+  if haskey(ENV,"PBS_SERVER")
     node_file_name = ENV["PBS_NODEFILE"]
   else
     # how to check for SGE?

@@ -62,14 +62,14 @@ function bind_pe_procs()
         remove_master = 1
         machines = ASCIIString[]
         for pp in procs
-          # println(pp["name"])
-          for i=1:int(pp["n"])
-            if ( !contains(pp["name"],master_node)) | (remove_master==0)
-              push!(machines,pp["name"])
-            else
-              remove_master=0
+            # println(pp["name"])
+            for i=1:int(pp["n"])
+                if ( !contains(pp["name"],master_node)) | (remove_master==0)
+                    push!(machines,pp["name"])
+                else
+                    remove_master=0
+                end
             end
-          end
         end
     end
 
@@ -82,6 +82,7 @@ function bind_pe_procs()
     addprocs(machines, dir= JULIA_HOME)
     println("done")
     end
+end
 
 println("Started julia")
 
@@ -89,13 +90,24 @@ bind_pe_procs()
 
 # here a function that runs your estimation:
 # using MOpt, mig
-# 
 
-println("trying parallel for loop with $(nprocs()) processes")
-println("numworkers: $(length(workers()))")
-println("workers: $(workers())")
-@time map( n -> sum(svd(rand(n,n))[1]) , [800 for i in 1:20]);
-@time pmap( n -> sum(svd(rand(n,n))[1]) , [800 for i in 1:24]);
+# require some code on all nodes
+require("incl.jl")
+
+println("make everybody say hello")
+
+@everywhere sayhello()
+
+println("make everybody do some math")
+
+pmap( i->domath(i), [100 for j in 1:length(workers())] )
+
+
+# println("trying parallel for loop with $(nprocs()) processes")
+# println("numworkers: $(length(workers()))")
+# println("workers: $(workers())")
+# @time map( n -> sum(svd(rand(n,n))[1]) , [800 for i in 1:20]);
+# @time pmap( n -> sum(svd(rand(n,n))[1]) , [800 for i in 1:24]);
 
 println(" quitting ")
 

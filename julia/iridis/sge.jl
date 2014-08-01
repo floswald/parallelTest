@@ -81,7 +81,6 @@ function bind_pe_procs()
 
     addprocs(machines, dir= JULIA_HOME)
     println("done")
-    end
 end
 
 println("Started julia")

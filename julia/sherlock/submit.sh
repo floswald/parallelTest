@@ -7,17 +7,17 @@ date
 
 # here's the SGE directives
 # ------------------------------------------
-#$ -pe impi 8  #  <- load the openmpi parallel env w/ $(arg1) slots
+#$ -pe impi 8  #  <- load the impi parallel env 
 #$ -S /bin/bash   # <- run the job under bash
 #$ -N mpi-testing # <- name of the job in the qstat output
 #$ -o timer.out # direct output stream to here
 #$ -e timer.err # <- name of the stderr file.
-#$ -wd /home/florian_o/git/mpitest/julia/sge
+#$ -wd /home/florian_o/git/mpitest/julia/sherlock
 
 echo "here are your hosts"
 
 cat $PE_HOSTFILE
 
-echo "calling mpirun now"
+echo "calling julia now"
 
-# /data/uctpfos/git/julia/julia /data/uctpfos/git/mpitest/julia/sge/sge.jl
+julia /home/florian_o/git/mpitest/julia/sherlock/sge.jl

@@ -1,6 +1,5 @@
 
-function bind_pe_procs()
-  # filestream = open(ENV["PBS_NODEFILE"])
+function bind_pe_sherlock()
   home = ENV["HOME"]
   node_file_name = ENV["PE_HOSTFILE"]
 
@@ -12,44 +11,56 @@ function bind_pe_procs()
   linearray = readlines(filestream)
   procs = map(linearray) do line
       line_parts = split(line," ")
-      proc = {"name" => line_parts[1], "n" => line_parts[2]}
+      mash = line_parts[1]
   end
 
-  println("name of compute nodes and number of workers:")
+  println("name of compute nodes")
   println(procs)
 
-  # repeat for nodes with multiple procs
-  # remove master from the node list
-  master_node = ENV["HOSTNAME"]
-  remove_master = 1
-  machines = ASCIIString[]
-  for pp in procs
-    # println(pp["name"])
-    for i=1:int(pp["n"])
-      if ( !contains(pp["name"],master_node)) | (remove_master==0)
-        push!(machines,pp["name"])
-      else
-        remove_master=0
-      end
-    end
-  end
+  # # repeat for nodes with multiple procs
+  # # remove master from the node list
+  # master_node = ENV["HOSTNAME"]
+  # remove_master = 1
+  # machines = ASCIIString[]
+  # for pp in procs
+  #   # println(pp["name"])
+  #   for i=1:int(pp["n"])
+  #     if ( !contains(pp["name"],master_node)) | (remove_master==0)
+  #       push!(machines,pp["name"])
+  #     else
+  #       remove_master=0
+  #     end
+  #   end
+  # end
 
   println("individual processes in machine file:")
   println(machines)
 
+  JH = JULIA_HOME
 
   println("adding machines to current system")
-  addprocs(machines, dir= "/data/uctpfos/git/julia/")
+  addprocs(machines, dir= JH)
   println("done")
 end
 
 println("Started julia")
 
-bind_pe_procs()
+bind_pe_sherlock()
 
 # here a function that runs your estimation:
 # using MOpt, mig
 # 
+
+# require some code on all nodes
+require("incl.jl")
+
+println("make everybody say hello")
+
+@everywhere sayhello()
+
+println("make everybody do some math")
+
+pmap( i->domath(i), [100 for j in 1:length(workers())] )
 
 println("trying parallel for loop with $(nprocs()) processes")
 println("numworkers: $(length(workers()))")

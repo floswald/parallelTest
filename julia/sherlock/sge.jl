@@ -9,13 +9,13 @@ function bind_pe_sherlock()
   filestream = open(node_file_name)
   seekstart(filestream)
   linearray = readlines(filestream)
-  procs = map(linearray) do line
+  mashines = map(linearray) do line
       line_parts = split(line," ")
       mash = line_parts[1]
   end
 
   println("name of compute nodes")
-  println(procs)
+  println(machines)
 
   # # repeat for nodes with multiple procs
   # # remove master from the node list

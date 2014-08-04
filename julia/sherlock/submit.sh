@@ -3,6 +3,8 @@
 echo "starting qsub script file"
 date
 
+# my definitions
+source ~/.bash_profile
 
 # here's the SGE directives
 # ------------------------------------------
@@ -17,8 +19,6 @@ echo "here are your hosts"
 
 cat $PE_HOSTFILE
 
-# my definitions
-source ~/.bashrc
 
 echo "calling julia now"
 

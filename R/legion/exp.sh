@@ -34,9 +34,9 @@
 
 # 9. load modules
 module unload compilers
-module load recommended/r
+module load recommended/r-old
 module unload mpi/qlogic/1.2.7/intel
 module load mpi/openmpi/1.4.5/gnu.4.6.3
 
 # 11. Run our MPI job.  GERun is a wrapper that launches MPI jobs on Legion
-gerun $HOME/R/x86_64-unknown-linux-gnu-library/3.0/snow/RMPISNOW -q < $HOME/git/mpitest/R/legion/exp.r > r.output.$JOB_ID
+mpirun -np 8 /shared/ucl/apps/R/R-2.15.2-ATLAS/lib64/R/library/snow/RMPISNOW -q < $HOME/git/mpitest/R/legion/exp.r > r.output.$JOB_ID

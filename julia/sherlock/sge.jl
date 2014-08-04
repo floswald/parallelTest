@@ -9,7 +9,7 @@ function bind_pe_sherlock()
   filestream = open(node_file_name)
   seekstart(filestream)
   linearray = readlines(filestream)
-  mashines = map(linearray) do line
+  machines = map(linearray) do line
       line_parts = split(line," ")
       mash = line_parts[1]
   end

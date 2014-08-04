@@ -1,7 +1,6 @@
 #!/bin/bash
 
 echo "starting qsub script file"
-source ~/.bashrc
 date
 
 
@@ -17,6 +16,9 @@ date
 echo "here are your hosts"
 
 cat $PE_HOSTFILE
+
+# my definitions
+source ~/.bashrc
 
 echo "calling julia now"
 

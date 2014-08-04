@@ -39,6 +39,7 @@ function bind_pe_sherlock()
   JH = JULIA_HOME
 
   println("adding machines to current system")
+  sleep(1.0)
   addprocs(machines, dir= JH)
   println("done")
 end

@@ -34,5 +34,7 @@ cat $LD_LIBRARY_PATH
 
 # mpirun matmul > output_file
 
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/eisuc151/git/julia/usr/lib
+
 echo "calling julia now"
 LD_LIBRARY_PATH=$LD_LIBRARY_PATH /home/eisuc151/local/bin/julia sge.jl 

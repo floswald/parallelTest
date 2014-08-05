@@ -9,13 +9,11 @@ function bind_legion_procs()
   filestream = open(node_file_name)
   seekstart(filestream)
   linearray = readlines(filestream)
-  node_file = map(x->strip(x,['\n']),linearray)
 
-    # get number of workers on each node
-    procs = Dict{ASCIIString,Int}()
-    for n in node_file
-        procs[n] = get(procs,n,0) + 1
-    end
+  procs = map(linearray) do line
+      line_parts = split(line," ")
+      proc = {"name" => line_parts[1], "n" => line_parts[2]}
+  end
 
     println("name of compute nodes and number of workers:")
     println(procs)
@@ -30,11 +28,17 @@ function bind_legion_procs()
 
     # get a machine file for other hosts
     machines = ASCIIString[]
-    for i in 1:length(node_file)
-        if node_file[i] != master
-            push!(machines,node_file[i])
-        end
+  for pp in procs
+    # println(pp["name"])
+    for i=1:int(pp["n"])
+      if ( !contains(pp["name"],master)) 
+        push!(machines,pp["name"])
+      end
     end
+  end
+
+  println("processes on other hosts:")
+  println(machines)
 
   println("adding machines to current system")
   addprocs(machines, dir= JULIA_HOME )

@@ -26,10 +26,13 @@ cat $PBS_NODEFILE
 echo "loaded modules"
 module list
 
+echo "library path"
+cat $LD_LIBRARY_PATH
+
 # Run matmul executable in parallel over number of nodes/processors requested
 # by job (2*8 by default in #PBS line above), output messages go to output_file
 
 # mpirun matmul > output_file
 
 echo "calling julia now"
-/home/eisuc151/local/bin/julia sge.jl 
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH /home/eisuc151/local/bin/julia sge.jl 

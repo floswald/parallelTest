@@ -41,7 +41,7 @@ println("make everybody say hello")
 
 println("make everybody do some math")
 
-pmap( i->domath(i), [100 for j in 1:length(workers())] )
+println(pmap( i->domath(i), [100 for j in 1:length(workers())] ))
 # here a function that runs your estimation:
 # using MOpt, mig
 # 
@@ -49,7 +49,14 @@ pmap( i->domath(i), [100 for j in 1:length(workers())] )
 println("trying parallel for loop with $(nprocs()) processes")
 println("numworkers: $(length(workers()))")
 println("workers: $(workers())")
+
+# warm up JIT
+map( n -> sum(svd(rand(n,n))[1]) , [80 for i in 1:20]);
+pmap( n -> sum(svd(rand(n,n))[1]) , [80 for i in 1:20]);
+
+println("map time:")
 @time map( n -> sum(svd(rand(n,n))[1]) , [80 for i in 1:20]);
+println("pmap time:")
 @time pmap( n -> sum(svd(rand(n,n))[1]) , [80 for i in 1:20]);
 
 println(" quitting ")

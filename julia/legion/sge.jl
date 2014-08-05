@@ -30,7 +30,7 @@ end
 
 println("Started julia on legion. binding workers now")
 
-bind_pe_procs()
+# bind_pe_procs()
 
 # require some code on all nodes
 require("incl.jl")
@@ -49,8 +49,8 @@ pmap( i->domath(i), [100 for j in 1:length(workers())] )
 println("trying parallel for loop with $(nprocs()) processes")
 println("numworkers: $(length(workers()))")
 println("workers: $(workers())")
-@time map( n -> sum(svd(rand(n,n))[1]) , [800 for i in 1:20]);
-@time pmap( n -> sum(svd(rand(n,n))[1]) , [800 for i in 1:20]);
+@time map( n -> sum(svd(rand(n,n))[1]) , [80 for i in 1:20]);
+@time pmap( n -> sum(svd(rand(n,n))[1]) , [80 for i in 1:20]);
 
 println(" quitting ")
 

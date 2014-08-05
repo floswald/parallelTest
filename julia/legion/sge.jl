@@ -24,6 +24,10 @@ function bind_legion_procs()
     # add processes on master itself
     master = ENV["HOSTNAME"]
 
+    # find full master's name [ why can i not just do readall(run(`hostname -f`))] ??? very annoying!
+    procnames = collect(keys(procs))
+    master = procnames[findfirst(contains(procnames),master) ]
+
     if procs[master] > 1
         addprocs(procs[master]-1)
         println("added $(procs[master]-1) processes on master itself")

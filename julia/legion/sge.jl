@@ -22,11 +22,17 @@ function bind_legion_procs()
     println(procs)
 
     # add processes on master itself
-    master = ENV["HOSTNAME"]
+    mast = ENV["HOSTNAME"]
 
     # find full master's name [ why can i not just do readall(run(`hostname -f`))] ??? very annoying!
     procnames = collect(keys(procs))
-    master = procnames[findfirst(contains(procnames),master) ]
+    master = ""
+    for n in procnames
+        if contains(n,mast)
+            master = n
+            break
+        end
+    end
 
     if procs[master] > 1
         addprocs(procs[master]-1)
@@ -35,11 +41,10 @@ function bind_legion_procs()
 
     # get a machine file for other hosts
     machines = ASCIIString[]
-    for pp in procs
-    # println(pp["name"])
-        for i=1:int(pp["n"])
-            if ( !contains(pp["name"],master)) 
-                push!(machines,pp["name"])
+    for (k,n) in procs
+        if k!= master
+            for i=1:n
+                push!(machines,k)
             end
         end
     end

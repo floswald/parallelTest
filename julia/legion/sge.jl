@@ -80,13 +80,13 @@ println("numworkers: $(length(workers()))")
 println("workers: $(workers())")
 
 # warm up JIT
-map( n -> sum(svd(rand(n,n))[1]) , [80 for i in 1:20]);
-pmap( n -> sum(svd(rand(n,n))[1]) , [80 for i in 1:20]);
+map( n -> sum(svd(rand(n,n))[1]) , [300 for i in 1:20]);
+pmap( n -> sum(svd(rand(n,n))[1]) , [300 for i in 1:20]);
 
 println("map time:")
-@time map( n -> sum(svd(rand(n,n))[1]) , [80 for i in 1:20]);
+@time map( n -> sum(svd(rand(n,n))[1]) , [300 for i in 1:20]);
 println("pmap time:")
-@time pmap( n -> sum(svd(rand(n,n))[1]) , [80 for i in 1:20]);
+@time pmap( n -> sum(svd(rand(n,n))[1]) , [300 for i in 1:20]);
 
 println(" quitting ")
 

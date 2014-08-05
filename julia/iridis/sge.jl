@@ -83,7 +83,7 @@ function bind_pe_procs()
     println("done")
 end
 
-println("Started julia")
+println("Started julia on iridis")
 
 bind_pe_procs()
 

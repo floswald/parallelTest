@@ -18,9 +18,8 @@ echo $PE_HOSTFILE
 
 module unload compilers
 module load compilers/gnu/4.6.3
-module load mpi/openmpi/1.6.5/gnu.4.6.3
 module load python/2.7.3
 
 echo "launching julia"
 
-/home/uctpfos/git/julia/julia /home/uctpfos/git/mpitest/julia/sge/sge.jl
+/home/uctpfos/git/julia/julia /home/uctpfos/git/mpitest/julia/legion/sge.jl

@@ -33,7 +33,7 @@ println("Started julia on legion. binding workers now")
 # bind_pe_procs()
 
 # require some code on all nodes
-require("incl.jl")
+require("../incl.jl")
 
 println("make everybody say hello")
 

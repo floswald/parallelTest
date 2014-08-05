@@ -91,7 +91,7 @@ bind_pe_procs()
 # using MOpt, mig
 
 # require some code on all nodes
-require("incl.jl")
+require("../incl.jl")
 
 println("make everybody say hello")
 

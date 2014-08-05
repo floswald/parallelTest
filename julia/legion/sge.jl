@@ -1,19 +1,20 @@
 function bind_legion_procs()
-  # filestream = open(ENV["PBS_NODEFILE"])
-  home = ENV["HOME"]
-  node_file_name = ENV["PE_HOSTFILE"]
+    # filestream = open(ENV["PBS_NODEFILE"])
+    home = ENV["HOME"]
+    node_file_name = ENV["PE_HOSTFILE"]
 
-  # parse the file - extract addresses and number of procs
-  # on each
-  # filestream = open("pe_file_ex.txt")
-  filestream = open(node_file_name)
-  seekstart(filestream)
-  linearray = readlines(filestream)
+    # parse the file - extract addresses and number of procs
+    # on each
+    # filestream = open("pe_file_ex.txt")
+    filestream = open(node_file_name)
+    seekstart(filestream)
+    linearray = readlines(filestream)
 
-  procs = map(linearray) do line
-      line_parts = split(line," ")
-      proc = {"name" => line_parts[1], "n" => line_parts[2]}
-  end
+    procs = Dict{ASCIIString,Int}()
+    for line in linearray
+        line_parts = split(line," ")
+        procs[line_parts[1]] = line_parts[2]
+    end
 
     println("name of compute nodes and number of workers:")
     println(procs)
@@ -28,21 +29,21 @@ function bind_legion_procs()
 
     # get a machine file for other hosts
     machines = ASCIIString[]
-  for pp in procs
+    for pp in procs
     # println(pp["name"])
-    for i=1:int(pp["n"])
-      if ( !contains(pp["name"],master)) 
-        push!(machines,pp["name"])
-      end
+        for i=1:int(pp["n"])
+            if ( !contains(pp["name"],master)) 
+                push!(machines,pp["name"])
+            end
+        end
     end
-  end
 
-  println("processes on other hosts:")
-  println(machines)
+    println("processes on other hosts:")
+    println(machines)
 
-  println("adding machines to current system")
-  addprocs(machines, dir= JULIA_HOME )
-  println("done")
+    println("adding machines to current system")
+    addprocs(machines, dir= JULIA_HOME )
+    println("done")
 end
 
 println("Started julia on legion. binding workers now")

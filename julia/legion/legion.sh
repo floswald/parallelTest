@@ -2,10 +2,10 @@
 
 
 #$ -S /bin/bash
-#$ -l h_rt=0:10:0
+#$ -l h_rt=0:05:0
 #$ -l mem=1G
 #$ -N mpitest
-#$ -pe openmpi 16
+#$ -pe openmpi 8
 #$ -P bankruptcy
 #$ -e /home/uctpfos/Scratch/mpitest/mpitest.err
 #$ -o /home/uctpfos/Scratch/mpitest/mpitest.out

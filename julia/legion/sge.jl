@@ -10,10 +10,12 @@ function bind_legion_procs()
     seekstart(filestream)
     linearray = readlines(filestream)
 
+    println(linearray)
+
     procs = Dict{ASCIIString,Int}()
     for line in linearray
         line_parts = split(line," ")
-        procs[line_parts[1]] = line_parts[2]
+        procs[line_parts[1]] = int(line_parts[2])
     end
 
     println("name of compute nodes and number of workers:")

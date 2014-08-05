@@ -1,4 +1,4 @@
-function bind_pe_procs()
+function bind_legion_procs()
   # filestream = open(ENV["PBS_NODEFILE"])
   home = ENV["HOME"]
   node_file_name = ENV["PE_HOSTFILE"]
@@ -9,19 +9,32 @@ function bind_pe_procs()
   filestream = open(node_file_name)
   seekstart(filestream)
   linearray = readlines(filestream)
-  machines = map(x->strip(x,['\n']),linearray)
+  node_file = map(x->strip(x,['\n']),linearray)
 
-  # we only need the name of each worker once?
-  machines = unique(machines)
+    # get number of workers on each node
+    procs = Dict{ASCIIString,Int}()
+    for n in node_file
+        procs[n] = get(procs,n,0) + 1
+    end
 
-  println("name of compute nodes:")
-  println(machines)
+    println("name of compute nodes and number of workers:")
+    println(procs)
 
-  # remove master node
-  machines = machines[machines.!=ENV["HOSTNAME"]]
+    # add processes on master itself
+    master = ENV["HOSTNAME"]
 
-  println("workers in machine file:")
-  println(machines)
+    if procs[master] > 1
+        addprocs(procs[master]-1)
+        println("added $(procs[master]-1) processes on master itself")
+    end
+
+    # get a machine file for other hosts
+    machines = ASCIIString[]
+    for i in 1:length(node_file)
+        if node_file[i] != master
+            push!(machines,node_file[i])
+        end
+    end
 
   println("adding machines to current system")
   addprocs(machines, dir= JULIA_HOME )
@@ -30,7 +43,7 @@ end
 
 println("Started julia on legion. binding workers now")
 
-# bind_pe_procs()
+bind_legion_procs()
 
 # require some code on all nodes
 require("../incl.jl")

@@ -7,9 +7,9 @@
 #$ -N mpitest
 #$ -pe openmpi 16
 #$ -P bankruptcy
-#$ -e mpitest.err
-#$ -o mpitest.out
-#$ -wd /home/uctpfos/Scratch/mpitest
+#$ -e /home/uctpfos/Scratch/mpitest/mpitest.err
+#$ -o /home/uctpfos/Scratch/mpitest/mpitest.out
+#$ -wd /home/uctpfos/git/mpitest/julia/legion
 
 
 date

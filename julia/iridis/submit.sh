@@ -2,7 +2,7 @@
 #!/bin/bash
 #PBS -S /bin/bash
 #PBS -q consort
-#PBS -l nodes=2:ppn=12
+#PBS -l nodes=3:ppn=12
 #PBS -l walltime=10:00
 #PBS -o mpi_test.out
 #PBS -e mpi_test.err

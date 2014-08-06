@@ -1,4 +1,4 @@
-
+	
 #!/bin/bash
 #PBS -S /bin/bash
 #PBS -q consort
@@ -18,7 +18,7 @@ module list
 
 # load all modules required for julia
 module unload gcc
-module load gcc/4.8.1
+module initadd gcc/4.8.1
 
 echo "here is your PBS_NODEFILE"
 cat $PBS_NODEFILE
@@ -34,7 +34,8 @@ cat $LD_LIBRARY_PATH
 
 # mpirun matmul > output_file
 
-LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/eisuc151/git/julia/usr/lib
+# LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/eisuc151/git/julia/usr/lib
 
 echo "calling julia now"
-LD_LIBRARY_PATH=$LD_LIBRARY_PATH /home/eisuc151/local/bin/julia sge.jl 
+# LD_LIBRARY_PATH=$LD_LIBRARY_PATH /home/eisuc151/local/bin/julia sge.jl 
+/home/eisuc151/local/bin/julia sge.jl 

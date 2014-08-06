@@ -10,21 +10,16 @@
 # Change to directory from which job was submitted
 cd $PBS_O_WORKDIR
 
-# load openmpi module so that we find the mpirun command
-# module load openmpi
-
 echo "loaded modules"
 module list
 
 # load all modules required for julia
+# in .bash_profile
 # module unload gcc
-module initadd gcc/4.8.1
+# module initadd gcc/4.8.1
 
 echo "here is your PBS_NODEFILE"
 cat $PBS_NODEFILE
-
-echo "loaded modules"
-module list
 
 echo "library path"
 echo $LD_LIBRARY_PATH

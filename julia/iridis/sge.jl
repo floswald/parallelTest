@@ -45,7 +45,9 @@ function bind_iridis_procs()
     # add to julia home
     println("adding machines to JULIA_HOME: $JULIA_HOME")
 
-    addprocs(machines, dir= JULIA_HOME)
+    for m in machines
+        addprocs([m], dir= JULIA_HOME)
+    end
     println("done")
 end
 

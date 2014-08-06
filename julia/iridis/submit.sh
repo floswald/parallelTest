@@ -7,6 +7,8 @@
 #PBS -o mpi_test.out
 #PBS -e mpi_test.err
 
+date
+
 # Change to directory from which job was submitted
 cd $PBS_O_WORKDIR
 

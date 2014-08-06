@@ -17,7 +17,7 @@ echo "loaded modules"
 module list
 
 # load all modules required for julia
-module unload gcc
+# module unload gcc
 module initadd gcc/4.8.1
 
 echo "here is your PBS_NODEFILE"
@@ -27,7 +27,7 @@ echo "loaded modules"
 module list
 
 echo "library path"
-cat $LD_LIBRARY_PATH
+echo $LD_LIBRARY_PATH
 
 # Run matmul executable in parallel over number of nodes/processors requested
 # by job (2*8 by default in #PBS line above), output messages go to output_file

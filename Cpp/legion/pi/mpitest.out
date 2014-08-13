@@ -1,0 +1,31 @@
+/cm/local/apps/sge/current/default/spool/node-a34/active_jobs/4214007.1/pe_hostfile
+node-a34
+node-a34
+node-a34
+node-a34
+node-a35
+node-a35
+node-a35
+node-a35
+here are my modules:
+note you need a PE that is compatible with the compiler. but they force this on legion anyway.
+
+Grid Engine parallel launcher abstraction layer version i (release)
+Dr Owain Kenway, RCFS, RITS, ISD, UCL, 16th of May, 2013
+
+Using environment: qlc
+Running on 8 slots.
+TMPDIR=/tmpdir/job/4214007.undefined
+
+Contents of machinefile:
+node-a34
+node-a34
+node-a34
+node-a34
+node-a35
+node-a35
+node-a35
+node-a35
+
+The value for n is 10000 
+pi is approximately 3.1415926544231265, Error is 0.0000000008333334, 0.000273943 seconds taken.

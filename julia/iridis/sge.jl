@@ -45,7 +45,9 @@ function bind_iridis_procs()
     # add to julia home
     println("adding machines to JULIA_HOME: $JULIA_HOME")
 
-    addprocs(machines, dir= JULIA_HOME)
+    for m in machines
+        addprocs([m], dir= JULIA_HOME)
+    end
     println("done")
 end
 
@@ -68,11 +70,11 @@ println("make everybody do some math")
 pmap( i->domath(i), [100 for j in 1:length(workers())] )
 
 
-# println("trying parallel for loop with $(nprocs()) processes")
-# println("numworkers: $(length(workers()))")
-# println("workers: $(workers())")
-# @time map( n -> sum(svd(rand(n,n))[1]) , [800 for i in 1:20]);
-# @time pmap( n -> sum(svd(rand(n,n))[1]) , [800 for i in 1:24]);
+println("trying parallel for loop with $(nprocs()) processes")
+println("numworkers: $(length(workers()))")
+println("workers: $(workers())")
+@time map( n -> sum(svd(rand(n,n))[1]) , [800 for i in 1:20]);
+@time pmap( n -> sum(svd(rand(n,n))[1]) , [800 for i in 1:24]);
 
 println(" quitting ")
 

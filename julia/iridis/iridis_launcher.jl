@@ -1,6 +1,3 @@
-
-
-
 function bind_iridis_procs()
 
     home = ENV["HOME"]

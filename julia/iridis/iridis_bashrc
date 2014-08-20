@@ -1,0 +1,41 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+
+
+# User specific environment and startup programs
+PYTHONPATH='/home/eisuc151/local/lib/python2.6/site-packages/'
+export PYTHONPATH
+
+
+# default modules
+module load gcc/4.8.1
+module load python
+
+# add local bin
+PATH=$HOME/local/bin:$PATH
+export PATH
+
+# User specific aliases and functions
+
+## add colors to bash
+alias ls='ls --color'
+LS_COLORS='di=1;34:fi=0:ln=31:pi=5:so=5:bd=5:cd=5:or=31:mi=0:ex=35:*.sh=31:*.r=32:*.R=32:*.out=35'
+export LS_COLORS
+## end colors
+
+## autojump
+[[ -s /home/eisuc151/.autojump/etc/profile.d/autojump.sh ]] && source /home/eisuc151/.autojump/etc/profile.d/autojump.sh
+
+
+## turn off SSL verification for git
+export GIT_SSL_NO_VERIFY=true
+
+## alias
+alias 1node='qsub -q consort -I -l walltime=00:05:00,nodes=1:ppn=12'
+alias 2node='qsub -q consort -I -l walltime=00:05:00,nodes=2:ppn=12'
+

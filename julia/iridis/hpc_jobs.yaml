@@ -2,7 +2,7 @@ test:
   name:   parTest
   desc:   simple parallel Test
   nnodes:   3
-  ppnodes:   12
+  ppnodes:   9
   hours: 00
   mins: 5
   logout:   test.log

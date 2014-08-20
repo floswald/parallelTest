@@ -19,6 +19,9 @@ println("make everybody do some math")
 
 pmap( i->domath(i), [100 for j in 1:length(workers())] )
 
+println("make everybody pass a memory test")
+
+pmap( i->doBIGmath(), 1:length(workers()) )
 
 println("trying parallel for loop with $(nprocs()) processes")
 println("numworkers: $(length(workers()))")

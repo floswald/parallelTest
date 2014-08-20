@@ -16,3 +16,13 @@ function domath(i::Integer)
 	x = rand(i,i)
 	mean(x)
 end
+
+
+
+function doBIGmath()
+	println("allocating a 30000 by 10000 matrix ")
+	x = rand(30000,10000);
+	r = round(sizeof(x) /  1.074e+9 , 2)
+	println("my matrix has $r GB")
+	mean(x)
+end

@@ -92,7 +92,7 @@ function bind_iridis_procs(ppn::Int)
         wrker = 0
         if k!=master
             while wrker < ppn
-                addprocs(k, dir= JULIA_HOME)
+                addprocs([k], dir= JULIA_HOME)
                 # println("addprocs($k)")
                 wrker += 1
             end

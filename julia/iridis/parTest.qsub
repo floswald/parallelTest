@@ -3,6 +3,8 @@
 #PBS -q consort
 #PBS -l nodes={{nnodes}}:ppn={{ppnodes}}
 #PBS -l walltime={{hours}}:{{mins}}:00
+#PBS -m ea
+#PBS -M florian.oswald@gmail.com
 #PBS -N {{name}}
 #PBS -o {{logout}}
 #PBS -e {{logerr}}

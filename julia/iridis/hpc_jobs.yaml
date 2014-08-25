@@ -10,3 +10,16 @@ test:
   template: parTest.qsub
   run:   sge.jl 
   exec:   /home/eisuc151/local/bin/julia
+
+test_8:
+  name:   parTest_8
+  desc:   simple parallel Test with 8 nodes per core
+  nnodes:   3
+  ppnodes:   12
+  hours: 00
+  mins: 5
+  logout:   test.log
+  logerr:   test.err
+  template: parTest.qsub
+  run:   sge_8procs.jl 
+  exec:   /home/eisuc151/local/bin/julia

@@ -13,11 +13,21 @@ some general info about the iridis HPC system: http://www.cfi.ses.ac.uk/iridis/u
 
 ## Julia Tests
 
+### Memory
+
+On iridis you have roughly 23GB of physical memory on a compute node. For 12 potential processes per node, that is roughly 1.9GB per process. If your program uses more than this, it will crash without much info. 
+
+One simple solution is to do the following:
+
+1. reserve only full nodes, e.g. require `-l nodes=2:ppn=12`
+2. do not launch all 12 processes on the node, but only as many as you can fit into memory. If you know your program has a memory peak of 2.5GB to, you should only start `floor(23/2.5) = 9` processes
+3. with the function `bind_iridis_procs(ppn::Int)` in this directory this is easily accomplished: `ppn` is processes per node, i.e. the number of workers you want to launch.
+
 ### Environment Variables
 
-1) make sure your `~/.bashrc` looks exactly like mine. Notice that only `~/.bashrc` gets sourced into a non-interactive session. Things you do in `~/.bash_profile` will not be visible. 
-2) in my `~/.bashrc` some things are optional (autojump, colors, GIT_SSL and the aliases): what's crucial are the loaded modules. Those must be the ones loaded when you built `julia`
-3) look at `submit.sh`: no additional modules loaded!
+1. make sure your `~/.bashrc` looks exactly like mine. Notice that only `~/.bashrc` gets sourced into a non-interactive session. Things you do in `~/.bash_profile` will not be visible. 
+2. in my `~/.bashrc` some things are optional (autojump, colors, GIT_SSL and the aliases): what's crucial are the loaded modules. Those must be the ones loaded when you built `julia`
+3. look at `submit.sh`: no additional modules loaded!
 
 ### Running the test
 

@@ -47,3 +47,5 @@ you can run this test by calling
 ```julia
 pmap( i->doBIGmath(), 1:length(workers()) )
 ```
+
+If you should encounter this memory problem, there are various ways. The best solution will be platform specific, so have a look at the subfolders of each platform to see what worked.

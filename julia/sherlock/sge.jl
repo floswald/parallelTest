@@ -20,8 +20,10 @@ pmap( i->doBIGmath(), 1:length(workers()) )
 println("trying parallel for loop with $(nprocs()) processes")
 println("numworkers: $(length(workers()))")
 println("workers: $(workers())")
-@time map( n -> sum(svd(rand(n,n))[1]) , [800 for i in 1:20]);
-@time pmap( n -> sum(svd(rand(n,n))[1]) , [800 for i in 1:24]);
+println("timing on a single core:")
+@time map( n -> sum(svd(rand(n,n))[1]) , [800 for i in 1:50]);
+println("timing on $(length(workers())) cores")
+@time pmap( n -> sum(svd(rand(n,n))[1]) , [800 for i in 1:50]);
 
 println(" quitting ")
 

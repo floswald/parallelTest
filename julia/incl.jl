@@ -4,8 +4,16 @@
 
 # to be run on all nodes
 
+function gethostname()
+  hostname = Array(Uint8, 128)
+  ccall( (:gethostname, "libc"), Int32,
+        (Ptr{Uint8}, Uint),
+        hostname, length(hostname))
+  return bytestring(convert(Ptr{Uint8}, hostname))
+end
+
 function sayhello()
-   println("hi I am worker number $(myid())")
+   println("hi I am worker number $(myid()), I live on $(gethostname())")
 end
 
 function domath(i::Integer)
@@ -26,3 +34,4 @@ function doBIGmath()
 	println("my matrix has $r GB")
 	mean(x)
 end
+

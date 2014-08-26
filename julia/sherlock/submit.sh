@@ -14,6 +14,10 @@ cat $PE_HOSTFILE
 
 echo "my library path is"
 echo $LD_LIBRARY_PATH
+
+echo "adding gcc library to path:"
+LD_LIBRARY_PATH=/home/florian_o/local/gcc-4.9/lib64:$LD_LIBRARY_PATH
+echo $LD_LIBRARY_PATH
 echo "calling julia now"
 
 

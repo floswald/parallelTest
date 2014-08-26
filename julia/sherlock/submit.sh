@@ -21,5 +21,5 @@ echo $LD_LIBRARY_PATH
 echo "calling julia now"
 
 
-/home/florian_o/local/bin/julia /home/florian_o/git/paralleTest/julia/sherlock/sge.jl
+/home/florian_o/local/bin/julia /home/florian_o/git/parallelTest/julia/sherlock/sge.jl
 

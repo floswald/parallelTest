@@ -10,7 +10,7 @@ print(date())
 
 
 # start up cluster
-mycl <- makeCluster(type='MPI',count=31)
+mycl <- makeCluster()
 
 .Last <- function(){
 	print("goodbye.")

@@ -14,7 +14,7 @@ function bind_sherlock_procs()
     procs = Dict{ASCIIString,Int}()
     for line in node_file
         line_parts = split(line," ")
-        procs[line_parts[1]] = line_parts[2]
+        procs[line_parts[1]] = int(line_parts[2])
     end
 
     println("names of compute nodes and number of workers:")

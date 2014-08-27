@@ -11,6 +11,26 @@ some general info about the iridis HPC system: http://www.cfi.ses.ac.uk/iridis/u
 * you have a hard time limit, after which your job is killed
 * the PBS manager does **NOT** continuously update your output and error stream while the job is running. It dumps things into a tmp file and only after the job has finished or failed you will see anything.
 
+## Some (Iridis) Gotcha's
+
+1. Julia uses ssh to run in parallel. SSH is *very* picky when it comes to file permission. I had to `chmod 600 ~/.ssh/id_rsa`, which was not default. basically, I followed [this advice](http://superuser.com/questions/215504/permissions-on-private-key-in-ssh-folder)
+2. I think there is a time lag between the machines that messed up launching worker processes for me. In particular, in `bind_iridis_procs()` doing this did not work:
+
+```julia
+# machines is an ASCIIString[] with machine names
+addprocs(machines, dir= JULIA_HOME)
+```
+
+while adding machines one by one did work:
+
+```julia
+for m in machines
+    addprocs([m], dir= JULIA_HOME)
+end
+addprocs(m)
+```
+
+
 ## Julia Tests
 
 ### Memory

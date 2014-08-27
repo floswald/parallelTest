@@ -1,4 +1,7 @@
 #!/bin/bash 
+
+source ~/.bashrc
+
 #$ -S /bin/bash   # <- run the job under bash
 #$ -V  
 #$ -pe impi_tight 16  

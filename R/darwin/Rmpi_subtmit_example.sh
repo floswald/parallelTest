@@ -59,7 +59,7 @@ module add rmpi/0.6-5
 application="mpirun -np 1 Rscript"
 
 #! Run options for the application:
-options="exp.r"
+options="helloWorld.R"
 
 #! Work directory (i.e. where the job will run):
 workdir="$SLURM_SUBMIT_DIR"  # The value of SLURM_SUBMIT_DIR sets workdir to the directory
@@ -86,7 +86,7 @@ np=$[${numnodes}*${mpi_tasks_per_node}]
 #! Uncomment one choice for CMD below (add mpirun/mpiexec options if necessary):
 
 #! Choose this for a MPI code (possibly using OpenMP) using Intel MPI.
-#CMD="mpirun -ppn $mpi_tasks_per_node -np $np $application $options"
+CMD="mpirun -ppn $mpi_tasks_per_node -np $np $application $options"
 
 #! Choose this for a pure shared-memory OpenMP parallel program on a single node:
 #! (OMP_NUM_THREADS threads will be created):
@@ -95,7 +95,7 @@ np=$[${numnodes}*${mpi_tasks_per_node}]
 #! Choose this for a MPI code (possibly using OpenMP) using OpenMPI:
 #CMD="mpirun -npernode $mpi_tasks_per_node -np $np $application $options"
 
-CMD="mpirun -np $np /home/hpcgu1/R/x86_64-unknown-linux-gnu-library/3.1/snow/RMPISNOW -q < $options"
+#CMD="mpirun -np $np /home/hpcgu1/R/x86_64-unknown-linux-gnu-library/3.1/snow/RMPISNOW -q < $options"
 ###############################################################
 ### You should not have to change anything below this line ####
 ###############################################################

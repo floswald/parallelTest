@@ -10,7 +10,7 @@ print(date())
 
 
 # start up cluster
-mycl <- makeCluster(type='MPI',spec=31)
+mycl <- makeCluster()
 
 .Last <- function(){
 	print("goodbye.")
@@ -46,8 +46,8 @@ parLapply(mycl,arg,quantile)
 # assignments <- clusterSplit(mycl,tasks)
 
 #parLapply(mycl,assignments,myfun)
-#cat('goodbye')
-#stopCluster(mycl)
+cat('goodbye')
+stopCluster(mycl)
 
 
 

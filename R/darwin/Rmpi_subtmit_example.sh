@@ -48,7 +48,7 @@ mpi_tasks_per_node=$(echo "$SLURM_TASKS_PER_NODE" | sed -e  's/^\([0-9][0-9]*\).
 #! (note that SLURM reproduces the environment at submission irrespective of ~/.bashrc):
 . /etc/profile.d/modules.sh                # Leave this line (enables the module command)
 module purge                               # Removes all modules still loaded
-module load default-impi                   # REQUIRED - loads the basic environment
+#module load default-impi                   # REQUIRED - loads the basic environment
 module add scheduler R/3.1.1
 module add rmpi/0.6-5 
 
@@ -56,12 +56,10 @@ module add rmpi/0.6-5
 
 #! Full path to application executable: 
 #application="mpirun -np 1 R CMD BATCH"
-#application="mpirun -np 1 Rscript"
-#application="mpirun -np 1 Rscript"
-application= ""
+application="mpirun -np 1 Rscript"
 
 #! Run options for the application:
-options="exp.r"
+options="helloWorld.R"
 
 #! Work directory (i.e. where the job will run):
 workdir="$SLURM_SUBMIT_DIR"  # The value of SLURM_SUBMIT_DIR sets workdir to the directory
@@ -76,8 +74,8 @@ np=$[${numnodes}*${mpi_tasks_per_node}]
 
 #! The following variables define a sensible pinning strategy for Intel MPI tasks -
 #! this should be suitable for both pure MPI and hybrid MPI/OpenMP jobs:
-export I_MPI_PIN_DOMAIN=omp:compact # Domains are $OMP_NUM_THREADS cores in size
-export I_MPI_PIN_ORDER=scatter # Adjacent domains have minimal sharing of caches/sockets
+#export I_MPI_PIN_DOMAIN=omp:compact # Domains are $OMP_NUM_THREADS cores in size
+#export I_MPI_PIN_ORDER=scatter # Adjacent domains have minimal sharing of caches/sockets
 #! Notes:
 #! 1. These variables influence Intel MPI only.
 #! 2. Domains are non-overlapping sets of cores which map 1-1 to MPI tasks.
@@ -92,12 +90,12 @@ export I_MPI_PIN_ORDER=scatter # Adjacent domains have minimal sharing of caches
 
 #! Choose this for a pure shared-memory OpenMP parallel program on a single node:
 #! (OMP_NUM_THREADS threads will be created):
-#CMD="$application $options"
+CMD="$application $options"
 
 #! Choose this for a MPI code (possibly using OpenMP) using OpenMPI:
 #CMD="mpirun -npernode $mpi_tasks_per_node -np $np $application $options"
 
-CMD="mpirun -np $np /home/hpcgu1/R/x86_64-unknown-linux-gnu-library/3.1/snow/RMPISNOW -q < $options"
+#CMD="mpirun -np $np /home/hpcgu1/R/x86_64-unknown-linux-gnu-library/3.1/snow/RMPISNOW -q < $options"
 ###############################################################
 ### You should not have to change anything below this line ####
 ###############################################################

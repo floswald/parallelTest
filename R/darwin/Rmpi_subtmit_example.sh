@@ -86,14 +86,14 @@ np=$[${numnodes}*${mpi_tasks_per_node}]
 #! Uncomment one choice for CMD below (add mpirun/mpiexec options if necessary):
 
 #! Choose this for a MPI code (possibly using OpenMP) using Intel MPI.
-CMD="mpirun -ppn $mpi_tasks_per_node -np $np $application $options"
+#CMD="mpirun -ppn $mpi_tasks_per_node -np $np $application $options"
 
 #! Choose this for a pure shared-memory OpenMP parallel program on a single node:
 #! (OMP_NUM_THREADS threads will be created):
 #CMD="$application $options"
 
 #! Choose this for a MPI code (possibly using OpenMP) using OpenMPI:
-#CMD="mpirun -npernode $mpi_tasks_per_node -np $np $application $options"
+CMD="mpirun -npernode $mpi_tasks_per_node -np $np $application $options"
 
 #CMD="mpirun -np $np /home/hpcgu1/R/x86_64-unknown-linux-gnu-library/3.1/snow/RMPISNOW -q < $options"
 ###############################################################

@@ -56,7 +56,8 @@ module add rmpi/0.6-5
 
 #! Full path to application executable: 
 #application="mpirun -np 1 R CMD BATCH"
-application="mpirun -np 1 Rscript"
+#application="mpirun -np 1 Rscript"
+application="R --no-save -q <"
 
 #! Run options for the application:
 options="helloWorld.R"
@@ -74,8 +75,8 @@ np=$[${numnodes}*${mpi_tasks_per_node}]
 
 #! The following variables define a sensible pinning strategy for Intel MPI tasks -
 #! this should be suitable for both pure MPI and hybrid MPI/OpenMP jobs:
-#export I_MPI_PIN_DOMAIN=omp:compact # Domains are $OMP_NUM_THREADS cores in size
-#export I_MPI_PIN_ORDER=scatter # Adjacent domains have minimal sharing of caches/sockets
+export I_MPI_PIN_DOMAIN=omp:compact # Domains are $OMP_NUM_THREADS cores in size
+export I_MPI_PIN_ORDER=scatter # Adjacent domains have minimal sharing of caches/sockets
 #! Notes:
 #! 1. These variables influence Intel MPI only.
 #! 2. Domains are non-overlapping sets of cores which map 1-1 to MPI tasks.

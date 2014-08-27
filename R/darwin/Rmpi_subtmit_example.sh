@@ -58,7 +58,7 @@ module add rmpi/0.6-5
 #application="mpirun -np 1 R CMD BATCH"
 #application="mpirun -np 1 Rscript"
 #application="mpirun -np 1 Rscript"
-application= "/home/hpcgu1/R/x86_64-unknown-linux-gnu-library/3.1/snow/RMPISNOW"
+application= ""
 
 #! Run options for the application:
 options="exp.r"
@@ -97,7 +97,7 @@ export I_MPI_PIN_ORDER=scatter # Adjacent domains have minimal sharing of caches
 #! Choose this for a MPI code (possibly using OpenMP) using OpenMPI:
 #CMD="mpirun -npernode $mpi_tasks_per_node -np $np $application $options"
 
-CMD="mpirun -ppn $mpi_tasks_per_node -np $np $application -q < $options"
+CMD="mpirun -ppn $mpi_tasks_per_node -np $np /home/hpcgu1/R/x86_64-unknown-linux-gnu-library/3.1/snow/RMPISNOW -q < $options"
 ###############################################################
 ### You should not have to change anything below this line ####
 ###############################################################

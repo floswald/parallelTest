@@ -1,0 +1,49 @@
+Changed directory to /home/hpcgu1/git/parallelTest/R/darwin.
+
+JobID: 622262
+======
+Time: Wed Aug 27 16:31:26 BST 2014
+Running on master node: sand-5-42
+Current directory: /home/hpcgu1/git/parallelTest/R/darwin
+
+Nodes allocated:
+================
+sand-5-42 sand-5-43
+
+numtasks=32, numnodes=2, mpi_tasks_per_node=16 (OMP_NUM_THREADS=1)
+
+Executing command:
+==================
+mpirun -np 32 /home/hpcgu1/R/x86_64-unknown-linux-gnu-library/3.1/snow/RMPISNOW -q < exp.r
+
+> 
+> 
+> 
+> # R script. export data from master, execute a function collect results
+> # load master libraries
+> 
+> require(snow)
+Loading required package: snow
+> 
+> print(date())
+[1] "Wed Aug 27 16:31:29 2014"
+> 
+> 
+> # start up cluster
+> mycl <- makeCluster(type='MPI')
+Error in makeMPIcluster(spec, ...) : 
+  could not find function "mpi.comm.size"
+Calls: makeCluster -> makeMPIcluster
+Execution halted
+-------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code.. Per user-direction, the job has been aborted.
+-------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[1595,1],0]
+  Exit code:    1
+--------------------------------------------------------------------------
+slurmstepd: task_p_post_term: rmdir(/cgroup/cpuset/slurm622262/slurm622262.0_0) failed No such file or directory

@@ -1,53 +1,40 @@
-function bind_legion_procs()
-    # filestream = open(ENV["PBS_NODEFILE"])
-    home = ENV["HOME"]
-    node_file_name = ENV["PE_HOSTFILE"]
+function parseNodeList(s)
+    s = replace(s,"]","")
+    ss = split(s,"[")
+    r = Dict()
+    r[:hostname] = ss[1]
 
-    # parse the file - extract addresses and number of procs
-    # on each
-    # filestream = open("pe_file_ex.txt")
-    filestream = open(node_file_name)
-    seekstart(filestream)
-    linearray = readlines(filestream)
-
-    println(linearray)
-
-    procs = Dict{ASCIIString,Int}()
-    for line in linearray
-        line_parts = split(line," ")
-        procs[line_parts[1]] = int(line_parts[2])
+    nodes = Int64[]
+    for x in  split(ss[2],",")
+        if search(x,'-')>0
+          xx = split(x,"-")
+          for v in int(xx[1]):int(xx[2])   
+            push!(nodes,v)
+          end
+        else
+            push!(nodes,int(x))
+        end
     end
 
-    println("name of compute nodes and number of workers:")
-    println(procs)
+    r[:nodes] = nodes[1:end]
+
+    return(r)
+end
+
+function bind_uocmidway_procs()
+    # filestream = open(ENV["PBS_NODEFILE"])
+    home = ENV["HOME"]
+    host_list = ENV["SLURM_JOB_NODELIST"]
+
+    nodes = parseNodeList(host_list)
+    println(nodes)
 
     # add processes on master itself
     mast = ENV["HOSTNAME"]
 
-    # find full master's name [ why can i not just do readall(run(`hostname -f`))] ??? very annoying!
-    procnames = collect(keys(procs))
-    master = ""
-    for n in procnames
-        if contains(n,mast)
-            master = n
-            break
-        end
-    end
-
-    if procs[master] > 1
-        addprocs(procs[master]-1)
-        println("added $(procs[master]-1) processes on master itself")
-    end
-
     # get a machine file for other hosts
-    machines = ASCIIString[]
-    for (k,n) in procs
-        if k!= master
-            for i=1:n
-                push!(machines,k)
-            end
-        end
-    end
+    machines = [ "$(r[:hostname])$i" for i in nodes[:nodes]]
+    machines = filter(x -> x!=mast,machines)) # remove current machine
 
     println("processes on other hosts:")
     println(machines)

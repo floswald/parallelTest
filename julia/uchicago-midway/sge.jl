@@ -41,7 +41,7 @@ function bind_uocmidway_procs()
     mast = ENV["HOSTNAME"]
 
     # get a machine file for other hosts
-    machines = [ hostname(r[:hostname],i) for i in nodes[:nodes]]
+    machines = [ hostname(nodes[:hostname],i) for i in nodes[:nodes]]
     machines = filter(x -> x!=mast,machines) # remove current machine
 
     println("processes on other hosts:")

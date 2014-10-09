@@ -21,6 +21,14 @@ function parseNodeList(s)
     return(r)
 end
 
+function hostname(n,i)
+    pad = 2 - int(floor(log(i)/log(10)))
+    pad = repeat("0",pad)
+    res = "$(n)$(pad)$i"
+    return res
+end
+
+
 function bind_uocmidway_procs()
     # filestream = open(ENV["PBS_NODEFILE"])
     home = ENV["HOME"]
@@ -33,7 +41,7 @@ function bind_uocmidway_procs()
     mast = ENV["HOSTNAME"]
 
     # get a machine file for other hosts
-    machines = [ "$(r[:hostname])$i" for i in nodes[:nodes]]
+    machines = [ hostname(r[:hostname],i) for i in nodes[:nodes]]
     machines = filter(x -> x!=mast,machines)) # remove current machine
 
     println("processes on other hosts:")

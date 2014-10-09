@@ -46,7 +46,7 @@ end
 
 println("Started julia on legion. binding workers now")
 
-bind_legion_procs()
+bind_uocmidway_procs()
 
 # require some code on all nodes
 require("../incl.jl")

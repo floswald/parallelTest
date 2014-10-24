@@ -38,7 +38,7 @@ function bind_pe_procs()
 
 
   println("adding machines to current system")
-  addprocs(machines, dir= "/data/uctpfos/git/julia/")
+  addprocs(machines, dir= JULIA_HOME)
   println("done")
 end
 

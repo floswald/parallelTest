@@ -19,4 +19,7 @@ module load julia/0.3.1
 
 echo "calling mpirun now"
 
-julia /data/uctpfos/git/parallelTest/julia/sge.jl
+
+cat $PE_HOSTFILE
+
+julia /data/uctpfos/git/parallelTest/julia/ucl-econ/sge.jl

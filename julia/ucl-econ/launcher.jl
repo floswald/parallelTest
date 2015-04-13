@@ -10,36 +10,39 @@ function bind_ucl_procs()
     seekstart(filestream)
 
     linearray = readlines(filestream)
+
     # get number of workers on each node
     procs = Dict{ASCIIString,Int}()
-    procs = map(linearray) do line
+    for line in linearray
         line_parts = split(line," ")
-        proc = ["name" => line_parts[1], "n" => int(line_parts[2])]
+        procs[line_parts[1]] = int(line_parts[2])
     end
-
 
     println("name of compute nodes and number of workers:")
     println(procs)
 
-    # # add processes on master itself
-    # master = ENV["HOSTNAME"]
+    # add processes on master itself
+    master = ENV["HOSTNAME"]
 
-    # if procs[master] > 1
-    #     addprocs(procs[master]-1)
-    #     println("added $(procs[master]-1) processes on master itself")
-    # end
+    if procs[master] > 1
+        addprocs(procs[master]-1)
+        println("added $(procs[master]-1) processes on master itself")
+    end
 
     # # get a machine file for other hosts
-    # machines = ASCIIString[]
-    # for i in 1:length(node_file)
-    #     if node_file[i] != master
-    #         push!(machines,node_file[i])
-    #     end
-    # end
+    machines = ASCIIString[]
+    for (k,v) in procs
+        # if you are not on the master
+        if k != master
+            # push as many nodes onto the machinefile as you were assigned
+            for i=1:v
+                push!(machines,k)
+            end
+        end
+    end
 
-
-    # println("processes on worker machines:")
-    # println(machines)
+    println("processes on worker machines:")
+    println(machines)
 
     # # add to julia home
     # println("adding machines to JULIA_HOME: $JULIA_HOME")

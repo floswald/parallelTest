@@ -16,11 +16,15 @@ module load sge/2011.11
 #$ -e test.err # <- name of the stderr file.
 #$ -wd /data/uctpfos/git/parallelTest/julia/ucl-econ
 
-echo "calling mpirun now"
+echo "checking environment:"
+echo "====================="
 
-cat "your DL_LIBRARY"
+echo "your DL_LIBRARY"
 echo $DL_LIBRARY_PATH
 
+echo "your hostfile:"
 cat $PE_HOSTFILE
+
+echo "calling julia now:"
 
 /data/uctpfos/git/julia/julia /data/uctpfos/git/parallelTest/julia/ucl-econ/sge.jl

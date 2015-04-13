@@ -1,4 +1,4 @@
-function bind_ucl_procs()
+function ucl_econ_launcher()
 
     home = ENV["HOME"]
 
@@ -25,6 +25,7 @@ function bind_ucl_procs()
     master = ENV["HOSTNAME"]
 
     if procs[master] > 1
+        println("node $master is the master")
         addprocs(procs[master]-1)
         println("added $(procs[master]-1) processes on master itself")
     end
@@ -44,13 +45,13 @@ function bind_ucl_procs()
     println("processes on worker machines:")
     println(machines)
 
-    # # add to julia home
-    # println("adding machines to JULIA_HOME: $JULIA_HOME")
-    # for m in machines
-    #     addprocs([m], dir= JULIA_HOME)
-    # end
+    # add to julia home
+    println("adding machines to JULIA_HOME: $JULIA_HOME")
+    for m in machines
+        addprocs([m], dir= JULIA_HOME)
+    end
 
-    println("launcher: done")
+    println("ucl_econ_launcher: done")
 end
 
 function bind_iridis_procs(ppn::Int)

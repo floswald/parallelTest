@@ -1,4 +1,4 @@
-function bind_iridis_procs()
+function bind_ucl_procs()
 
     home = ENV["HOME"]
 

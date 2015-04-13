@@ -50,7 +50,7 @@ println("Started julia")
 
 include("launcher.jl")
 
-# bind_pe_procs()
+bind_ucl_procs()
 
 # here a function that runs your estimation:
 # using MOpt, mig

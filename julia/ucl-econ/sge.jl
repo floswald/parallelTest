@@ -37,8 +37,10 @@ function bind_pe_procs()
   println(machines)
 
 
-  println("adding machines to current system")
-  addprocs(machines, dir= JULIA_HOME)
+    println("adding machines to JULIA_HOME: $JULIA_HOME")
+    for m in machines
+        addprocs([m], dir= JULIA_HOME)
+    end
   println("done")
 end
 

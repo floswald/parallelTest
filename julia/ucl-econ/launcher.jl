@@ -47,8 +47,8 @@ function ucl_econ_launcher()
 
     # add to julia home
     println("adding machines to JULIA_HOME: $JULIA_HOME")
-    for m in machines
-        addprocs([m])
+    for m in 1:length(machines)
+        addprocs([machines[m]])
         sleep(1)
     end
 

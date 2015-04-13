@@ -8,16 +8,15 @@ function bind_ucl_procs()
     # read NODEFILE
     filestream = open(node_file_name)
     seekstart(filestream)
-    node_file = readlines(filestream)
 
-    # strip eol
-    node_file = map(x->strip(x,['\n']),node_file)
-
+    linearray = readlines(filestream)
     # get number of workers on each node
     procs = Dict{ASCIIString,Int}()
-    for n in node_file
-        procs[n] = get(procs,n,0) + 1
+    procs = map(linearray) do line
+        line_parts = split(line," ")
+        proc = ["name" => line_parts[1], "n" => int(line_parts[2])]
     end
+
 
     println("name of compute nodes and number of workers:")
     println(procs)

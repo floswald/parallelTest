@@ -19,8 +19,8 @@ module load sge/2011.11
 echo "checking environment:"
 echo "====================="
 
-echo "your DL_LIBRARY"
-echo $DL_LIBRARY_PATH
+echo "your LD_LIBRARY"
+echo $LD_LIBRARY_PATH
 
 echo "your hostfile:"
 cat $PE_HOSTFILE

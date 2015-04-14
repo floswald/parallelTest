@@ -27,4 +27,4 @@ cat $PE_HOSTFILE
 
 echo "calling julia now:"
 
-/data/uctpfos/git/julia/julia /data/uctpfos/git/parallelTest/julia/ucl-econ/sge.jl
+julia /data/uctpfos/git/parallelTest/julia/ucl-econ/sge.jl

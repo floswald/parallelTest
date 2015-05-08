@@ -22,7 +22,7 @@ serfun <- function(joblist){
 	names(nname) <- NULL
 
 	# 40 times over
-	for (i in 1:19){
+	for (i in 1:40){
 		nums <- lapply(joblist, function(x) fibR(x))
 	}
 

@@ -15,8 +15,9 @@ date
 #$ -e timer.err # <- name of the stderr file.
 #$ -wd ~/git/mpitest/R/clusterTime
 
-module load openmpi
-module load open64
+module add openmpi/gcc
+#module load openmpi
+#module load open64
 module load gcc
 module load r/3.1.3
 

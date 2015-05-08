@@ -3,7 +3,7 @@
 # multicore/MPI test
 
 # benchmarks multicore against single thread.
-
+source("slaves.r")
 
 
 library(snow)
@@ -12,7 +12,6 @@ reps <- 5	# how many repetitions
 
 # make cluster
 mycl <- makeMPIcluster(19)
-mycl
 
 num.worker <- length(clusterEvalQ(mycl,Sys.info()))	# num.worker chosen in submit script
 

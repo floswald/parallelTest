@@ -13,7 +13,7 @@ date
 #$ -N mpi-timing # <- name of the job in the qstat output
 #$ -o timer.out # direct output stream to here
 #$ -e timer.err # <- name of the stderr file.
-#$ -wd ~/git/mpitest/R/clusterTime
+#$ -cwd 
 
 module add openmpi/gcc
 #module load openmpi

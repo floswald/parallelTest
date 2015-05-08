@@ -25,5 +25,5 @@ echo "loaded modules"
 module list
 
 echo "calling mpirun now"
-mpirun -np 8 /data/uctpfos/R/x86_64-unknown-linux-gnu-library/3.0/snow/RMPISNOW -q < timer.r > timer.Rout
+mpirun -np 8 /data/uctpfos/R/x86_64-unknown-linux-gnu-library/3.1/snow/RMPISNOW -q < timer.r > timer.Rout
 

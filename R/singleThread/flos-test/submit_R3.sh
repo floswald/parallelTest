@@ -11,7 +11,7 @@ date
 #$ -S /bin/bash   # <- run the job under bash
 #$ -N exp-test # <- name of the job in the qstat output
 #$ -o exp.out # <- name of the output file.
-#$ -e exp.err # <- name of the stderr file.
+#$ -j y
 #$ -cwd
 
 module load openmpi/gcc

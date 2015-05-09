@@ -14,13 +14,13 @@ date
 #$ -e exp.err # <- name of the stderr file.
 #$ -cwd
 
-module load openmpi
-module load r/3.0.1
+module load openmpi/gcc
+module load r/3.1.3
 
 echo "loaded modules"
 module list
 
 echo "calling mpirun now"
-mpirun -np 3 /data/uctpfos/R/x86_64-unknown-linux-gnu-library/3.0/snow/RMPISNOW -q < exp.r > exp.Rout
+mpirun -np 3 ~/R/x86_64-unknown-linux-gnu-library/3.1/snow/RMPISNOW -q < exp.r > exp.Rout
 
 

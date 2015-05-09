@@ -12,7 +12,7 @@ print(date())
 
 
 # start up cluster
-mycl <- makeCluster()
+mycl <- makeCluster(type="MPI")
 print(clusterCall(mycl, function() Sys.info()))
 print(length(clusterEvalQ(mycl, Sys.info())))
 #clusterExport(mycl,"c")

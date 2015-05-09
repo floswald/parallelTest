@@ -4,6 +4,7 @@
 # R script. export data from master, execute a function collect results
 # load master libraries
 
+require(Rmpi)
 require(snow)
 # require(RcppSimpleTensor)   
 

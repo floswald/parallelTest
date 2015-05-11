@@ -14,8 +14,8 @@ print(date())
 
 
 # start up cluster
-mpi.spawn.Rslaves()
-#mycl <- makeCluster(spec=2, type="MPI")
+#mpi.spawn.Rslaves()
+mycl <- makeCluster(type="MPI")
 print(clusterCall(mycl, function() Sys.info()))
 print(length(clusterEvalQ(mycl, Sys.info())))
 #clusterExport(mycl,"c")

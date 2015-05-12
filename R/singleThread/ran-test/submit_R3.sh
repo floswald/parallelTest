@@ -23,6 +23,7 @@ echo "loaded modules"
 module load sge/2011.11
 module load openmpi/intel
 module load r/3.1.3
+module load intel-cluster-runtime
 module list
 
 echo "MPI_ROOT"

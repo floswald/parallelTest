@@ -15,7 +15,7 @@ date
 #$ -cwd
 
 echo "loaded modules"
-#module load gcc
+module load gcc/0-test-4.9.0
 module load openmpi/gcc
 module load r/3.1.3
 module list

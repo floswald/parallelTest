@@ -23,10 +23,12 @@ module load openmpi/gcc/64/1.4.5
 #module load mpich/ge/gcc
 #module load openmpi/intel
 module load r/3.1.3
+module load mpiexec
 #module load intel-cluster-runtime
 module list
 
 echo "LD_LIBRARY_PATH"
+export LD_LIBRARY_PATH=/cm/shared/apps/openmpi/gcc/64/1.4.5/lib64
 printenv LD_LIBRARY_PATH 
 
 echo "MPI_ROOT"

@@ -18,6 +18,9 @@ date
 module load openmpi/gcc
 module load r/3.1.3
 
+printenv MPI_ROOT
+printenv LD_LIBRARY_PATH 
+
 echo "loaded modules"
 module list
 

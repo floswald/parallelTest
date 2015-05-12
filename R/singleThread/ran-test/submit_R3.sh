@@ -14,15 +14,18 @@ date
 #$ -j y
 #$ -cwd
 
+echo "loaded modules"
 #module load gcc
 module load openmpi/gcc
 module load r/3.1.3
+module list
 
+echo "MPI_ROOT"
 printenv MPI_ROOT
+
+echo "LD_LIBRARY_PATH"
 printenv LD_LIBRARY_PATH 
 
-echo "loaded modules"
-module list
 
 echo "calling mpirun now"
 mpirun -np 4 ~/R/x86_64-unknown-linux-gnu-library/3.1/snow/RMPISNOW --no-save -q < exp.r > exp.Rout

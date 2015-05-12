@@ -5,4 +5,4 @@
 #
 
 
-install.packages("Rmpi",configure.args=c("--with-mpi=/cm/shared/apps/mpich/ge/gcc/64/1.2.7"))
+install.packages("Rmpi",configure.args=c("--with-mpi=/cm/shared/apps/openmpi/intel/64/1.4.5"))

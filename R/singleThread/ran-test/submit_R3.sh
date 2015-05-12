@@ -21,6 +21,7 @@ module load r/3.1.3
 module list
 
 echo "MPI_ROOT"
+export MPI_ROOT=/cm/shared/apps/openmpi/gcc/64/1.4.5
 printenv MPI_ROOT
 
 echo "LD_LIBRARY_PATH"

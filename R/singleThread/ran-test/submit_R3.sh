@@ -18,6 +18,8 @@ echo "loaded modules"
 #module load gcc/0-test-4.9.0
 #module load openmpi/gcc
 #module load mpich/ge/gcc
+module purge
+module load sge/2011.11
 module load openmpi/intel
 module load r/3.1.3
 module list

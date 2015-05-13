@@ -2,7 +2,7 @@ library(Rmpi)
 library(parallel)
 
 # start up cluster
-mycl <- makeMPICluster(3)
+mycl <- makeCluster(3)
 print(clusterCall(mycl, function() Sys.info()))
 print(length(clusterEvalQ(mycl, Sys.info())))
 #clusterExport(mycl,"c")

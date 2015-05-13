@@ -1,8 +1,7 @@
-library(Rmpi)
-library(parallel)
+library(snow)
 
 # start up cluster
-mycl <- makeCluster(3)
+mycl <- getMPIcluster()
 print(clusterCall(mycl, function() Sys.info()))
 print(length(clusterEvalQ(mycl, Sys.info())))
 #clusterExport(mycl,"c")

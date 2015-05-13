@@ -23,7 +23,7 @@ f.long<-function(n) {
          log(abs(xx))+xx^2
 }
 
-ncore <- mpi.universe.size()
+ncore <- mpi.universe.size()-1
 cat("ncore:",ncore,"\n")
 system.time(sapply(rep(1E6,ncore),f.long))
 system.time(mpi.apply(rep(1E6,ncore),f.long))

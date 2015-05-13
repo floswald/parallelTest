@@ -36,6 +36,6 @@ echo "your tmphost:"
 echo $tmphosts
 
 echo "calling mpirun now"
-mpirun -np 12 /data/uctprgu/R/x86_64-unknown-linux-gnu-library/3.1/snow/RMPISNOW -q < exp.r > exp.Rout
+mpirun -np 4 /data/uctprgu/R/x86_64-unknown-linux-gnu-library/3.1/snow/RMPISNOW -q < exp.r > exp.Rout
 
 

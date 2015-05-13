@@ -1,8 +1,8 @@
-library(parallel)
+library(snow)
 
 # start up cluster
 ncore <- 31
-cl <- makeCluster(ncore)
+cl <- makeMPIcluster(ncore)
 # if you want to evaluate a funciton f, it needs to be defined on each slave
 f.long<-function(n) {
          xx<-rnorm(n)            

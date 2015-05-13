@@ -1,7 +1,7 @@
-library(snow)
+library(parallel)
 
 # start up cluster
-cl <- getMPIcluster()
+cl <- makeCluster(7)
 print(clusterCall(cl, function() Sys.info()))
 print(length(clusterEvalQ(cl, Sys.info())))
 #clusterExport(cl,"c")
@@ -20,7 +20,12 @@ arg <- lapply(1:20,function(i) rnorm(n=100,mean=i,sd=i))
 clusterApplyLB(cl,arg,quantile)
 
 # if you want to evaluate a funciton f, it needs to be defined on each slave
-
+f.long<-function(n) {
+         xx<-rnorm(n)            
+         log(abs(xx))+xx^2
+}
+system.time(sapply(rep(5E6,11),f.long))
+system.time(parSapply(cl,rep(5E6,11),f.long))
 
 stopCluster(cl)
 

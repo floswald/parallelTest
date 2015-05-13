@@ -1,3 +1,4 @@
+library(Rmpi)
 library(snow)
 
 # start up cluster

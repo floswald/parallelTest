@@ -4,9 +4,10 @@ library(snow)
 
 # start up cluster
 #ncore <- mpi.universe.size()-1
-#cat("ncore:",ncore,"\n")
 cl <- makeCluster(type="MPI")
+cl <- getMPIcluster()
 ncore <- length(cl)
+cat("ncore:",ncore,"\n")
 
 # if you want to evaluate a funciton f, it needs to be defined on each slave
 f.long<-function(n) {

@@ -14,6 +14,9 @@ date
 #$ -j y
 #$ -cwd
 
+tmphosts=`mktemp`
+awk '{ for (i=0; i < $2; ++i) { print $1} }' $PE_HOSTFILE > $tmphosts
+
 echo "loaded modules"
 module load sge/2011.11
 module load openmpi/gcc/64/1.4.5
@@ -29,7 +32,10 @@ echo $LD_LIBRARY_PATH
 echo "your hostfile:"
 cat $PE_HOSTFILE
 
+echo "your tmphost:"
+echo $tmphosts
+
 echo "calling mpirun now"
-mpirun -np $NSLOTS ~/R/x86_64-unknown-linux-gnu-library/3.1/snow/RMPISNOW --no-save -q < exp.r > exp.Rout
+mpirun -np $NSLOTS -machinefile $tmphosts ~/R/x86_64-unknown-linux-gnu-library/3.1/snow/RMPISNOW --no-save -q < exp.r > exp.Rout
 
 

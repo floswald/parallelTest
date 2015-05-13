@@ -4,6 +4,8 @@
 # R script. export data from master, execute a function collect results
 # load master libraries
 
+mpi.remote.exec(paste(Sys.info()[c("nodename")],"checking in as",mpi.comm.rank(),"of",mpi.comm.size()))
+
 require(snow)
 
 # require(RcppSimpleTensor)   

@@ -30,7 +30,7 @@ echo "your LD_LIBRARY"
 echo $LD_LIBRARY_PATH
 
 echo "your hostfile:"
-cat $PE_HOSTFILE
+echo $PE_HOSTFILE
 
 
 mpirun -np $NSLOTS -machinefile $tmphosts R --no-save -q < Rmpitest.R > rmpi.Rout

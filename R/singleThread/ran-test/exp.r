@@ -1,7 +1,7 @@
 library(snow)
 
 # start up cluster
-ncore <- 31
+ncore <- 19
 cl <- makeMPIcluster(ncore)
 # if you want to evaluate a funciton f, it needs to be defined on each slave
 f.long<-function(n) {
@@ -9,8 +9,8 @@ f.long<-function(n) {
          log(abs(xx))+xx^2
 }
 
-system.time(sapply(rep(5E6,ncore),f.long))
-system.time(parSapply(cl,rep(5E6,ncore),f.long))
+system.time(sapply(rep(1E6,ncore),f.long))
+system.time(parSapply(cl,rep(1E6,ncore),f.long))
 
 stopCluster(cl)
 

@@ -7,7 +7,7 @@ date
 # here's the SGE directives
 # ------------------------------------------
 #$ -q batch.q   # <- the name of the Q you want to submit to
-#$ -pe openmpi 32  #  <- load the openmpi parallel env w/ 6 slots
+#$ -pe openmpi 20  #  <- load the openmpi parallel env w/ 6 slots
 #$ -S /bin/bash   # <- run the job under bash
 #$ -N exp-test # <- name of the job in the qstat output
 #$ -o exp.out # <- name of the output file.
@@ -27,6 +27,6 @@ echo "your hostfile:"
 cat $PE_HOSTFILE
 
 echo "calling mpirun now"
-mpirun -np 1 R --no-save -q < exp.r > exp.Rout
+mpirun -np 1 R --slave -f exp.r > exp.Rout
 
 

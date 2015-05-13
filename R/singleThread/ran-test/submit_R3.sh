@@ -27,6 +27,6 @@ echo "your hostfile:"
 cat $PE_HOSTFILE
 
 echo "calling mpirun now"
-mpirun -np 1 R --slave -f exp.r > exp.Rout
+mpirun -np 1 R --no-save < exp.r > exp.Rout
 
 

@@ -9,8 +9,8 @@ f.long<-function(n) {
          log(abs(xx))+xx^2
 }
 
-system.time(sapply(rep(5E6,ncore),f.long))
-system.time(parSapply(cl,rep(5E6,ncore),f.long))
+system.time(sapply(rep(1E7,ncore),f.long))
+system.time(parSapply(cl,rep(1E7,ncore),f.long))
 
 stopCluster(cl)
 

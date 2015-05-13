@@ -14,14 +14,14 @@ print(date())
 
 # start up cluster
 mycl <- makeCluster(type="MPI")
-#print(clusterCall(mycl, function() Sys.info()))
-#print(length(clusterEvalQ(mycl, Sys.info())))
+print(clusterCall(mycl, function() Sys.info()))
+print(length(clusterEvalQ(mycl, Sys.info())))
 #clusterExport(mycl,"c")
 
 
 
 # testing direct evaluation via clusterCall
-#print(clusterCall(mycl, function() {solve(array(runif(1000^2),dim=c(1000,1000)));5}))
+print(clusterCall(mycl, function() {solve(array(runif(1000^2),dim=c(1000,1000)));5}))
 
 # testing parLapply
 arg <- list(a=1:10,b=exp(-3:3))

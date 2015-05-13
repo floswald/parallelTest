@@ -25,8 +25,8 @@ f.long<-function(n) {
 
 ncore <- mpi.universe.size()-1
 cat("ncore:",ncore,"\n")
-system.time(sapply(rep(1E6,ncore),f.long))
-system.time(mpi.apply(rep(1E6,ncore),f.long))
+system.time(sapply(rep(5E6,ncore),f.long))
+system.time(mpi.apply(rep(5E6,ncore),f.long))
 
 # Tell all slaves to close down, and exit the program
 mpi.close.Rslaves()

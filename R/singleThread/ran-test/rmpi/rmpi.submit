@@ -10,20 +10,14 @@ module load r/3.1.3
 #$ -o rmpi.out  
 #$ -j y 
 #$ -S /bin/bash 
-#$ -N rmpi4
+#$ -N rmpi8
 #$ -pe openmpi 8
 
-echo "your tmphost:"
 tmphosts=`mktemp`
-echo $tmphosts
-
-echo "your tmphost:"
-awk '{print $1}' $PE_HOSTFILE > $tmphosts 
-echo $tmphosts
+awk '{ for (i=0; i < $2; ++i) { print $1} }' $PE_HOSTFILE > $tmphosts
 
 echo "Got $NSLOTS slots"
 echo "jobid $JOB_ID"
-
 
 echo "checking environment:"
 echo "====================="
@@ -33,6 +27,7 @@ echo $LD_LIBRARY_PATH
 
 echo "your hostfile:"
 echo $PE_HOSTFILE
+
 echo "your tmphost:"
 echo $tmphosts
 

@@ -1,3 +1,7 @@
+if (!invisible(library(Rmpi,logical.return = TRUE))){
+    warning("Rmpi cannot be loaded")
+    q(save = "no")
+}
 
 library(parallel)
 

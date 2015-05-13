@@ -1,15 +1,41 @@
-#
-#install.packages("Rmpi",configure.args=c("--with-Rmpi-include=/cm/shared/apps/openmpi/gcc/64/1.4.5/include",
-#                     "--with-Rmpi-libpath=/cm/shared/apps/openmpi/gcc/64/1.4.5/lib64",
-#                     "--with-Rmpi-type=OPENMPI"))
-#
 
 
-#install.packages("Rmpi",configure.args=c("--with-mpi=/cm/shared/apps/openmpi/gcc/64/1.4.5"))
 
-# Tell all slaves to return a message identifying themselves
-mpi.remote.exec(paste(Sys.info()[c("nodename")],"checking in as",mpi.comm.rank(),"of",mpi.comm.size()))
+# R script. export data from master, execute a function collect results
+# load master libraries
 
-# Tell all slaves to close down, and exit the program
-mpi.close.Rslaves()
-mpi.quit()
+require(snow)
+
+# require(RcppSimpleTensor)   
+
+print(date())
+# setup some data on master
+
+
+# start up cluster
+#mpi.spawn.Rslaves()
+mycl <- makeCluster(type="MPI")
+print(clusterCall(mycl, function() Sys.info()))
+print(length(clusterEvalQ(mycl, Sys.info())))
+#clusterExport(mycl,"c")
+
+
+
+# testing direct evaluation via clusterCall
+print(clusterCall(mycl, function() {solve(array(runif(1000^2),dim=c(1000,1000)));5}))
+
+# testing parLapply
+arg <- list(a=1:10,b=exp(-3:3))
+parLapply(mycl,arg,quantile)
+
+# testing clusterApplyLB
+arg <- lapply(1:20,function(i) rnorm(n=100,mean=i,sd=i))
+clusterApplyLB(mycl,arg,quantile)
+
+# if you want to evaluate a funciton f, it needs to be defined on each slave
+
+
+stopCluster(mycl)
+
+
+

@@ -36,6 +36,6 @@ echo "your tmphost:"
 echo $tmphosts
 
 echo "calling mpirun now"
-mpirun -np 1 R -q < exp.r > exp.Rout
+mpirun -np 1 R --no-save -q < exp.r > exp.Rout
 
 

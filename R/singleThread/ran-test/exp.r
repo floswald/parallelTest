@@ -1,4 +1,6 @@
 
+library(parallel)
+
 # start up cluster
 mycl <- makeCluster()
 print(clusterCall(mycl, function() Sys.info()))

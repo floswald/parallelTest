@@ -1,7 +1,5 @@
 #!/bin/bash
 
-module purge
-
 echo "starting qsub script file"
 source ~/.bash_profile
 date 
@@ -18,24 +16,26 @@ date
 
 echo "loaded modules"
 module load sge/2011.11
-#module load gcc/0-test-4.9.0
 module load openmpi/gcc/64/1.4.5
-#module load mpich/ge/gcc
-#module load openmpi/intel
 module load r/3.1.3
-module load mpiexec
-#module load intel-cluster-runtime
 module list
 
-echo "LD_LIBRARY_PATH"
-export LD_LIBRARY_PATH=/cm/shared/apps/openmpi/gcc/64/1.4.5/lib64:/cm/shared/apps/R/3.1.3/lib64/R/lib
-printenv LD_LIBRARY_PATH 
+tmphosts=`mktemp`
+awk '{ for (i=0; i < $2; ++i) { print $1} }' $PE_HOSTFILE > $tmphosts
 
-echo "MPI_ROOT"
-export MPI_ROOT=/cm/shared/apps/openmpi/gcc/64/1.4.5
-printenv MPI_ROOT
+echo "Got $NSLOTS slots"
+echo "jobid $JOB_ID"
+
+echo "LD_LIBRARY_PATH"
+echo $LD_LIBRARY_PATH
+
+echo "your hostfile:"
+echo $PE_HOSTFILE
+
+echo "your tmphost:"
+echo $tmphosts
 
 echo "calling mpirun now"
-mpirun -np 4 R --no-save -q < exp.r > exp.Rout
+mpirun -np $NSLOTS -machinefile $tmphosts R --no-save -q < exp.r > exp.Rout
 
 

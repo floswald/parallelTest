@@ -7,7 +7,7 @@ date
 # here's the SGE directives
 # ------------------------------------------
 #$ -q batch.q   # <- the name of the Q you want to submit to
-#$ -pe mpich 8  #  <- load the openmpi parallel env w/ 6 slots
+#$ -pe mpich 16  #  <- load the openmpi parallel env w/ 6 slots
 #$ -S /bin/bash   # <- run the job under bash
 #$ -N exp-test # <- name of the job in the qstat output
 #$ -o exp.out # <- name of the output file.

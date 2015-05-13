@@ -1,7 +1,7 @@
 library(parallel)
 
 # start up cluster
-cl <- makeCluster(7)
+cl <- makeCluster(15)
 # if you want to evaluate a funciton f, it needs to be defined on each slave
 f.long<-function(n) {
          xx<-rnorm(n)            

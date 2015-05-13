@@ -13,6 +13,9 @@ module load r/3.1.3
 #$ -N rmpi8
 #$ -pe openmpi 8
 
+tmphosts=`mktemp`
+awk '{ for (i=0; i < $2; ++i) { print $1} }' $PE_HOSTFILE > $tmphosts
+
 echo "Got $NSLOTS slots"
 echo "jobid $JOB_ID"
 
@@ -25,4 +28,7 @@ echo $LD_LIBRARY_PATH
 echo "your hostfile:"
 echo $PE_HOSTFILE
 
-mpirun -np $NSLOTS R --no-save -q < Rmpitest.R > rmpi.Rout
+echo "your tmphost:"
+echo $tmphosts
+
+mpirun -np $NSLOTS -machinefile $tmphosts R --no-save -q < Rmpitest.R > rmpi.Rout

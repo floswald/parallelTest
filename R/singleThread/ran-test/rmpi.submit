@@ -1,3 +1,5 @@
+source ~/.bash_profile
+
 #
 #$ -cwd
 #$ -o rmpi.out  

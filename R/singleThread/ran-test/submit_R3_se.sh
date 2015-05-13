@@ -28,7 +28,7 @@ module load mpiexec
 module list
 
 echo "LD_LIBRARY_PATH"
-export LD_LIBRARY_PATH=/cm/shared/apps/openmpi/gcc/64/1.4.5/lib64
+export LD_LIBRARY_PATH=/cm/shared/apps/openmpi/gcc/64/1.4.5/lib64:/cm/shared/apps/R/3.1.3/lib64/R/lib
 printenv LD_LIBRARY_PATH 
 
 echo "MPI_ROOT"

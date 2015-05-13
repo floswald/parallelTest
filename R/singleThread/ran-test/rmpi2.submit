@@ -26,4 +26,4 @@ echo $LD_LIBRARY_PATH
 echo "your hostfile:"
 echo $PE_HOSTFILE
 
-mpirun -np $NSLOTS -machinefile $PE_HOSTFILE R --no-save -q < Rmpitest.R > rmpi.Rout
+mpirun -np $NSLOTS -machinefile $tmphosts R --no-save -q < Rmpitest.R > rmpi.Rout

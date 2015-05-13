@@ -1,10 +1,10 @@
 library(Rmpi)
-library(snow)
+library(parallel)
 
 # start up cluster
 ncore <- mpi.universe.size()-1
 cat("ncore:",ncore,"\n")
-cl <- makeMPIcluster(ncore)
+cl <- makeCluster(ncore)
 #cl <- getMPIcluster()
 
 # if you want to evaluate a funciton f, it needs to be defined on each slave

@@ -18,6 +18,7 @@ echo "loaded modules"
 module load sge/2011.11
 module load openmpi/gcc/64/1.4.5
 module load r/3.1.3
+module load mpiexec
 module list
 
 echo "LD_LIBRARY_PATH"
@@ -27,6 +28,6 @@ echo "your hostfile:"
 cat $PE_HOSTFILE
 
 echo "calling mpirun now"
-mpirun -np 20 ~/R/x86_64-unknown-linux-gnu-library/3.1/snow/RMPISNOW  < exp.r > exp.Rout
+mpiexec -n 1 R --no-save -q -f exp.r > exp.Rout
 
 

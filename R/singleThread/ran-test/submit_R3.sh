@@ -7,7 +7,7 @@ date
 # here's the SGE directives
 # ------------------------------------------
 #$ -q batch.q   # <- the name of the Q you want to submit to
-#$ -pe openmpi 20  #  <- load the openmpi parallel env w/ 6 slots
+#$ -pe mpich 20  #  <- load the openmpi parallel env w/ 6 slots
 #$ -S /bin/bash   # <- run the job under bash
 #$ -N exp-test # <- name of the job in the qstat output
 #$ -o exp.out # <- name of the output file.
@@ -18,7 +18,6 @@ echo "loaded modules"
 module load sge/2011.11
 module load openmpi/gcc/64/1.4.5
 module load r/3.1.3
-module load mpiexec
 module list
 
 echo "LD_LIBRARY_PATH"
@@ -28,6 +27,6 @@ echo "your hostfile:"
 cat $PE_HOSTFILE
 
 echo "calling mpirun now"
-mpiexec -n 20 ~/R/x86_64-unknown-linux-gnu-library/3.1/snow/RMPISNOW  < exp.r > exp.Rout
+mpirun -n 20 ~/R/x86_64-unknown-linux-gnu-library/3.1/snow/RMPISNOW  < exp.r > exp.Rout
 
 

@@ -4,7 +4,7 @@ library(snow)
 
 # start up cluster
 #ncore <- mpi.universe.size()-1
-cl <- makeCluster(type="MPI")
+#cl <- makeCluster(type="MPI")
 cl <- getMPIcluster()
 ncore <- length(cl)
 cat("ncore:",ncore,"\n")

@@ -17,8 +17,6 @@ f.long<-function(n) {
 
 #system.time(sapply(rep(5E6,ncore),f.long))
 system.time(parSapply(cl,rep(5E6,ncore),f.long))
-system.time(parSapply(cl,rep(5E6,ncore),f.long))
-system.time(parSapply(cl,rep(5E6,ncore),f.long))
 
 stopCluster(cl)
 

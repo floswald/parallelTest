@@ -21,12 +21,19 @@ function ucl_econ_launcher()
     println("name of compute nodes and number of workers:")
     println(procs)
 
+    # write to file
+    outfile = open("hosts.txt","w")
+    for (k,v) in procs
+        write(outfile,k,"\n")
+    end
+    close(outfile)
+
     # add processes on master itself
     master = ENV["HOSTNAME"]
 
     if procs[master] > 1
         println("node $master is the master")
-        addprocs(procs[master]-1)
+     #   addprocs(procs[master]-1)
         println("added $(procs[master]-1) processes on master itself")
     end
 
@@ -47,7 +54,7 @@ function ucl_econ_launcher()
 
     # add to julia home
     println("adding machines to JULIA_HOME: $JULIA_HOME")
-    addprocs(machines)
+    #addprocs(machines)
 
     println("ucl_econ_launcher: done")
 end

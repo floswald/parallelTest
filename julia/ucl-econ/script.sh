@@ -27,4 +27,11 @@ cat $PE_HOSTFILE
 
 echo "calling julia now:"
 
-julia /data/uctpfos/git/parallelTest/julia/ucl-econ/sge.jl
+/data/uctpfos/local/bin/julia /data/uctpfos/git/parallelTest/julia/ucl-econ/sge.jl
+
+if [ ! -f ./hosts.txt ]; then
+        echo "myhosts.txt was not generated!"
+else 
+        /data/uctpfos/local/bin/julia --machinefile hosts.txt /data/uctpfos/git/parallelTest/julia/ucl-econ/sge2.jl
+	rm ./hosts.txt
+fi

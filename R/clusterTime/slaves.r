@@ -3,7 +3,7 @@
 
 
 # here are the slaves.
-
+# define a function that is reasonably costly to compute
 ## R implementation of recursive Fibonacci sequence
 fibR <- function(n) {
     if (n == 0) return(0)

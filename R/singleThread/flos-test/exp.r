@@ -5,6 +5,7 @@
 # load master libraries
 
 require(snow)
+
 # require(RcppSimpleTensor)   
 
 print(date())
@@ -12,7 +13,8 @@ print(date())
 
 
 # start up cluster
-mycl <- makeCluster()
+#mpi.spawn.Rslaves()
+mycl <- makeCluster(type="MPI")
 print(clusterCall(mycl, function() Sys.info()))
 print(length(clusterEvalQ(mycl, Sys.info())))
 #clusterExport(mycl,"c")

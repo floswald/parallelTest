@@ -11,7 +11,7 @@ library(snow)
 reps <- 5	# how many repetitions
 
 # make cluster
-mycl <- makeMPIcluster(19)
+mycl <- makeCluster(type='MPI')
 
 num.worker <- length(clusterEvalQ(mycl,Sys.info()))	# num.worker chosen in submit script
 

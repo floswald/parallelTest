@@ -21,8 +21,8 @@ serfun <- function(joblist){
 	nname <- Sys.info()["nodename"]
 	names(nname) <- NULL
 
-	# 40 times over
-	for (i in 1:40){
+	# 19 times over
+	for (i in 1:19){
 		nums <- lapply(joblist, function(x) fibR(x))
 	}
 

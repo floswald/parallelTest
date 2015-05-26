@@ -1,15 +1,15 @@
 
 println("Started julia on ucl econ")
 
-include("launcher.jl")
+# include("launcher.jl")
 
-bind_iridis_procs(8)  # bind 8 procs per node
+# bind_iridis_procs(8)  # bind 8 procs per node
 
 # here a function that runs your estimation:
 # using MOpt, mig
 
 # require some code on all nodes
-require("../incl.jl")
+# require("../incl.jl")
 
 println("make everybody say hello")
 

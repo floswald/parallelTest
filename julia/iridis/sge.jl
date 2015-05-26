@@ -1,15 +1,15 @@
 
 println("Started julia on iridis")
 
-# include("iridis_launcher.jl")
+include("iridis_launcher.jl")
 
-# bind_iridis_procs()
+bind_iridis_procs()
 
 # here a function that runs your estimation:
 # using MOpt, mig
 
 # require some code on all nodes
-# require("../incl.jl")
+require("../incl.jl")
 
 println("make everybody say hello")
 

@@ -24,8 +24,9 @@ echo "check library path has gcc/4.8.1/lib64 libraries"
 echo $LD_LIBRARY_PATH
 
 
-tmphosts=`mktemp`
-awk '{ for (i=0; i < $2; ++i) { print $1} }' $PE_HOSTFILE > $tmphosts
+awk '{ for (i=0; i < $2; ++i) { print $1} }' $PBS_NODEFILE > hosts.txt
+
+cat hosts.txt
 
 echo "calling julia now"
-/home/eisuc151/local/bin/julia --machinefile $tmphosts -L ../incl.jl sge.jl 
+/home/eisuc151/local/bin/julia --machinefile hosts.txt -L ../incl.jl sge.jl 

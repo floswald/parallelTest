@@ -16,7 +16,7 @@ date
 
 module load gcc
 module load openmpi/gcc
-module load r/3.1.3
+module load r
 
 echo "loaded modules"
 module list

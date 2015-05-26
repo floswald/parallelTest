@@ -27,6 +27,6 @@ echo "your hostfile:"
 cat $PE_HOSTFILE
 
 echo "calling mpirun now"
-mpirun -n 20 ~/R/x86_64-unknown-linux-gnu-library/3.1/snow/RMPISNOW  < exp.r > exp.Rout
+mpirun -np 1 R --no-save -q  < exp.r > exp.Rout
 
 

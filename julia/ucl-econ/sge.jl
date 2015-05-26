@@ -4,7 +4,7 @@ println("Started julia")
 
 include("launcher.jl")
 
-ucl_econ_launcher()
+# ucl_econ_launcher()
 
 # here a function that runs your estimation:
 # using MOpt, mig

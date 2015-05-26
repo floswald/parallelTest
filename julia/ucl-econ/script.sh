@@ -25,7 +25,12 @@ echo $LD_LIBRARY_PATH
 echo "your hostfile:"
 cat $PE_HOSTFILE
 
+tmphosts=`mktemp`
+awk '{ for (i=0; i < $2; ++i) { print $1} }' $PE_HOSTFILE > $tmphosts
+
+cat $tmphosts
+
 echo "calling julia now:"
 
-/data/uctpfos/local/bin/julia /data/uctpfos/git/parallelTest/julia/ucl-econ/sge.jl
+/data/uctpfos/local/bin/julia --machinefile $tmphosts /data/uctpfos/git/parallelTest/julia/ucl-econ/sge.jl
 

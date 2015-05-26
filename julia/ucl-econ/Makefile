@@ -1,11 +1,11 @@
 
-sge: clean 
+hosts: clean 
 	qsub script.sh
 
 clean:
-	rm -rf test.* 
+	rm -rf test.* hosts
 
-julia: sge
-	julia --machinefile hosts.txt -L ../incl.jl sge.jl
+julia: hosts
+	julia --machinefile hosts -L ../incl.jl sge.jl
 
 	

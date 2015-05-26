@@ -25,7 +25,7 @@ echo $LD_LIBRARY_PATH
 echo "your hostfile:"
 cat $PE_HOSTFILE
 
-awk '{ for (i=0; i < $2; ++i) { print $1} }' $PE_HOSTFILE > hosts.txt
+awk '{ for (i=0; i < $2; ++i) { print $1} }' $PE_HOSTFILE > hosts
 
 echo "calling julia now:"
 

@@ -30,5 +30,5 @@ awk '{ for (i=0; i < $2; ++i) { print $1} }' $PE_HOSTFILE > hosts.txt
 echo "calling julia now:"
 
 # you need to execute this line by hand.
-julia --machinefile hosts.txt -L ../incl.jl sge.jl
+# julia --machinefile hosts.txt -L ../incl.jl sge.jl
 

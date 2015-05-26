@@ -25,13 +25,10 @@ echo $LD_LIBRARY_PATH
 echo "your hostfile:"
 cat $PE_HOSTFILE
 
-tmphosts=`mktemp`
-awk '{ for (i=0; i < $2; ++i) { print $1} }' $PE_HOSTFILE > $tmphosts
 awk '{ for (i=0; i < $2; ++i) { print $1} }' $PE_HOSTFILE > hosts.txt
-
-cat $tmphosts
 
 echo "calling julia now:"
 
+# you need to execute this line by hand.
 julia --machinefile hosts.txt -L ../incl.jl sge.jl
 

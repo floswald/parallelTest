@@ -3,7 +3,7 @@ println("Started julia on iridis")
 
 include("iridis_launcher.jl")
 
-bind_iridis_procs()
+bind_iridis_procs(8)  # bind 8 procs per node
 
 # here a function that runs your estimation:
 # using MOpt, mig

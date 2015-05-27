@@ -1,3 +1,4 @@
+.PHONY: julia clean
 
 hosts: clean 
 	qsub script.sh

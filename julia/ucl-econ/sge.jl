@@ -23,7 +23,6 @@ println("make everybody pass a memory test")
 
 pmap( i->doBIGmath(10000,10000), 1:length(workers()) )
 pmap( i->doBIGmath(20000,10000), 1:length(workers()) )
-pmap( i->doBIGmath(30000,10000), 1:length(workers()) )
 
 println("trying parallel for loop with $(nprocs()) processes")
 println("numworkers: $(length(workers()))")

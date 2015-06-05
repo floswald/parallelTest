@@ -16,15 +16,6 @@ module load sge/2011.11
 #$ -e test.err # <- name of the stderr file.
 #$ -wd /data/uctpfos/git/parallelTest/julia/ucl-econ
 
-echo "checking environment:"
-echo "====================="
-
-echo "your LD_LIBRARY"
-echo $LD_LIBRARY_PATH
-
-echo "your hostfile:"
-cat $PE_HOSTFILE
-
 awk '{ for (i=0; i < $2; ++i) { print $1} }' $PE_HOSTFILE > hosts
 
 echo "calling julia now:"

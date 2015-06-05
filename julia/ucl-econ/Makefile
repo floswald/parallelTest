@@ -6,7 +6,7 @@ hosts: clean
 clean:
 	rm -rf test.* hosts
 
-julia: hosts
+julia: 
 	julia --machinefile hosts -L ../incl.jl sge.jl
 
 	

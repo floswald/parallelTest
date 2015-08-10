@@ -26,4 +26,5 @@ echo "your hostfile:"
 cat $PE_HOSTFILE
 
 echo "calling mpirun now"
-mpirun -np $NSLOTS R --no-save -q < Rmpitest.R > rmpi.Rout
+#mpirun -np $NSLOTS R --no-save -q < Rmpitest.R > rmpi.Rout
+mpirun -np $NSLOTS R --no-save -q < example-rmpi.r > rmpi.Rout

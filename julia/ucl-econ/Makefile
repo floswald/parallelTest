@@ -7,6 +7,6 @@ clean:
 	rm -rf test.* hosts
 
 julia: 
-	julia --machinefile hosts -L ../incl.jl sge.jl
+	julia --machinefile hosts -L ../incl.jl sge.jl > results.log
 
 	

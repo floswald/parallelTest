@@ -1,0 +1,7 @@
+.PHONY: julia clean
+
+clean:
+	rm -rf test.* hosts timer* results*
+
+julia: clean
+	qsub script2.sh

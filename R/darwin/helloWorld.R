@@ -30,7 +30,7 @@ simpf <- function(aa) {
   sum(array(runif(aa^2),dim=c(aa,aa)))
 }
 ps <- 2:32
-vals <- mpi.parLapply(ps,mopt_obj_wrapper,objfunc = cf$objfunc,errfile=cf$file_errorparam)
+vals <- mpi.parLapply(ps,simpf)
 vals
 
 # Tell all slaves to close down, and exit the program

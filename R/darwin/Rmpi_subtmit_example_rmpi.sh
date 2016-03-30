@@ -10,7 +10,7 @@
 
 #! sbatch directives begin here ###############################
 #! Name of the job:
-#SBATCH -J parallelTest
+#SBATCH -J darwinjob
 #! Which project should be charged:
 #SBATCH -A LOW-SL2
 #! How many whole nodes should be allocated?
@@ -20,7 +20,7 @@
 #! How much wallclock time will be required?
 #SBATCH --time=00:10:00
 #! What types of email messages do you wish to receive?
-#SBATCH --mail-type=ALL
+#SBATCH --mail-type=FAIL
 #! Uncomment this to prevent the job from being requeued (e.g. if
 #! interrupted by node failure or system downtime):
 ##SBATCH --no-requeue
@@ -59,7 +59,7 @@ module add rmpi/0.6-5
 application="mpirun -np 1 Rscript"
 
 #! Run options for the application:
-options="exp_rmpi.r"
+options="helloWorld.R"
 
 #! Work directory (i.e. where the job will run):
 workdir="$SLURM_SUBMIT_DIR"  # The value of SLURM_SUBMIT_DIR sets workdir to the directory
@@ -94,7 +94,7 @@ CMD="$application $options"
 
 #! Choose this for a MPI code (possibly using OpenMP) using OpenMPI:
 #CMD="mpirun -npernode $mpi_tasks_per_node -np $np $application $options"
-#CMD="mpirun -np 1 R --no-save -q < $options"
+
 
 ###############################################################
 ### You should not have to change anything below this line ####

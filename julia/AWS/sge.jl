@@ -1,5 +1,10 @@
 
-println("Started julia on AWS")
+println("Started julia master process on AWS")
+
+# get binding funciton
+include("AWS_launcher.jl")
+
+bind_AWS_procs()
 
 # here a function that runs your estimation:
 # using MOpt, mig

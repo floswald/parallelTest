@@ -6,9 +6,9 @@
 #$ -N julia-test # <- name of the job in the qstat output
 #$ -o test.out # direct output stream to here
 #$ -e test.err # <- name of the stderr file.
-#$ -cwd
+#$ -wd /data/home/git/parallelTest/julia/AWS
 
 echo "submit script is calling julia now:"
 
-julia --machinefile $PE_HOSTFILE sge.jl
+julia sge.jl
 

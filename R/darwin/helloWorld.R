@@ -19,7 +19,19 @@ mpi.spawn.Rslaves(nslaves=31)
        }
 }
 # Tell all slaves to return a message identifying themselves
-mpi.remote.exec(paste("I am",mpi.comm.rank(),"of",mpi.comm.size()))
+mpi.bcast.cmd( id <- mpi.comm.rank() )
+mpi.bcast.cmd( np <- mpi.comm.size() )
+mpi.bcast.cmd( host <- mpi.get.processor.name() )
+result <- mpi.remote.exec(paste("I am", id, "of", np, "running on", host)) 
+
+print(unlist(result))
+
+simpf <- function(aa) {
+  sum(array(runif(aa^2),dim=c(aa,aa)))
+}
+ps <- 2:32
+vals <- mpi.parLapply(ps,simpf)
+vals
 
 # Tell all slaves to close down, and exit the program
 mpi.close.Rslaves()

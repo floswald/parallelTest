@@ -1,6 +1,9 @@
 
 
-
+function addprocs_ec2(machines::Array{AbstractString}) 
+	pids = addprocs(machinces,sshflags=`-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o LogLevel=ERROR`,tunnel=true)
+	return pids
+end
 
 # to be run on all nodes
 

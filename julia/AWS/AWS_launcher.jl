@@ -12,9 +12,10 @@ function bind_AWS_procs()
     node_file = map(x->strip(x,['\n']),node_file)
 
     # get number of workers on each node
-    procs = Dict{ASCIIString,Int}()
-    for n in node_file
-        procs[n] = get(procs,n,0) + 1
+    procs = Dict()
+    for line in node_file 
+        line_parts = split(line," ")
+        procs[line_parts[1]] = int(line_parts[2])
     end
 
     println("name of compute nodes and number of workers:")

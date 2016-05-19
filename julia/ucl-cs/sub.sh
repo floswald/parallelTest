@@ -4,10 +4,14 @@
 
 #$ -l h_vmem=2G
 #$ -l tmem=2G
-#$ -l h_rt=
+# -l h_rt=00:00:10
 
 #$ -pe orte 16
 #$ -R y
+#$ -e err
+#$ -o out
+#$ -cwd
+
 
 date
 hostname
@@ -19,10 +23,11 @@ export LD_LIBRARY_PATH=/share/apps/openmpi-1.8.1/lib:$LD_LIBRARY_PATH
 
 
 #Run julia
-echo $PE_HOSTFILE
+cat $PE_HOSTFILE
 
 echo ""
 echo "calling julia now"
 
-julia --machinefile $PE_HOSTFILE sge.jl
+#julia --machinefile $PE_HOSTFILE sge.jl
+
 

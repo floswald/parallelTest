@@ -1,0 +1,17 @@
+[uctpfos@wise ucl-cs]$ cat out
+Thu May 19 21:45:10 BST 2016
+burns-210-119.local
+/opt/gridengine/default/spool/burns-210-119/active_jobs/3171922.1/pe_hostfile
+
+calling julia now
+Thu May 19 21:51:29 BST 2016
+abner-7-7.local
+abner-7-7.local 1 all.q@abner-7-7.local UNDEFINED
+lum-7-7.local 1 all.q@lum-7-7.local UNDEFINED
+burns-208-95.local 3 all.q@burns-208-95.local UNDEFINED
+fry-209-233.local 3 all.q@fry-209-233.local UNDEFINED
+fry-209-206.local 3 all.q@fry-209-206.local UNDEFINED
+fry-209-26.local 3 all.q@fry-209-26.local UNDEFINED
+burns-210-235.local 2 all.q@burns-210-235.local UNDEFINED
+
+calling julia now

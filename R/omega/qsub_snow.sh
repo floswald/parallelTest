@@ -8,8 +8,8 @@
 ##oe: stdout(o) and stderr(e)
 #PBS -j oe
 ##where to put the output
-##PBS -o $PBS_JOBID.out
-#PBS -o $PBS_JOBNAME.$PBS_JOBID
+#PBS -o $PBS_JOBID.out
+##PBS -o $PBS_JOBNAME.$PBS_JOBID
 
 module load Apps/R/3.2.2-generic
 module load Libs/GSL/2.3
@@ -22,5 +22,5 @@ cd $PBS_O_WORKDIR
 
 
 ##mpiexec -n 1 R --no-save -q -f snow_example.R
-##mpirun -np 1 ~/R/x86_64-pc-linux-gnu-library/3.2/snow/RMPISNOW -q < exp.r
-mpiexec -n 1 ~/R/x86_64-pc-linux-gnu-library/3.2/snow/RMPISNOW -q < exp.r
+mpirun -np 1 ~/R/x86_64-pc-linux-gnu-library/3.2/snow/RMPISNOW -q < exp.r
+#mpiexec -n 1 ~/R/x86_64-pc-linux-gnu-library/3.2/snow/RMPISNOW -q < exp.r

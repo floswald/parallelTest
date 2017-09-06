@@ -4,12 +4,14 @@
 # R script. export data from master, execute a function collect results
 # load master libraries
 
-require(snow)
+library(Rmpi)
+library(snow)
 
 print(date())
 
 # start up cluster
-mycl <- makeCluster(type='MPI')
+np <- mpi.universe.size() - 1
+mycl <- makeMPIcluster(np)
 num.worker <- length(clusterEvalQ(mycl,Sys.info()))
 cat("num workers:",num.worker,'\n')
 

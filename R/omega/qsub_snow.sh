@@ -21,6 +21,8 @@ module load Rpkgs/RMPI/0.6.3
 #run from directory the job is submitted from
 cd $PBS_O_WORKDIR
 
+echo $PBS_NODEFILE
+
 NPROCS=wc -l < $PBS_NODEFILE
 
 #mpiexec -n 1 R --no-save -q -f snow_example.R

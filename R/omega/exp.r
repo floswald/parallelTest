@@ -15,7 +15,7 @@ mycl <- makeMPIcluster(np)
 num.worker <- length(clusterEvalQ(mycl,Sys.info()))
 cat("num workers:",num.worker,'\n')
 
-print(clusterCall(mycl, function() Sys.info()))
+#print(clusterCall(mycl, function() Sys.info()))
 #print(length(clusterEvalQ(mycl, Sys.info())))
 #clusterExport(mycl,"c")
 

@@ -26,4 +26,5 @@ NPROCS=wc -l < $PBS_NODEFILE
 #mpiexec -n 1 R --no-save -q -f snow_example.R
 #mpirun -np 1 ~/R/x86_64-pc-linux-gnu-library/3.2/snow/RMPISNOW -q < exp.r
 #mpiexec -n 1 ~/R/x86_64-pc-linux-gnu-library/3.2/snow/RMPISNOW -q < exp.r
-mpiexec -n $NPROCS ~/R/x86_64-pc-linux-gnu-library/3.2/snow/RMPISNOW -q < exp.r
+#mpiexec -n $NPROCS ~/R/x86_64-pc-linux-gnu-library/3.2/snow/RMPISNOW -q < exp.r
+mpirun -np $NPROCS ~/R/x86_64-pc-linux-gnu-library/3.2/snow/RMPISNOW -q < exp.r

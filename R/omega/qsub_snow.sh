@@ -21,12 +21,17 @@ module load Rpkgs/RMPI/0.6.3
 #run from directory the job is submitted from
 cd $PBS_O_WORKDIR
 
-echo $PBS_NODEFILE
-
-NPROCS=wc -l < $PBS_NODEFILE
+#     for example, add on jobid nmber.
+cat $PBS_NODEFILE > nodes
+# How many cores total do we have?
+NO_OF_CORES=`cat $PBS_NODEFILE | egrep -v '^#'\|'^$' | wc -l | awk '{print $1}'`
+NODE_LIST=`cat $PBS_NODEFILE `
+#
+# Just for kicks, see which nodes we got.
+echo $NODE_LIST
 
 #mpiexec -n 1 R --no-save -q -f snow_example.R
 #mpirun -np 1 ~/R/x86_64-pc-linux-gnu-library/3.2/snow/RMPISNOW -q < exp.r
 #mpiexec -n 1 ~/R/x86_64-pc-linux-gnu-library/3.2/snow/RMPISNOW -q < exp.r
 #mpiexec -n $NPROCS ~/R/x86_64-pc-linux-gnu-library/3.2/snow/RMPISNOW -q < exp.r
-mpirun -np $NPROCS ~/R/x86_64-pc-linux-gnu-library/3.2/snow/RMPISNOW -q < exp.r
+mpirun -np $NO_OF_CORES ~/R/x86_64-pc-linux-gnu-library/3.2/snow/RMPISNOW -q < exp.r

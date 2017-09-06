@@ -1,5 +1,5 @@
 ##!/bin/bash
-#PBS -q fas_normal
+#PBS -q fas_devel
 ##PBS -N parallelTest
 #PBS -l nodes=2:ppn=8
 #PBS -l mem=20gb

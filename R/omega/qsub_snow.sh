@@ -12,7 +12,7 @@
 #PBS -o $PBS_JOBID.out
 ##PBS -o $PBS_JOBNAME.$PBS_JOBID
 
-module load Apps/R/3.3.2-generic
+module load Apps/R/3.2.2-generic
 module load Libs/GSL/2.3
 module load Rpkgs/RMPI/0.6.3
 
@@ -38,4 +38,4 @@ echo $NO_OF_CORES
 #mpirun -np $NO_OF_CORES ~/R/x86_64-pc-linux-gnu-library/3.2/snow/RMPISNOW -q < exp.r
 #mpiexec -np $NO_OF_CORES ~/R/x86_64-pc-linux-gnu-library/3.2/snow/RMPISNOW -q < exp.r
 #mpirun -np $NO_OF_CORES R --no-save -q < exp.r
-mpirun -np $NO_OF_CORES ~/R/x86_64-pc-linux-gnu-library/3.3/snow/RMPISNOW < exp.r
+mpirun -np 1 R --no-save -q  < exp.r

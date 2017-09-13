@@ -35,7 +35,7 @@ echo $NO_OF_CORES
 #mpirun -np 1 ~/R/x86_64-pc-linux-gnu-library/3.2/snow/RMPISNOW -q < exp.r
 #mpiexec -n 1 ~/R/x86_64-pc-linux-gnu-library/3.2/snow/RMPISNOW -q < exp.r
 #mpiexec -n $NPROCS ~/R/x86_64-pc-linux-gnu-library/3.2/snow/RMPISNOW -q < exp.r
-#mpirun -np $NO_OF_CORES ~/R/x86_64-pc-linux-gnu-library/3.2/snow/RMPISNOW -q < exp.r
+mpirun -np $NO_OF_CORES ~/R/x86_64-pc-linux-gnu-library/3.2/snow/RMPISNOW -q < exp.r
 #mpiexec -np $NO_OF_CORES ~/R/x86_64-pc-linux-gnu-library/3.2/snow/RMPISNOW -q < exp.r
 #mpirun -np $NO_OF_CORES R --no-save -q < exp.r
-mpirun -np 1 R --no-save -q  < exp.r
+#mpirun -np 1 R --no-save -q  < exp.r

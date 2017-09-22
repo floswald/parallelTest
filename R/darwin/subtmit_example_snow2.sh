@@ -12,7 +12,7 @@
 #! Name of the job:
 #SBATCH -J parallelTest
 #! Which project should be charged:
-#SBATCH -A LOW-SL2
+#SBATCH -A LOW
 #! How many whole nodes should be allocated?
 #SBATCH --nodes=2
 #! How many (MPI) tasks will there be in total? (<= nodes*16)
@@ -49,10 +49,8 @@ mpi_tasks_per_node=$(echo "$SLURM_TASKS_PER_NODE" | sed -e  's/^\([0-9][0-9]*\).
 . /etc/profile.d/modules.sh                # Leave this line (enables the module command)
 module purge                               # Removes all modules still loaded
 #module load default-impi                   # REQUIRED - loads the basic environment
-module add scheduler R/3.3.0
-module add rmpi/0.6-6
-module add gsl/2.1
-
+module add scheduler R/3.1.1
+module add rmpi/0.6-5
 
 #! Insert additional module load commands after this line if needed:
 
@@ -97,7 +95,7 @@ CMD="$application $options"
 #! Choose this for a MPI code (possibly using OpenMP) using OpenMPI:
 #CMD="mpirun -npernode $mpi_tasks_per_node -np $np $application $options"
 
-CMD="mpirun -np 1 ~/R/x86_64-pc-linux-gnu-library/3.3/snow/RMPISNOW -q < $options"
+CMD="mpirun -np 1 /home/hpcgu1/R/x86_64-unknown-linux-gnu-library/3.1/snow/RMPISNOW -q < $options"
 ###############################################################
 ### You should not have to change anything below this line ####
 ###############################################################

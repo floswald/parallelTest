@@ -97,7 +97,7 @@ CMD="$application $options"
 #! Choose this for a MPI code (possibly using OpenMP) using OpenMPI:
 #CMD="mpirun -npernode $mpi_tasks_per_node -np $np $application $options"
 #CMD="mpirun -np 1 ~/R/x86_64-pc-linux-gnu-library/3.3/snow/RMPISNOW -q < $options"
-CMD="mpirun -np $np ~/R/x86_64-pc-linux-gnu-library/3.3/snow/RMPISNOW -q < $options"
+#CMD="mpirun -np $np ~/R/x86_64-pc-linux-gnu-library/3.3/snow/RMPISNOW -q < $options"
 ###############################################################
 ### You should not have to change anything below this line ####
 ###############################################################

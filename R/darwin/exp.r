@@ -4,6 +4,7 @@
 # R script. export data from master, execute a function collect results
 # load master libraries
 
+library(Rmpi)
 require(snow)
 
 print(date())
@@ -11,16 +12,12 @@ print(date())
 
 # start up cluster
 mycl <- makeCluster(type='MPI',spec=31)
+num.worker <- length(clusterEvalQ(mycl,Sys.info()))
+cat("num workers:",num.worker,'\n')
 
-.Last <- function(){
-	print("goodbye.")
-	stopCluster(mycl)
-}
-
-print(clusterCall(mycl, function() Sys.info()))
-print(length(clusterEvalQ(mycl, Sys.info())))
+#print(clusterCall(mycl, function() Sys.info()))
+#print(length(clusterEvalQ(mycl, Sys.info())))
 #clusterExport(mycl,"c")
-
 
 print(clusterCall(mycl, function() {solve(array(runif(1000^2),dim=c(1000,1000)));5}))
 

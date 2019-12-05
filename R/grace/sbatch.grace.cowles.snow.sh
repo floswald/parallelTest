@@ -8,7 +8,7 @@
 #! Name of the job:
 #SBATCH -J js1
 
-#SBATCH --ntasks=22
+#SBATCH --ntasks=20
 
 #! How much wallclock time will be required?
 #SBATCH --time=1:00:00

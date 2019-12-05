@@ -11,7 +11,12 @@ print(date())
 
 
 # start up cluster
-mycl <- makeCluster(type='MPI',spec=21)
+#mycl <- makeCluster(type='MPI',spec=21)
+np <- mpi.universe.size() - 1
+cat("num processors:",np,'\n')
+
+mycl <- makeMPIcluster(np)
+
 num.worker <- length(clusterEvalQ(mycl,Sys.info()))
 cat("num workers:",num.worker,'\n')
 

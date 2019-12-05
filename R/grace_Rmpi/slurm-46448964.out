@@ -1,0 +1,527 @@
+The following modules were not unloaded:
+  (Use "module --force purge" to unload all):
+
+  1) StdEnv
+Changed directory to /gpfs/loomis/home.grace/meghir/rg684/git/parallelTest/R/grace_Rmpi.
+
+JobID: 46448964
+======
+Time: Thu  5 Dec 00:33:47 EST 2019
+Running on master node: c09n07.grace.hpc.yale.internal
+Current directory: /gpfs/loomis/home.grace/meghir/rg684/git/parallelTest/R/grace_Rmpi
+
+Executing command:
+==================
+mpirun R --slave -f example-rmpi.r
+
+master (rank 0, comm 1) of size 4 is running on: c09n07 
+slave1 (rank 1, comm 1) of size 4 is running on: c09n10 
+slave2 (rank 2, comm 1) of size 4 is running on: c09n12 
+slave3 (rank 3, comm 1) of size 4 is running on: c10n02 
+Loading required package: mopt
+Loading required package: digest
+Loading required package: plyr
+Loading required package: MASS
+Loading required package: reshape
+
+Attaching package: ‘reshape’
+
+The following objects are masked from ‘package:plyr’:
+
+    rename, round_any
+
+Loading required package: stringr
+Loading required package: ggplot2
+Loading required package: data.table
+
+Attaching package: ‘data.table’
+
+The following object is masked from ‘package:reshape’:
+
+    melt
+
+Loading required package: parallel
+Loading required package: minqa
+Loading required package: MSBVAR
+##
+## MSBVAR Package v.0.9-2
+## Build date:  Thu Dec  5 00:33:50 2019 
+## Copyright (C) 2005-2019, Patrick T. Brandt
+## Written by Patrick T. Brandt
+##
+## Support provided by the U.S. National Science Foundation
+## (Grants SES-0351179, SES-0351205, SES-0540816, and SES-0921051)
+##
+
+Loading required package: locfit
+locfit 1.5-9.1 	 2013-03-22
+Loading required package: futile.logger
+[mode=mpi] USING MPI !!!!! 
+Number of Chains:  3 
+Computing intial candidates
+Sending parameter evaluations...
+done
+evaluations are finished [3/3]
+Done with intial candidates
+Starting main MCMC loop
+Sending parameter evaluations...
+done
+evaluations are finished [3/3]
+[001] value and ratio:   0.2434/  0.2440 A=1 prob=  0.9994 rate=  0.5000 var=  0.1000 status=1 secs=  0.0190 node=c09n10.grace.hpc.yale.internal mem=19 MB used
+[002] value and ratio:   0.2279/  0.2659 A=1 prob=  0.9628 rate=  0.5000 var=  0.1000 status=1 secs=  0.0270 node=c09n12.grace.hpc.yale.internal mem=19 MB used
+[003] value and ratio:   0.2483/  0.2613 A=1 prob=  0.9870 rate=  0.5000 var=  0.1000 status=1 secs=  0.0260 node=c10n02.grace.hpc.yale.internal mem=19 MB used
+[1/30][total: 2.084000][last: 0.423000 ( e:0.26 + a:0.04 )][m: 44.000000] best value 0.227896 
+ range for  p.x1   0.4987345 0.4998253 
+ range for  p.x2   0.5 0.5 
+Sending parameter evaluations...
+done
+evaluations are finished [3/3]
+[001] value and ratio:   0.2440/  0.2713 A=1 prob=  0.9731 rate=  0.5500 var=  0.1050 status=1 secs=  0.0290 node=c09n10.grace.hpc.yale.internal mem=19 MB used
+[002] value and ratio:   0.2659/  0.2632 A=1 prob=  1.0000 rate=  0.5500 var=  0.1050 status=1 secs=  0.0260 node=c09n12.grace.hpc.yale.internal mem=19 MB used
+[003] value and ratio:   0.2613/  0.2763 A=1 prob=  0.9851 rate=  0.5500 var=  0.1050 status=1 secs=  0.0240 node=c10n02.grace.hpc.yale.internal mem=19 MB used
+[2/30][total: 2.249000][last: 0.115000 ( e:0.93 + a:0.05 )][m: 44.000000] best value 0.227896 
+ range for  p.x1   0.4987345 0.4998253 
+ range for  p.x2   0.4971233 0.5009037 
+Sending parameter evaluations...
+done
+evaluations are finished [3/3]
+[001] value and ratio:   0.2713/  0.2547 A=1 prob=  1.0000 rate=  0.5950 var=  0.1103 status=1 secs=  0.0190 node=c09n10.grace.hpc.yale.internal mem=19 MB used
+[002] value and ratio:   0.2632/  0.2483 A=1 prob=  1.0000 rate=  0.5950 var=  0.1103 status=1 secs=  0.0620 node=c10n02.grace.hpc.yale.internal mem=19 MB used
+[003] value and ratio:   0.2763/  0.2596 A=1 prob=  1.0000 rate=  0.5950 var=  0.1103 status=1 secs=  0.0300 node=c10n02.grace.hpc.yale.internal mem=19 MB used
+[3/30][total: 2.419000][last: 0.121000 ( e:0.94 + a:0.05 )][m: 44.000000] best value 0.227896 
+ range for  p.x1   0.4987345 0.5007814 
+ range for  p.x2   0.4966446 0.5009037 
+Sending parameter evaluations...
+done
+evaluations are finished [3/3]
+[001] value and ratio:   0.2547/  0.2424 A=1 prob=  1.0000 rate=  0.6355 var=  0.1158 status=1 secs=  0.0250 node=c09n10.grace.hpc.yale.internal mem=19 MB used
+[002] value and ratio:   0.2632/  0.2595 A=1 prob=  1.0000 rate=  0.6355 var=  0.1158 status=1 secs=  0.0260 node=c09n12.grace.hpc.yale.internal mem=19 MB used
+[003] value and ratio:   0.2596/  0.2735 A=1 prob=  0.9861 rate=  0.6355 var=  0.1158 status=1 secs=  0.0240 node=c10n02.grace.hpc.yale.internal mem=19 MB used
+[4/30][total: 2.589000][last: 0.114000 ( e:0.95 + a:0.05 )][m: 44.000000] best value 0.227896 
+ range for  p.x1   0.4987345 0.5034794 
+ range for  p.x2   0.4966446 0.5009037 
+Sending parameter evaluations...
+done
+evaluations are finished [3/3]
+[001] value and ratio:   0.2424/  0.2509 A=1 prob=  0.9916 rate=  0.6720 var=  0.1216 status=1 secs=  0.0240 node=c09n10.grace.hpc.yale.internal mem=19 MB used
+[002] value and ratio:   0.2595/  0.2274 A=1 prob=  1.0000 rate=  0.6720 var=  0.1216 status=1 secs=  0.0290 node=c09n12.grace.hpc.yale.internal mem=19 MB used
+[003] value and ratio:   0.2735/  0.2459 A=1 prob=  1.0000 rate=  0.6720 var=  0.1216 status=1 secs=  0.0240 node=c10n02.grace.hpc.yale.internal mem=19 MB used
+[5/30][total: 2.755000][last: 0.117000 ( e:0.94 + a:0.04 )][m: 44.000000] best value 0.227359 
+ range for  p.x1   0.4984772 0.5034794 
+ range for  p.x2   0.4966446 0.5009037 
+Sending parameter evaluations...
+done
+evaluations are finished [3/3]
+[001] value and ratio:   0.2509/  0.2604 A=1 prob=  0.9905 rate=  0.7048 var=  0.1276 status=1 secs=  0.0280 node=c09n10.grace.hpc.yale.internal mem=19 MB used
+[002] value and ratio:   0.2274/  0.2683 A=1 prob=  0.9599 rate=  0.7048 var=  0.1276 status=1 secs=  0.0260 node=c09n12.grace.hpc.yale.internal mem=19 MB used
+[003] value and ratio:   0.2459/  0.2542 A=1 prob=  0.9917 rate=  0.7048 var=  0.1276 status=1 secs=  0.0240 node=c10n02.grace.hpc.yale.internal mem=19 MB used
+[6/30][total: 2.923000][last: 0.119000 ( e:0.94 + a:0.04 )][m: 44.000000] best value 0.227359 
+ range for  p.x1   0.4974641 0.5034794 
+ range for  p.x2   0.4951848 0.5009037 
+Sending parameter evaluations...
+done
+evaluations are finished [3/3]
+[001] value and ratio:   0.2604/  0.2664 A=1 prob=  0.9940 rate=  0.7343 var=  0.1340 status=1 secs=  0.0260 node=c09n10.grace.hpc.yale.internal mem=19 MB used
+[002] value and ratio:   0.2683/  0.2523 A=1 prob=  1.0000 rate=  0.7343 var=  0.1340 status=1 secs=  0.0260 node=c09n12.grace.hpc.yale.internal mem=19 MB used
+[003] value and ratio:   0.2542/  0.2292 A=1 prob=  1.0000 rate=  0.7343 var=  0.1340 status=1 secs=  0.0300 node=c10n02.grace.hpc.yale.internal mem=19 MB used
+[7/30][total: 3.093000][last: 0.121000 ( e:0.94 + a:0.04 )][m: 44.000000] best value 0.227359 
+ range for  p.x1   0.4974641 0.5034794 
+ range for  p.x2   0.4951848 0.5009037 
+Sending parameter evaluations...
+done
+evaluations are finished [3/3]
+[001] value and ratio:   0.2664/  0.2757 A=1 prob=  0.9907 rate=  0.7609 var=  0.1407 status=1 secs=  0.0190 node=c09n10.grace.hpc.yale.internal mem=19 MB used
+[002] value and ratio:   0.2523/  0.2599 A=1 prob=  0.9924 rate=  0.7609 var=  0.1407 status=1 secs=  0.0270 node=c09n12.grace.hpc.yale.internal mem=19 MB used
+[003] value and ratio:   0.2292/  0.2434 A=1 prob=  0.9859 rate=  0.7609 var=  0.1407 status=1 secs=  0.0770 node=c09n10.grace.hpc.yale.internal mem=19 MB used
+[8/30][total: 3.257000][last: 0.115000 ( e:0.94 + a:0.05 )][m: 44.000000] best value 0.227359 
+ range for  p.x1   0.4974641 0.5034794 
+ range for  p.x2   0.4951848 0.5009037 
+Sending parameter evaluations...
+done
+evaluations are finished [3/3]
+[001] value and ratio:   0.2757/  0.2207 A=1 prob=  1.0000 rate=  0.7848 var=  0.1477 status=1 secs=  0.0200 node=c09n10.grace.hpc.yale.internal mem=19 MB used
+[002] value and ratio:   0.2599/  0.2545 A=1 prob=  1.0000 rate=  0.7848 var=  0.1477 status=1 secs=  0.0270 node=c09n12.grace.hpc.yale.internal mem=19 MB used
+[003] value and ratio:   0.2292/  0.2020 A=1 prob=  1.0000 rate=  0.7848 var=  0.1477 status=1 secs=  0.0240 node=c10n02.grace.hpc.yale.internal mem=19 MB used
+[9/30][total: 3.421000][last: 0.115000 ( e:0.94 + a:0.04 )][m: 44.000000] best value 0.202025 
+ range for  p.x1   0.4974641 0.5034794 
+ range for  p.x2   0.4951848 0.5009037 
+Sending parameter evaluations...
+done
+evaluations are finished [3/3]
+[001] value and ratio:   0.2207/  0.2633 A=1 prob=  0.9583 rate=  0.8063 var=  0.1551 status=1 secs=  0.0290 node=c09n10.grace.hpc.yale.internal mem=19 MB used
+[002] value and ratio:   0.2545/  0.2252 A=1 prob=  1.0000 rate=  0.8063 var=  0.1551 status=1 secs=  0.0260 node=c09n12.grace.hpc.yale.internal mem=19 MB used
+[003] value and ratio:   0.2020/  0.2406 A=1 prob=  0.9621 rate=  0.8063 var=  0.1551 status=1 secs=  0.0240 node=c10n02.grace.hpc.yale.internal mem=19 MB used
+[10/30][total: 3.585000][last: 0.116000 ( e:0.93 + a:0.04 )][m: 44.000000] best value 0.202025 
+ range for  p.x1   0.4972588 0.5034794 
+ range for  p.x2   0.4951848 0.5016697 
+Sending parameter evaluations...
+done
+evaluations are finished [3/3]
+[001] value and ratio:   0.2633/  0.2397 A=1 prob=  1.0000 rate=  0.8257 var=  0.1629 status=1 secs=  0.0200 node=c09n10.grace.hpc.yale.internal mem=19 MB used
+[002] value and ratio:   0.2252/  0.2371 A=1 prob=  0.9882 rate=  0.8257 var=  0.1629 status=1 secs=  0.0270 node=c09n12.grace.hpc.yale.internal mem=19 MB used
+[003] value and ratio:   0.2406/  0.2514 A=1 prob=  0.9893 rate=  0.8257 var=  0.1629 status=1 secs=  0.0240 node=c10n02.grace.hpc.yale.internal mem=19 MB used
+[11/30][total: 3.768000][last: 0.118000 ( e:0.94 + a:0.05 )][m: 44.000000] best value 0.202025 
+ range for  p.x1   0.4972588 0.5034794 
+ range for  p.x2   0.4951848 0.5054492 
+Sending parameter evaluations...
+done
+evaluations are finished [3/3]
+[001] value and ratio:   0.2397/  0.2595 A=1 prob=  0.9804 rate=  0.8431 var=  0.1710 status=1 secs=  0.0200 node=c09n10.grace.hpc.yale.internal mem=19 MB used
+[002] value and ratio:   0.2371/  0.2196 A=1 prob=  1.0000 rate=  0.8431 var=  0.1710 status=1 secs=  0.0270 node=c09n12.grace.hpc.yale.internal mem=19 MB used
+[003] value and ratio:   0.2514/  0.2616 A=1 prob=  0.9898 rate=  0.8431 var=  0.1710 status=1 secs=  0.0240 node=c10n02.grace.hpc.yale.internal mem=19 MB used
+[12/30][total: 3.937000][last: 0.115000 ( e:0.94 + a:0.04 )][m: 44.000000] best value 0.202025 
+ range for  p.x1   0.4966313 0.5034794 
+ range for  p.x2   0.49299 0.5054492 
+Sending parameter evaluations...
+done
+evaluations are finished [3/3]
+[001] value and ratio:   0.2595/  0.2402 A=1 prob=  1.0000 rate=  0.8588 var=  0.1796 status=1 secs=  0.0200 node=c09n10.grace.hpc.yale.internal mem=19 MB used
+[002] value and ratio:   0.2196/  0.2511 A=1 prob=  0.9689 rate=  0.8588 var=  0.1796 status=1 secs=  0.0260 node=c09n12.grace.hpc.yale.internal mem=19 MB used
+[003] value and ratio:   0.2616/  0.2324 A=1 prob=  1.0000 rate=  0.8588 var=  0.1796 status=1 secs=  0.0240 node=c10n02.grace.hpc.yale.internal mem=19 MB used
+[13/30][total: 4.100000][last: 0.114000 ( e:0.94 + a:0.04 )][m: 44.000000] best value 0.202025 
+ range for  p.x1   0.4963321 0.5034794 
+ range for  p.x2   0.4924262 0.5054492 
+Sending parameter evaluations...
+done
+evaluations are finished [3/3]
+[001] value and ratio:   0.2402/  0.2493 A=1 prob=  0.9909 rate=  0.8729 var=  0.1886 status=1 secs=  0.0200 node=c09n10.grace.hpc.yale.internal mem=19 MB used
+[002] value and ratio:   0.2511/  0.2574 A=1 prob=  0.9937 rate=  0.8729 var=  0.1886 status=1 secs=  0.0260 node=c09n12.grace.hpc.yale.internal mem=19 MB used
+[003] value and ratio:   0.2324/  0.2707 A=1 prob=  0.9624 rate=  0.8729 var=  0.1886 status=1 secs=  0.0350 node=c10n02.grace.hpc.yale.internal mem=19 MB used
+[14/30][total: 4.271000][last: 0.122000 ( e:0.93 + a:0.05 )][m: 44.000000] best value 0.202025 
+ range for  p.x1   0.4930719 0.5034794 
+ range for  p.x2   0.4924262 0.5054492 
+Sending parameter evaluations...
+done
+evaluations are finished [3/3]
+[001] value and ratio:   0.2493/  0.2469 A=1 prob=  1.0000 rate=  0.8856 var=  0.1980 status=1 secs=  0.0200 node=c09n10.grace.hpc.yale.internal mem=19 MB used
+[002] value and ratio:   0.2574/  0.2490 A=1 prob=  1.0000 rate=  0.8856 var=  0.1980 status=1 secs=  0.0270 node=c09n12.grace.hpc.yale.internal mem=19 MB used
+[003] value and ratio:   0.2707/  0.2480 A=1 prob=  1.0000 rate=  0.8856 var=  0.1980 status=1 secs=  0.0250 node=c10n02.grace.hpc.yale.internal mem=19 MB used
+[15/30][total: 4.436000][last: 0.116000 ( e:0.94 + a:0.04 )][m: 44.000000] best value 0.202025 
+ range for  p.x1   0.4924781 0.5034794 
+ range for  p.x2   0.4900185 0.5054492 
+Sending parameter evaluations...
+done
+evaluations are finished [3/3]
+[001] value and ratio:   0.2469/  0.2337 A=1 prob=  1.0000 rate=  0.8971 var=  0.2079 status=1 secs=  0.0200 node=c09n10.grace.hpc.yale.internal mem=19 MB used
+[002] value and ratio:   0.2490/  0.2367 A=1 prob=  1.0000 rate=  0.8971 var=  0.2079 status=1 secs=  0.0270 node=c09n12.grace.hpc.yale.internal mem=19 MB used
+[003] value and ratio:   0.2480/  0.2423 A=1 prob=  1.0000 rate=  0.8971 var=  0.2079 status=1 secs=  0.0240 node=c10n02.grace.hpc.yale.internal mem=19 MB used
+[16/30][total: 4.600000][last: 0.115000 ( e:0.94 + a:0.04 )][m: 44.000000] best value 0.202025 
+ range for  p.x1   0.4910698 0.5034794 
+ range for  p.x2   0.4900185 0.5054492 
+Sending parameter evaluations...
+done
+evaluations are finished [3/3]
+[001] value and ratio:   0.2337/  0.2396 A=1 prob=  0.9941 rate=  0.9073 var=  0.2183 status=1 secs=  0.0190 node=c09n10.grace.hpc.yale.internal mem=19 MB used
+[002] value and ratio:   0.2367/  0.2426 A=1 prob=  0.9941 rate=  0.9073 var=  0.2183 status=1 secs=  0.0260 node=c09n12.grace.hpc.yale.internal mem=19 MB used
+[003] value and ratio:   0.2423/  0.2227 A=1 prob=  1.0000 rate=  0.9073 var=  0.2183 status=1 secs=  0.0240 node=c10n02.grace.hpc.yale.internal mem=19 MB used
+[17/30][total: 4.763000][last: 0.115000 ( e:0.93 + a:0.05 )][m: 44.000000] best value 0.202025 
+ range for  p.x1   0.4865479 0.5034794 
+ range for  p.x2   0.4900185 0.5054492 
+Sending parameter evaluations...
+done
+evaluations are finished [3/3]
+[001] value and ratio:   0.2396/  0.2505 A=0 prob=  0.9892 rate=  0.9166 var=  0.2292 status=1 secs=  0.0290 node=c09n10.grace.hpc.yale.internal mem=19 MB used
+[002] value and ratio:   0.2426/  0.2392 A=1 prob=  1.0000 rate=  0.9166 var=  0.2292 status=1 secs=  0.0270 node=c09n12.grace.hpc.yale.internal mem=19 MB used
+[003] value and ratio:   0.2227/  0.2265 A=1 prob=  0.9962 rate=  0.9166 var=  0.2292 status=1 secs=  0.0250 node=c10n02.grace.hpc.yale.internal mem=19 MB used
+[18/30][total: 4.931000][last: 0.119000 ( e:0.94 + a:0.04 )][m: 44.000000] best value 0.202025 
+ range for  p.x1   0.4840543 0.5034794 
+ range for  p.x2   0.4876107 0.5054492 
+Sending parameter evaluations...
+done
+evaluations are finished [3/3]
+[001] value and ratio:   0.2396/  0.2408 A=1 prob=  0.9987 rate=  0.8250 var=  0.2407 status=1 secs=  0.0200 node=c09n10.grace.hpc.yale.internal mem=19 MB used
+[002] value and ratio:   0.2392/  0.2530 A=0 prob=  0.9863 rate=  0.9250 var=  0.2407 status=1 secs=  0.0260 node=c09n12.grace.hpc.yale.internal mem=19 MB used
+[003] value and ratio:   0.2265/  0.2450 A=1 prob=  0.9817 rate=  0.9250 var=  0.2407 status=1 secs=  0.0240 node=c10n02.grace.hpc.yale.internal mem=19 MB used
+[19/30][total: 5.099000][last: 0.120000 ( e:0.93 + a:0.04 )][m: 44.000000] best value 0.202025 
+ range for  p.x1   0.4835654 0.5034794 
+ range for  p.x2   0.4876107 0.5054492 
+Sending parameter evaluations...
+done
+evaluations are finished [3/3]
+[001] value and ratio:   0.2408/  0.2509 A=1 prob=  0.9900 rate=  0.8425 var=  0.2527 status=1 secs=  0.0200 node=c09n10.grace.hpc.yale.internal mem=19 MB used
+[002] value and ratio:   0.2392/  0.2383 A=1 prob=  1.0000 rate=  0.8325 var=  0.2527 status=1 secs=  0.0270 node=c09n12.grace.hpc.yale.internal mem=19 MB used
+[003] value and ratio:   0.2450/  0.2364 A=1 prob=  1.0000 rate=  0.9325 var=  0.2527 status=1 secs=  0.0240 node=c10n02.grace.hpc.yale.internal mem=19 MB used
+[20/30][total: 5.263000][last: 0.115000 ( e:0.94 + a:0.04 )][m: 44.000000] best value 0.202025 
+ range for  p.x1   0.4822375 0.5034794 
+ range for  p.x2   0.4876107 0.5057877 
+Sending parameter evaluations...
+done
+evaluations are finished [3/3]
+[001] value and ratio:   0.2509/  0.2455 A=1 prob=  1.0000 rate=  0.8582 var=  0.2653 status=1 secs=  0.0200 node=c09n10.grace.hpc.yale.internal mem=19 MB used
+[002] value and ratio:   0.2383/  0.2481 A=1 prob=  0.9903 rate=  0.8492 var=  0.2653 status=1 secs=  0.0260 node=c09n12.grace.hpc.yale.internal mem=19 MB used
+[003] value and ratio:   0.2364/  0.2260 A=1 prob=  1.0000 rate=  0.9392 var=  0.2653 status=1 secs=  0.0240 node=c10n02.grace.hpc.yale.internal mem=19 MB used
+[21/30][total: 5.426000][last: 0.114000 ( e:0.94 + a:0.05 )][m: 44.100000] best value 0.202025 
+ range for  p.x1   0.4799487 0.5049346 
+ range for  p.x2   0.4876107 0.5057877 
+Sending parameter evaluations...
+done
+evaluations are finished [3/3]
+[001] value and ratio:   0.2455/  0.2513 A=1 prob=  0.9942 rate=  0.8724 var=  0.2786 status=1 secs=  0.0240 node=c09n10.grace.hpc.yale.internal mem=19 MB used
+[002] value and ratio:   0.2481/  0.2218 A=1 prob=  1.0000 rate=  0.8643 var=  0.2786 status=1 secs=  0.0270 node=c09n12.grace.hpc.yale.internal mem=19 MB used
+[003] value and ratio:   0.2260/  0.2521 A=1 prob=  0.9742 rate=  0.9453 var=  0.2786 status=1 secs=  0.0270 node=c10n02.grace.hpc.yale.internal mem=19 MB used
+[22/30][total: 5.590000][last: 0.115000 ( e:0.94 + a:0.05 )][m: 44.100000] best value 0.202025 
+ range for  p.x1   0.4796262 0.5049346 
+ range for  p.x2   0.4876107 0.5057877 
+Sending parameter evaluations...
+done
+evaluations are finished [3/3]
+[001] value and ratio:   0.2513/  0.2604 A=1 prob=  0.9909 rate=  0.8852 var=  0.2925 status=1 secs=  0.0260 node=c09n10.grace.hpc.yale.internal mem=19 MB used
+[002] value and ratio:   0.2218/  0.2466 A=1 prob=  0.9755 rate=  0.8779 var=  0.2925 status=1 secs=  0.0270 node=c09n12.grace.hpc.yale.internal mem=19 MB used
+[003] value and ratio:   0.2521/  0.2513 A=1 prob=  1.0000 rate=  0.9508 var=  0.2925 status=1 secs=  0.0270 node=c10n02.grace.hpc.yale.internal mem=19 MB used
+[23/30][total: 5.765000][last: 0.126000 ( e:0.94 + a:0.05 )][m: 44.100000] best value 0.202025 
+ range for  p.x1   0.4775698 0.5067605 
+ range for  p.x2   0.4876107 0.5057877 
+Sending parameter evaluations...
+done
+evaluations are finished [3/3]
+[001] value and ratio:   0.2604/  0.2373 A=1 prob=  1.0000 rate=  0.8966 var=  0.3072 status=1 secs=  0.0260 node=c09n10.grace.hpc.yale.internal mem=19 MB used
+[002] value and ratio:   0.2466/  0.2579 A=1 prob=  0.9888 rate=  0.8901 var=  0.3072 status=1 secs=  0.0260 node=c09n12.grace.hpc.yale.internal mem=19 MB used
+[003] value and ratio:   0.2513/  0.2401 A=1 prob=  1.0000 rate=  0.9557 var=  0.3072 status=1 secs=  0.0270 node=c10n02.grace.hpc.yale.internal mem=19 MB used
+[24/30][total: 5.939000][last: 0.116000 ( e:0.94 + a:0.04 )][m: 44.100000] best value 0.202025 
+ range for  p.x1   0.4775698 0.508728 
+ range for  p.x2   0.4876107 0.5057877 
+Sending parameter evaluations...
+done
+evaluations are finished [3/3]
+[001] value and ratio:   0.2373/  0.2470 A=1 prob=  0.9904 rate=  0.9070 var=  0.3225 status=1 secs=  0.0220 node=c09n10.grace.hpc.yale.internal mem=19 MB used
+[002] value and ratio:   0.2579/  0.2446 A=1 prob=  1.0000 rate=  0.9011 var=  0.3225 status=1 secs=  0.0260 node=c09n12.grace.hpc.yale.internal mem=19 MB used
+[003] value and ratio:   0.2401/  0.2473 A=1 prob=  0.9928 rate=  0.9601 var=  0.3225 status=1 secs=  0.0270 node=c10n02.grace.hpc.yale.internal mem=19 MB used
+[25/30][total: 6.103000][last: 0.115000 ( e:0.94 + a:0.05 )][m: 44.100000] best value 0.202025 
+ range for  p.x1   0.4775698 0.5094989 
+ range for  p.x2   0.4876107 0.5057877 
+Sending parameter evaluations...
+done
+evaluations are finished [3/3]
+26 evals, saving to evaluations.dat 
+[001] value and ratio:   0.2470/  0.2594 A=1 prob=  0.9876 rate=  0.9163 var=  0.3386 status=1 secs=  0.0290 node=c09n10.grace.hpc.yale.internal mem=19 MB used
+[002] value and ratio:   0.2446/  0.2585 A=1 prob=  0.9862 rate=  0.9110 var=  0.3386 status=1 secs=  0.0260 node=c09n12.grace.hpc.yale.internal mem=19 MB used
+[003] value and ratio:   0.2473/  0.2693 A=1 prob=  0.9782 rate=  0.9641 var=  0.3386 status=1 secs=  0.0290 node=c10n02.grace.hpc.yale.internal mem=19 MB used
+[26/30][total: 6.283000][last: 0.131000 ( e:0.89 + a:0.04 )][m: 44.100000] best value 0.202025 
+ range for  p.x1   0.4775698 0.510973 
+ range for  p.x2   0.4876107 0.5057877 
+Sending parameter evaluations...
+done
+evaluations are finished [3/3]
+[001] value and ratio:   0.2594/  0.2756 A=1 prob=  0.9839 rate=  0.9246 var=  0.3556 status=1 secs=  0.0280 node=c09n10.grace.hpc.yale.internal mem=19 MB used
+[002] value and ratio:   0.2585/  0.2403 A=1 prob=  1.0000 rate=  0.9199 var=  0.3556 status=1 secs=  0.0270 node=c09n12.grace.hpc.yale.internal mem=19 MB used
+[003] value and ratio:   0.2693/  0.2493 A=1 prob=  1.0000 rate=  0.9677 var=  0.3556 status=1 secs=  0.0200 node=c09n10.grace.hpc.yale.internal mem=19 MB used
+[27/30][total: 6.462000][last: 0.126000 ( e:0.94 + a:0.04 )][m: 44.100000] best value 0.202025 
+ range for  p.x1   0.4775698 0.510973 
+ range for  p.x2   0.4840049 0.5057877 
+Sending parameter evaluations...
+done
+evaluations are finished [3/3]
+[001] value and ratio:   0.2756/  0.2670 A=1 prob=  1.0000 rate=  0.9322 var=  0.3733 status=1 secs=  0.0200 node=c09n10.grace.hpc.yale.internal mem=19 MB used
+[002] value and ratio:   0.2403/  0.2440 A=1 prob=  0.9964 rate=  0.9279 var=  0.3733 status=1 secs=  0.0260 node=c09n12.grace.hpc.yale.internal mem=19 MB used
+[003] value and ratio:   0.2693/  0.2218 A=1 prob=  1.0000 rate=  0.9709 var=  0.3733 status=1 secs=  0.0260 node=c10n02.grace.hpc.yale.internal mem=19 MB used
+[28/30][total: 6.626000][last: 0.115000 ( e:0.94 + a:0.04 )][m: 44.100000] best value 0.202025 
+ range for  p.x1   0.4775698 0.510973 
+ range for  p.x2   0.4840049 0.5057877 
+Sending parameter evaluations...
+done
+evaluations are finished [3/3]
+[001] value and ratio:   0.2670/  0.2540 A=1 prob=  1.0000 rate=  0.9390 var=  0.3920 status=1 secs=  0.0270 node=c09n10.grace.hpc.yale.internal mem=19 MB used
+[002] value and ratio:   0.2440/  0.2557 A=1 prob=  0.9884 rate=  0.9351 var=  0.3920 status=1 secs=  0.0260 node=c09n12.grace.hpc.yale.internal mem=19 MB used
+[003] value and ratio:   0.2218/  0.2721 A=1 prob=  0.9510 rate=  0.9738 var=  0.3920 status=1 secs=  0.0270 node=c10n02.grace.hpc.yale.internal mem=19 MB used
+[29/30][total: 6.792000][last: 0.117000 ( e:0.94 + a:0.04 )][m: 44.100000] best value 0.202025 
+ range for  p.x1   0.4775698 0.510973 
+ range for  p.x2   0.4784285 0.5057877 
+Sending parameter evaluations...
+done
+evaluations are finished [3/3]
+[001] value and ratio:   0.2540/  0.2603 A=1 prob=  0.9937 rate=  0.9451 var=  0.4116 status=1 secs=  0.0190 node=c09n10.grace.hpc.yale.internal mem=19 MB used
+[002] value and ratio:   0.2557/  0.2366 A=1 prob=  1.0000 rate=  0.9416 var=  0.4116 status=1 secs=  0.0270 node=c09n12.grace.hpc.yale.internal mem=19 MB used
+[003] value and ratio:   0.2721/  0.2442 A=1 prob=  1.0000 rate=  0.9764 var=  0.4116 status=1 secs=  0.0270 node=c10n02.grace.hpc.yale.internal mem=19 MB used
+[30/30][total: 6.956000][last: 0.115000 ( e:0.94 + a:0.05 )][m: 44.100000] best value 0.202025 
+ range for  p.x1   0.4775698 0.510973 
+ range for  p.x2   0.476869 0.5057877 
+        p.x1      p.x2     value status  time chain
+1  0.4987345 0.5000000 0.2434346      1 0.077     1
+2  0.4998253 0.5000000 0.2278961      1 0.065     2
+3  0.4994280 0.5000000 0.2482874      1 0.062     3
+4  0.4987345 0.5000000 0.2440125      1 0.019     1
+5  0.4998253 0.5000000 0.2658541      1 0.027     2
+6  0.4994280 0.5000000 0.2613389      1 0.026     3
+7  0.4989034 0.5002683 0.2712757      1 0.029     1
+8  0.4989552 0.5009037 0.2631941      1 0.026     2
+9  0.4989759 0.4971233 0.2763020      1 0.024     3
+10 0.5007814 0.4983083 0.2547228      1 0.019     1
+11 0.4994280 0.5000000 0.2482874      1 0.062     2
+12 0.5006492 0.4966446 0.2595528      1 0.030     3
+13 0.5000535 0.4993042 0.2424403      1 0.025     1
+14 0.4996346 0.5002991 0.2594703      1 0.026     2
+15 0.5034794 0.4967654 0.2735266      1 0.024     3
+16 0.4993046 0.4990137 0.2508582      1 0.024     1
+17 0.4984772 0.4985247 0.2273587      1 0.029     2
+18 0.5033864 0.4976330 0.2458756      1 0.024     3
+19 0.4974641 0.4955647 0.2604044      1 0.028     1
+20 0.4999360 0.4984277 0.2682646      1 0.026     2
+21 0.5027205 0.4951848 0.2541968      1 0.024     3
+22 0.4987954 0.4960902 0.2664117      1 0.026     1
+23 0.5001900 0.4991752 0.2522686      1 0.026     2
+24 0.5033609 0.4976483 0.2291873      1 0.030     3
+25 0.4987938 0.5006030 0.2757408      1 0.019     1
+26 0.5012550 0.4983733 0.2598508      1 0.027     2
+27 0.4987345 0.5000000 0.2434346      1 0.077     3
+28 0.4996288 0.5006435 0.2207277      1 0.020     1
+29 0.4987095 0.4963839 0.2544537      1 0.027     2
+30 0.4975871 0.4993346 0.2020253      1 0.024     3
+31 0.4994902 0.5006827 0.2632965      1 0.029     1
+32 0.4972588 0.4970576 0.2252117      1 0.026     2
+33 0.4993009 0.5016697 0.2406271      1 0.024     3
+34 0.4990806 0.4993799 0.2397078      1 0.020     1
+35 0.4997772 0.4980040 0.2371092      1 0.027     2
+36 0.4981492 0.5054492 0.2513512      1 0.024     3
+37 0.4986716 0.5001631 0.2595339      1 0.020     1
+38 0.4992119 0.4929900 0.2195817      1 0.027     2
+39 0.4966313 0.5036363 0.2615752      1 0.024     3
+40 0.4963767 0.4993400 0.2401730      1 0.020     1
+41 0.5014564 0.4924262 0.2511342      1 0.026     2
+42 0.4963321 0.5046044 0.2324100      1 0.024     3
+43 0.4979731 0.4979872 0.2492776      1 0.020     1
+44 0.4984662 0.4944469 0.2574379      1 0.026     2
+45 0.4930719 0.5018309 0.2707262      1 0.035     3
+46 0.4993326 0.4961704 0.2468940      1 0.020     1
+47 0.4968797 0.4900185 0.2490056      1 0.027     2
+48 0.4924781 0.4978723 0.2480315      1 0.025     3
+49 0.4982412 0.5004622 0.2336838      1 0.020     1
+50 0.4948769 0.4904028 0.2366562      1 0.027     2
+51 0.4910698 0.5007803 0.2423205      1 0.024     3
+52 0.4992325 0.5011426 0.2395690      1 0.019     1
+53 0.4960762 0.4917634 0.2426179      1 0.026     2
+54 0.4865479 0.5008128 0.2226516      1 0.024     3
+55 0.4992325 0.5011426 0.2395690      1 0.019     1
+56 0.4936300 0.4876107 0.2392473      1 0.027     2
+57 0.4840543 0.5001937 0.2264836      1 0.025     3
+58 0.5012765 0.5029877 0.2408383      1 0.020     1
+59 0.4936300 0.4876107 0.2392473      1 0.027     2
+60 0.4835654 0.4992130 0.2449672      1 0.024     3
+61 0.5014351 0.5057877 0.2509064      1 0.020     1
+62 0.4944775 0.4928838 0.2383007      1 0.027     2
+63 0.4822375 0.4970542 0.2364071      1 0.024     3
+64 0.5049346 0.5000764 0.2454621      1 0.020     1
+65 0.4932809 0.4879075 0.2480795      1 0.026     2
+66 0.4799487 0.5002102 0.2260233      1 0.024     3
+67 0.5008568 0.5026207 0.2512844      1 0.024     1
+68 0.4974140 0.4903848 0.2218303      1 0.027     2
+69 0.4796262 0.5015922 0.2521128      1 0.027     3
+70 0.5067605 0.5004681 0.2603994      1 0.026     1
+71 0.4961252 0.4889656 0.2465983      1 0.027     2
+72 0.4775698 0.5020828 0.2512861      1 0.027     3
+73 0.5087280 0.4928890 0.2372992      1 0.026     1
+74 0.4953957 0.4946036 0.2578946      1 0.026     2
+75 0.4801448 0.5052705 0.2401178      1 0.027     3
+76 0.5094989 0.5002408 0.2469868      1 0.022     1
+77 0.4929697 0.4931034 0.2445544      1 0.026     2
+78 0.4793151 0.5021372 0.2473006      1 0.027     3
+79 0.5109730 0.4990156 0.2594494      1 0.029     1
+80 0.4991105 0.4927056 0.2584912      1 0.026     2
+81 0.4805687 0.5037624 0.2693201      1 0.029     3
+82 0.5074906 0.5017571 0.2756367      1 0.028     1
+83 0.5032218 0.4840049 0.2403122      1 0.027     2
+84 0.4979731 0.4979872 0.2492776      1 0.020     3
+85 0.5049230 0.5054669 0.2669505      1 0.020     1
+86 0.5066970 0.4845037 0.2439685      1 0.026     2
+87 0.5004411 0.4957273 0.2218333      1 0.026     3
+88 0.5060309 0.5023086 0.2540450      1 0.027     1
+89 0.5087147 0.4784285 0.2556654      1 0.026     2
+90 0.4993422 0.4961019 0.2721258      1 0.027     3
+91 0.5006465 0.4970608 0.2603265      1 0.019     1
+92 0.5025199 0.4768690 0.2365860      1 0.027     2
+93 0.5018645 0.4930993 0.2442109      1 0.027     3
+                           d.node      d.mem      m.m1      m.m2  i run
+1  c09n10.grace.hpc.yale.internal 19 MB used 0.5128480 0.4731344  1   0
+2  c09n12.grace.hpc.yale.internal 19 MB used 0.4903001 0.4641100  1   0
+3  c10n02.grace.hpc.yale.internal 19 MB used 0.5226864 0.4726242  1   0
+4  c09n10.grace.hpc.yale.internal 19 MB used 0.5086570 0.4788456  1   0
+5  c09n12.grace.hpc.yale.internal 19 MB used 0.4998209 0.5309306  1   0
+6  c10n02.grace.hpc.yale.internal 19 MB used 0.5326730 0.4888121  1   0
+7  c09n10.grace.hpc.yale.internal 19 MB used 0.5166513 0.5249979  2   0
+8  c09n12.grace.hpc.yale.internal 19 MB used 0.5175813 0.5084268  2   0
+9  c10n02.grace.hpc.yale.internal 19 MB used 0.5503147 0.4997576  2   0
+10 c09n10.grace.hpc.yale.internal 19 MB used 0.5120214 0.4972722  3   0
+11 c10n02.grace.hpc.yale.internal 19 MB used 0.5226864 0.4726242  1   0
+12 c10n02.grace.hpc.yale.internal 19 MB used 0.5123821 0.5065276  3   0
+13 c09n10.grace.hpc.yale.internal 19 MB used 0.4816780 0.5028587  4   0
+14 c09n12.grace.hpc.yale.internal 19 MB used 0.5209348 0.4975615  4   0
+15 c10n02.grace.hpc.yale.internal 19 MB used 0.5219792 0.5240143  4   0
+16 c09n10.grace.hpc.yale.internal 19 MB used 0.5115767 0.4899037  5   0
+17 c09n12.grace.hpc.yale.internal 19 MB used 0.4653727 0.4880017  5   0
+18 c10n02.grace.hpc.yale.internal 19 MB used 0.4799149 0.5113050  5   0
+19 c09n10.grace.hpc.yale.internal 19 MB used 0.5117664 0.5088260  6   0
+20 c09n12.grace.hpc.yale.internal 19 MB used 0.5149093 0.5209584  6   0
+21 c10n02.grace.hpc.yale.internal 19 MB used 0.4916191 0.5164342  6   0
+22 c09n10.grace.hpc.yale.internal 19 MB used 0.5158291 0.5164723  7   0
+23 c09n12.grace.hpc.yale.internal 19 MB used 0.4858592 0.5181488  7   0
+24 c10n02.grace.hpc.yale.internal 19 MB used 0.5025908 0.4536266  7   0
+25 c09n10.grace.hpc.yale.internal 19 MB used 0.5112965 0.5385700  8   0
+26 c09n12.grace.hpc.yale.internal 19 MB used 0.5051159 0.5143535  8   0
+27 c09n10.grace.hpc.yale.internal 19 MB used 0.5128480 0.4731344  1   0
+28 c09n10.grace.hpc.yale.internal 19 MB used 0.4860322 0.4530211  9   0
+29 c09n12.grace.hpc.yale.internal 19 MB used 0.5087346 0.5000966  9   0
+30 c10n02.grace.hpc.yale.internal 19 MB used 0.4417663 0.4570483  9   0
+31 c09n10.grace.hpc.yale.internal 19 MB used 0.4901782 0.5350873 10   0
+32 c09n12.grace.hpc.yale.internal 19 MB used 0.4948166 0.4534093 10   0
+33 c10n02.grace.hpc.yale.internal 19 MB used 0.4934011 0.4876571 10   0
+34 c09n10.grace.hpc.yale.internal 19 MB used 0.4975818 0.4814851 11   0
+35 c09n12.grace.hpc.yale.internal 19 MB used 0.4861642 0.4877118 11   0
+36 c10n02.grace.hpc.yale.internal 19 MB used 0.5092462 0.4933262 11   0
+37 c09n10.grace.hpc.yale.internal 19 MB used 0.5136562 0.5051981 12   0
+38 c09n12.grace.hpc.yale.internal 19 MB used 0.4698843 0.4673030 12   0
+39 c10n02.grace.hpc.yale.internal 19 MB used 0.5573658 0.4609704 12   0
+40 c09n10.grace.hpc.yale.internal 19 MB used 0.4891154 0.4910318 13   0
+41 c09n12.grace.hpc.yale.internal 19 MB used 0.4859574 0.5158622 13   0
+42 c10n02.grace.hpc.yale.internal 19 MB used 0.4604544 0.5027939 13   0
+43 c09n10.grace.hpc.yale.internal 19 MB used 0.4932964 0.5051869 14   0
+44 c09n12.grace.hpc.yale.internal 19 MB used 0.5112456 0.5034916 14   0
+45 c10n02.grace.hpc.yale.internal 19 MB used 0.5154371 0.5251448 14   0
+46 c09n10.grace.hpc.yale.internal 19 MB used 0.5010177 0.4927161 15   0
+47 c09n12.grace.hpc.yale.internal 19 MB used 0.5211173 0.4758655 15   0
+48 c10n02.grace.hpc.yale.internal 19 MB used 0.4757337 0.5193654 15   0
+49 c09n10.grace.hpc.yale.internal 19 MB used 0.4602253 0.5055297 16   0
+50 c09n12.grace.hpc.yale.internal 19 MB used 0.4812795 0.4916121 16   0
+51 c10n02.grace.hpc.yale.internal 19 MB used 0.4840072 0.5003778 16   0
+52 c09n10.grace.hpc.yale.internal 19 MB used 0.5321509 0.4426663 17   0
+53 c09n12.grace.hpc.yale.internal 19 MB used 0.4848382 0.5001676 17   0
+54 c10n02.grace.hpc.yale.internal 19 MB used 0.4770628 0.4665986 17   0
+55 c09n10.grace.hpc.yale.internal 19 MB used 0.5321509 0.4426663 17   0
+56 c09n12.grace.hpc.yale.internal 19 MB used 0.5010485 0.4769119 18   0
+57 c10n02.grace.hpc.yale.internal 19 MB used 0.4773243 0.4744774 18   0
+58 c09n10.grace.hpc.yale.internal 19 MB used 0.4858918 0.4955660 19   0
+59 c09n12.grace.hpc.yale.internal 19 MB used 0.5010485 0.4769119 18   0
+60 c10n02.grace.hpc.yale.internal 19 MB used 0.4713844 0.5174275 19   0
+61 c09n10.grace.hpc.yale.internal 19 MB used 0.4678582 0.5319038 20   0
+62 c09n12.grace.hpc.yale.internal 19 MB used 0.4797250 0.4964527 20   0
+63 c10n02.grace.hpc.yale.internal 19 MB used 0.4853570 0.4870757 20   0
+64 c09n10.grace.hpc.yale.internal 19 MB used 0.4920021 0.4988568 21   0
+65 c09n12.grace.hpc.yale.internal 19 MB used 0.5250510 0.4695535 21   0
+66 c10n02.grace.hpc.yale.internal 19 MB used 0.4541706 0.4957578 21   0
+67 c09n10.grace.hpc.yale.internal 19 MB used 0.5088513 0.4935982 22   0
+68 c09n12.grace.hpc.yale.internal 19 MB used 0.4843915 0.4571931 22   0
+69 c10n02.grace.hpc.yale.internal 19 MB used 0.5174099 0.4863257 22   0
+70 c09n10.grace.hpc.yale.internal 19 MB used 0.5074893 0.5130822 23   0
+71 c09n12.grace.hpc.yale.internal 19 MB used 0.4854409 0.5074878 23   0
+72 c10n02.grace.hpc.yale.internal 19 MB used 0.4682749 0.5322507 23   0
+73 c09n10.grace.hpc.yale.internal 19 MB used 0.5121741 0.4607344 24   0
+74 c09n12.grace.hpc.yale.internal 19 MB used 0.5043282 0.5113143 24   0
+75 c10n02.grace.hpc.yale.internal 19 MB used 0.4796761 0.5001465 24   0
+76 c09n10.grace.hpc.yale.internal 19 MB used 0.5099467 0.4836610 25   0
+77 c09n12.grace.hpc.yale.internal 19 MB used 0.4883421 0.5006303 25   0
+78 c10n02.grace.hpc.yale.internal 19 MB used 0.4810063 0.5130635 25   0
+79 c09n10.grace.hpc.yale.internal 19 MB used 0.4969760 0.5214535 26   0
+80 c09n12.grace.hpc.yale.internal 19 MB used 0.5283724 0.4876525 26   0
+81 c10n02.grace.hpc.yale.internal 19 MB used 0.4923062 0.5443113 26   0
+82 c09n10.grace.hpc.yale.internal 19 MB used 0.5150185 0.5348171 27   0
+83 c09n12.grace.hpc.yale.internal 19 MB used 0.5074484 0.4723562 27   0
+84 c09n10.grace.hpc.yale.internal 19 MB used 0.4932964 0.5051869 14   0
+85 c09n10.grace.hpc.yale.internal 19 MB used 0.5174150 0.5159289 28   0
+86 c09n12.grace.hpc.yale.internal 19 MB used 0.5001694 0.4876142 28   0
+87 c10n02.grace.hpc.yale.internal 19 MB used 0.4689453 0.4730295 28   0
+88 c09n10.grace.hpc.yale.internal 19 MB used 0.4913183 0.5164266 29   0
+89 c09n12.grace.hpc.yale.internal 19 MB used 0.5146227 0.4964819 29   0
+90 c10n02.grace.hpc.yale.internal 19 MB used 0.5049843 0.5378127 29   0
+91 c09n10.grace.hpc.yale.internal 19 MB used 0.5209958 0.4992157 30   0
+92 c09n12.grace.hpc.yale.internal 19 MB used 0.4849256 0.4878721 30   0
+93 c10n02.grace.hpc.yale.internal 19 MB used 0.4860061 0.5022149 30   0
+[1] "Please use mpi.close.Rslaves() to close slaves"
+[1] "Please use mpi.quit() to quit R"

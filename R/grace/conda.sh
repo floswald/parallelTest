@@ -1,6 +1,7 @@
 #The conda package repository has many (though not all) of the common R packages that can be installed with the typical conda syntax:
 source activate parallel_r
-conda install -c r r-lattice
+conda search -f r-gsl
+conda install -c r r-gsl
 
 #If there are packages that conda does not provide, you can install them locally from within R using the install.packages function. To install a package (lattice for example) directly, simply run:
 module load miniconda

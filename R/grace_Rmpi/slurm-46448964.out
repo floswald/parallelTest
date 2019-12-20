@@ -525,3 +525,4 @@ evaluations are finished [3/3]
 93 c10n02.grace.hpc.yale.internal 19 MB used 0.4860061 0.5022149 30   0
 [1] "Please use mpi.close.Rslaves() to close slaves"
 [1] "Please use mpi.quit() to quit R"
+slurmstepd: error: *** JOB 46448964 ON c09n07 CANCELLED AT 2019-12-05T00:37:16 ***

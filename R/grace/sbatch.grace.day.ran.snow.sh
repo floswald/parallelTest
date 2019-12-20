@@ -7,7 +7,7 @@
 #! sbatch directives begin here ###############################
 #! Name of the job:
 #SBATCH -J js1
-#SBATCH -n 4 -N 4
+#SBATCH --ntasks=20
 #! How much wallclock time will be required?
 #SBATCH --time=1:00:00
 #! What types of email messages do you wish to receive?

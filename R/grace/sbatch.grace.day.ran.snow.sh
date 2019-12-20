@@ -29,7 +29,7 @@ source activate parallel_r
 #! Insert additional module load commands after this line if needed:
 
 #! Run options for the application:
-options="snow.r"
+options="example-snow.r"
 
 #! Work directory (i.e. where the job will run):
 workdir="$SLURM_SUBMIT_DIR"  # The value of SLURM_SUBMIT_DIR sets workdir to the directory

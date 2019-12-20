@@ -13,7 +13,7 @@
 #! What types of email messages do you wish to receive?
 #SBATCH --mail-type=FAIL
 #! Do not change:
-#SBATCH -p pi_cowles
+#SBATCH -p day
 #! sbatch directives end here (put any additional directives above this line)
 
 #! ############################################################

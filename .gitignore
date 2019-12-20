@@ -11,6 +11,8 @@ build/*
 *.perspectivev3
 *.pbxuser
 *.xcworkspace
+*.out
+*.dat
 xcuserdata
 
 # svn & cvs

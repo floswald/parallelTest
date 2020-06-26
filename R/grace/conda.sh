@@ -12,6 +12,7 @@ install.packages("lattice", repos="http://cran.r-project.org")
 #In particular, you will need Rmpi, doMC, and doMPI. The first two can be installed via conda, while the last one must be installed manually.
 module load miniconda
 conda create --name parallel_r -c conda-forge r-base r-essentials r-doMC r-Rmpi
+conda create --name parallel_r2 -c conda-forge r-base-dev r-essentials r-doMC r-Rmpi
 source activate parallel_r
 R
 install.packages('doMPI')

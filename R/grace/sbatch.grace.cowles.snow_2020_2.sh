@@ -34,7 +34,7 @@ source activate parallel_r
 #! Insert additional module load commands after this line if needed:
 
 #! Run options for the application:
-options="example-snow.r"
+options="snow.r"
 
 #! Work directory (i.e. where the job will run):
 workdir="$SLURM_SUBMIT_DIR"  # The value of SLURM_SUBMIT_DIR sets workdir to the directory
@@ -44,8 +44,7 @@ workdir="$SLURM_SUBMIT_DIR"  # The value of SLURM_SUBMIT_DIR sets workdir to the
 np=$SLURM_NTASKS
 
 #CMD="mpirun R --no-save -q < $options"
-#CMD="mpirun R --slave --no-restore -f $options"
-CMD="mpirun R --slave --vanilla -f $options"
+CMD="mpirun R --slave --no-restore -f $options"
 
 ###############################################################
 ### You should not have to change anything below this line ####

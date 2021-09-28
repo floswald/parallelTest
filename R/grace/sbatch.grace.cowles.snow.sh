@@ -45,9 +45,9 @@ np=$SLURM_NTASKS
 
 #CMD="mpirun R --no-save -q < $options"
 #CMD="mpirun R --slave --no-restore -f $options"
-#CMD="mpirun -np 1 R --slave --vanilla -f $options"
+CMD="mpirun -np 1 R --slave --vanilla -f $options"
 #CMD="mpirun -np 1 R --no-save -q < $options"
-CMD="mpirun -np $np R --slave --vanilla -f $options"
+#CMD="mpirun -np $np R --slave --vanilla -f $options"
 
 ###############################################################
 ### You should not have to change anything below this line ####

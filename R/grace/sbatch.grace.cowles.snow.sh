@@ -40,12 +40,9 @@ options="example-snow.r"
 workdir="$SLURM_SUBMIT_DIR"  # The value of SLURM_SUBMIT_DIR sets workdir to the directory
                              # in which sbatch is run.
 
-#! Number of MPI tasks to be started by the application per node and in total (do not change):
-np=$SLURM_NTASKS
-
 #CMD="mpirun R --no-save -q < $options"
 #CMD="mpirun R --slave --no-restore -f $options"
-CMD="mpirun R --slave --vanilla -f $options"
+CMD="mpirun -np 1 R --slave --vanilla -f $options"
 
 ###############################################################
 ### You should not have to change anything below this line ####

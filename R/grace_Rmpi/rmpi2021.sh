@@ -43,12 +43,8 @@ workdir="$SLURM_SUBMIT_DIR"  # The value of SLURM_SUBMIT_DIR sets workdir to the
 #! Number of MPI tasks to be started by the application per node and in total (do not change):
 np=$SLURM_NTASKS
 
-#CMD="mpirun -np 1 R --no-save -q < $options"
-#CMD="mpirun -np 1 ~/R/x86_64-pc-linux-gnu-library/3.3/snow/RMPISNOW -q < $options"
-#CMD="mpirun -np $np ~/R/x86_64-pc-linux-gnu-library/3.3/snow/RMPISNOW -q < $options"
-#CMD="mpirun -np 1 R --slave -f $options"
-CMD="mpirun R --slave --vanilla -f $options"
-#CMD="mpirun -np $np R --no-save -q < $options"
+CMD="mpirun R --slave --no-restore -f $options"
+
 
 ###############################################################
 ### You should not have to change anything below this line ####

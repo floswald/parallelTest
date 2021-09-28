@@ -32,6 +32,8 @@ mcf <- mcf + datamoments(c('m1','m2'),
 # finalize the preparation
 mcf <- prepare.mopt_config(mcf)
 
+mpi.bcast.cmd( MOPT_OBJ_FUNC )
+
 # compute slices and generate plots
 res = runMOpt(mcf,FALSE)
 

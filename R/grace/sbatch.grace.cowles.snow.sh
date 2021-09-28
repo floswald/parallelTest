@@ -42,7 +42,8 @@ workdir="$SLURM_SUBMIT_DIR"  # The value of SLURM_SUBMIT_DIR sets workdir to the
 
 #CMD="mpirun R --no-save -q < $options"
 #CMD="mpirun R --slave --no-restore -f $options"
-CMD="mpirun -np 1 R --slave --vanilla -f $options"
+#CMD="mpirun -np 1 R --slave --no-restore -f $options"
+CMD="mpirun -np 1 R --no-save -q < $options"
 
 ###############################################################
 ### You should not have to change anything below this line ####
